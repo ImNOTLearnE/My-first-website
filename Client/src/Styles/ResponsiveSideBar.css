@@ -1,0 +1,101 @@
+body {
+  padding: 0 !important;
+}
+
+.row {
+  height: 93vh;
+  width: 122px;
+}
+
+.test {
+  background-color: #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.contactInfo {
+  width: 692px;
+  height: 585px;
+  background: linear-gradient(
+    178deg,
+    rgba(54, 54, 54, 0.5) 0%,
+    rgba(38, 166, 154, 0.6) 100%
+  );
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.28),
+    0 6px 20px 0 rgba(0, 0, 0, 0.77);
+  border-radius: 25px;
+  margin-top: 24px; /* لأن 3 = 3 * 8px في MUI spacing */
+  text-align: right;
+}
+
+.personalInfo {
+  width: 692px;
+  height: 890px;
+  background: linear-gradient(
+    178deg,
+    hsla(0, 0%, 21%, 0.5) 0%,
+    rgba(38, 166, 154, 0.6) 100%
+  );
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.28),
+    0 6px 20px rgba(0, 0, 0, 0.77);
+  border-radius: 25px;
+  margin-top: 24px; /* لأن 3 = 3 * 8px في نظام MUI spacing */
+  text-align: right;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+@media screen and (max-width: 1212px) {
+  .row {
+    height: 10vh;
+    width: 100%;
+  }
+  .test {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .contactInfo {
+    width: auto;
+  }
+  .personalInfo {
+    width: auto;
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+  .container {
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1213px) and (max-width: 1700px) {
+  .row {
+    height: 93vh;
+    width: 122px;
+  }
+  .test {
+    display: flex;
+    justify-content: space-around;
+  }
+  .contactInfo {
+    width: auto;
+  }
+  .personalInfo {
+    width: auto;
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+  .container {
+    justify-content: space-between;
+  }
+}
+
+/* ١٧٢٠ */

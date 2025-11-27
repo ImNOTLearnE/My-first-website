@@ -1,0 +1,135 @@
+.container-all {
+  width: 80vw;
+  max-height: 76vh;
+  background: linear-gradient(
+    178deg,
+    hsla(0, 0%, 21%, 0.5) 0%,
+    rgba(38, 166, 154, 0.6) 100%
+  );
+  border-radius: 25px;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.28),
+    0 6px 20px 0 rgba(0, 0, 0, 0.77);
+  margin-top: 10px;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* لإخفاء السكروول في إنترنت إكسبلورر */
+  scrollbar-width: none;
+}
+
+/* لإخفاء السكروول في كروم وسفاري */
+.container-all::-webkit-scrollbar {
+  display: none;
+}
+
+.container-order {
+  display: flex;
+  justify-content: center;
+  text-align: right;
+  margin-top: 46px;
+}
+
+.order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.2vh;
+}
+.order-background {
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.28),
+    0 6px 20px 0 rgba(0, 0, 0, 0.77);
+  width: 114.8vh;
+  height: 27vh;
+  border-radius: 25px;
+}
+/* .product-card {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 2vw;
+  max-width: 100%;
+} */
+/* .orderDetails {
+  position: relative;
+  top: -60px;
+} */
+.purchase-details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 350px;
+}
+.my-flex-box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 18vw;
+  max-height: 18vh;
+  margin-bottom: 6vh;
+}
+
+@media (max-width: 1212px) {
+  .container-all {
+    width: 90vw;
+    max-width: 120.1vh;
+    margin-left: 5vw;
+  }
+  .container-order {
+    display: flex;
+    justify-content: center;
+  }
+
+  .order-background {
+    width: 66.6vw;
+    height: 63.6vh;
+  }
+  .product-card {
+    display: flex;
+    background-color: red;
+    flex-direction: column !important;
+  }
+  .orderDetails {
+    margin-top: 100px;
+    width: 100%;
+  }
+  .my-flex-box {
+    width: 100%;
+    justify-content: space-around;
+  }
+  .purchase-details {
+    width: 95%;
+  }
+  .productDescription {
+    width: 40vw;
+  }
+  .productTitle {
+    width: 30vw;
+  }
+  .text-center {
+    text-align: center;
+  }
+}
+/* 
+@media screen and (max-width: 800px) {
+  .container-order {
+    display: flex;
+    justify-content: center;
+  }
+  .order {
+    width: 50.6vw;
+    height: 63.6vh;
+    margin-bottom: 10vh;
+  }
+  .order-background {
+    width: 66vw;
+  }
+  .productDescription {
+    font-size: 18px !important;
+  }
+  .productTitle {
+    font-size: 20px !important;
+    width: 200px;
+    text-align: right;
+  }
+} */

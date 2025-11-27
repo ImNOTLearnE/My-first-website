@@ -1,0 +1,70 @@
+.curve {
+  background: linear-gradient(
+    178deg,
+    rgba(54, 54, 54, 1) 0%,
+    rgba(38, 166, 154, 1) 100%
+  );
+  clip-path: shape(
+    from 80% 0%,
+
+    /* الجهة اليمنى - عدة نقاط */ curve to 100% 0% with 100% 0%,
+    /* نقطة 1 */ curve to 90% 50% with 20% -20%,
+    /* نقطة 2 */ curve to 100% 80% with 100% 60%,
+    /* نقطة 3 */ curve to 100% 100% with 100% 90%,
+
+    /* الزاوية السفلية */ /* الأسفل */ curve to 0% 100% with 50% 105%,
+
+    /* اليسار */ curve to 0% 0% with 0% 50%,
+
+    /* الأعلى */ curve to 100% 0% with 0% 0%,
+
+    close
+  );
+  padding: 20vh;
+  height: 93vh;
+}
+
+.curveL {
+  background: linear-gradient(
+    178deg,
+    rgba(54, 54, 54, 1) 0%,
+    rgba(38, 166, 154, 1) 100%
+  );
+  clip-path: shape(
+    from 20% 0%,
+
+    /* الجهة اليسرى - عدة نقاط */ curve to 0% 0% with 0% 0%,
+    /* نقطة 1 */ curve to 10% 50% with 80% -20%,
+    /* نقطة 2 */ curve to 0% 80% with 0% 60%,
+    /* نقطة 3 */ curve to 0% 100% with 0% 90%,
+
+    /* الزاوية السفلية */ /* الأسفل */ curve to 100% 100% with 50% 105%,
+
+    /* اليمين */ curve to 100% 0% with 100% 50%,
+
+    /* الأعلى */ curve to 0% 0% with 100% 0%,
+
+    close
+  );
+
+  padding: 20vh;
+  height: 93vh;
+}
+.btnHover:hover {
+  background: linear-gradient(150deg, #26a69a, #219086, #1c7b73);
+  transition: opaci 0.3s ease-in-out;
+  animation: glowing 20s linear infinite;
+  background-size: 400%;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 250% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
