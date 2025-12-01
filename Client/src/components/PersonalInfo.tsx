@@ -22,6 +22,9 @@ import CreateIcon from "@mui/icons-material/Create";
 // CSS
 import "../Styles/ResponsiveSideBar.css";
 
+// i18n
+import { useTranslation } from "react-i18next";
+
 // AXIOS
 import axios from "axios";
 
@@ -53,6 +56,8 @@ export default function PersonalInfo({
   };
   setUserPersonalInformationInput: (value: any) => void;
 }) {
+  const { t } = useTranslation();
+
   //  USESTATE  //
   const [open, setOpen] = React.useState(false);
   const [openError, setOpenError] = React.useState(false);
@@ -82,7 +87,7 @@ export default function PersonalInfo({
   const personalInfo = [
     {
       id: 0,
-      title: "الأسم الأول",
+      title: t("First name"),
       value: userPersonalInformationInput.firstName,
       onChange: (e: any) => {
         setUserPersonalInformationInput({
@@ -93,7 +98,7 @@ export default function PersonalInfo({
     },
     {
       id: 1,
-      title: "العائلة",
+      title: t("Last name"),
       value: userPersonalInformationInput.lastName,
       onChange: (e: any) => {
         setUserPersonalInformationInput({
@@ -104,7 +109,7 @@ export default function PersonalInfo({
     },
     {
       id: 2,
-      title: "الجنسية",
+      title: t("Nationality"),
       value: userPersonalInformationInput.nationality,
       onChange: (e: any) => {
         setUserPersonalInformationInput({
@@ -116,7 +121,7 @@ export default function PersonalInfo({
 
     {
       id: 4,
-      title: "يوم الميلاد",
+      title: t("Birthday"),
       value: userPersonalInformationInput.birthday,
       onChange: (e: any) => {
         setUserPersonalInformationInput({
@@ -163,7 +168,7 @@ export default function PersonalInfo({
         <Grid className="personalInfo">
           <div>
             <Typography marginRight={15} fontSize={32}>
-              المعلومات الشخصية
+              {t("Personal information")}
             </Typography>
 
             <div

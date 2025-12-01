@@ -11,7 +11,12 @@ import HeadphonesIcon from "@mui/icons-material/Headphones";
 import ComputerIcon from "@mui/icons-material/Computer";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 
+// i18n
+import { useTranslation } from "react-i18next";
+
 export default function Category() {
+  const { t } = useTranslation();
+
   const theme = createTheme({
     palette: {
       mode: "light", // أو 'dark'
@@ -28,7 +33,7 @@ export default function Category() {
       <ThemeProvider theme={theme}>
         <div style={{ marginTop: "20vh" }}>
           {/* TITLE OF CATEGORY */}
-          <div style={{ marginLeft: "15vh" }}>Browse By Category</div>
+          <div style={{ marginLeft: "15vh" }}>{t("Browse By Category")}</div>
           {/* TITLE OF CATEGORY */}
 
           <div
@@ -57,7 +62,7 @@ export default function Category() {
                 }}
               >
                 <PhoneIphoneIcon sx={{ fontSize: 35, marginBottom: "5px" }} />
-                <div>Phones</div>
+                <div>{t("Phones")}</div>
               </Box>
             </Button>
             <Button style={{ color: "#FFFFFF" }}>
@@ -77,7 +82,7 @@ export default function Category() {
                 }}
               >
                 <WatchIcon sx={{ fontSize: 35, marginBottom: "5px" }} />
-                <div>Watches</div>
+                <div>{t("Watches")}</div>
               </Box>
             </Button>
 
@@ -98,7 +103,7 @@ export default function Category() {
                 }}
               >
                 <CameraAltIcon sx={{ fontSize: 35, marginBottom: "5px" }} />
-                <div>Cameras</div>
+                <div>{t("Cameras")}</div>
               </Box>
             </Button>
 
@@ -119,7 +124,7 @@ export default function Category() {
                 }}
               >
                 <HeadphonesIcon sx={{ fontSize: 35, marginBottom: "5px" }} />
-                <div>Heads</div>
+                <div>{t("HeadsPhone")}</div>
               </Box>
             </Button>
 
@@ -140,7 +145,7 @@ export default function Category() {
                 }}
               >
                 <ComputerIcon sx={{ fontSize: 35, marginBottom: "5px" }} />
-                <div>Computers</div>
+                <div>{t("Computers")}</div>
               </Box>
             </Button>
 
@@ -161,7 +166,7 @@ export default function Category() {
                 }}
               >
                 <SportsEsportsIcon sx={{ fontSize: 35, marginBottom: "5px" }} />
-                <div>Gaming</div>
+                <div>{t("Gaming")}</div>
               </Box>
             </Button>
 

@@ -12,13 +12,13 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-
 // i18n
 import { useTranslation } from "react-i18next";
 
 // Material UI ICON
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import AdbIcon from "@mui/icons-material/Adb";
+import LanguageIcon from "@mui/icons-material/Language";
 
 // REACT ROUTER
 import { Link, useNavigate } from "react-router-dom";
@@ -26,12 +26,12 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Header({ itemCart }: { itemCart: number }) {
   const { t, i18n } = useTranslation();
   const pages = [
-    { id: 1, pagee: "HOME", path: "/" },
+    { id: 1, pagee: t("الصفحة الرئيسية"), path: "/" },
     { id: 2, pagee: t("المنتجات"), path: "/ProductsCategory" },
   ];
 
   const navigate = useNavigate();
-  // i18n.changeLanguage("en");
+  // i18n.changeLanguage();
 
   const handleLogout = () => {
     if (localStorage.getItem("token")) {
@@ -53,6 +53,15 @@ export default function Header({ itemCart }: { itemCart: number }) {
     profile: "none",
   });
 
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -68,6 +77,13 @@ export default function Header({ itemCart }: { itemCart: number }) {
     setAnchorElUser(null);
   };
 
+  const handleChangeLanguage = (e: string) => {
+    if (e === "العربية" || e === "Arabic") {
+      console.log(i18n);
+      i18n.changeLanguage("ar");
+    } else i18n.changeLanguage("en");
+  };
+
   React.useEffect(() => {
     if (localStorage.getItem("token")) {
       console.log("token is here");
@@ -79,8 +95,8 @@ export default function Header({ itemCart }: { itemCart: number }) {
   }, []);
 
   const settings = [
-    { id: 1, page: "Profile", path: "/Profile" },
-    { id: 4, page: "Logout", path: "/", onclick: handleLogout },
+    { id: 1, page: t("الملف الشخصي"), path: "/Profile" },
+    { id: 4, page: t("تسجيل خروج"), path: "/", onclick: handleLogout },
   ];
 
   return (
@@ -285,6 +301,47 @@ export default function Header({ itemCart }: { itemCart: number }) {
                 </IconButton>
               </Tooltip>
               {/* THIS IF USER MAKE LOGIN */}
+
+              <Button
+                id="basic-button"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClick}
+                sx={{ color: "#FFFFFF" }}
+              >
+                <LanguageIcon />
+              </Button>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={() => {
+                  handleClose();
+                }}
+                slotProps={{
+                  list: {
+                    "aria-labelledby": "basic-button",
+                  },
+                }}
+              >
+                <MenuItem
+                  onClick={(e) => {
+                    handleClose();
+                    handleChangeLanguage(e.target.innerText);
+                  }}
+                >
+                  {t("العربية")}
+                </MenuItem>
+                <MenuItem
+                  onClick={(e) => {
+                    handleClose();
+                    handleChangeLanguage(e.target.innerText);
+                  }}
+                >
+                  {t("الانجليزية")}
+                </MenuItem>
+              </Menu>
             </div>
 
             {/* THIS IF USER MAKE LOGIN */}

@@ -1,13 +1,15 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import enTranslation from "./locales/en.json";
+import arTranslation from "./locales/ar.json";
 
 i18n
-  .use(LanguageDetector) // detects browser's current language
+
   .use(initReactI18next) // initializes i18next with react-i18next
   .init({
     resources: {
       en: { translation: enTranslation },
+      ar: { translation: arTranslation },
     }, // feel free to add any other you want!
     lng: "en", // default language
     interpolation: {

@@ -25,6 +25,9 @@ import { InTheCart } from "../Context/InTheCart";
 import { v4 as uuidv4 } from "uuid";
 // USE ULID LIBRARY //
 
+// i18n
+import { useTranslation } from "react-i18next";
+
 // AXIOS
 import axios from "axios";
 
@@ -44,6 +47,8 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function CartFull() {
+  const { t } = useTranslation();
+
   // UESCONTEXT //
   const { addToCart, setAddToCart } = React.useContext(InTheCart);
   const { setCartCount } = React.useContext(CartContext);
@@ -208,16 +213,16 @@ export default function CartFull() {
                       "0 4px 8px 0 rgba(0, 0, 0, 0.28), 0 6px 20px 0 rgba(0, 0, 0, 0.77)",
                   }}
                 >
-                  <Typography>Email</Typography>
+                  <Typography>{t("Email")}</Typography>
                   <TextField
                     id="outlined-basic"
-                    label="Outlined"
+                    label="Email"
                     variant="standard"
                     name="email"
                     onChange={changeHandler}
                     sx={{ width: "100%", marginBottom: "40px" }}
                   />
-                  <Typography>Adderss</Typography>
+                  <Typography>{t("Adderss")}</Typography>
                   <TextField
                     id="outlined-basic"
                     label="adderss"
@@ -234,10 +239,10 @@ export default function CartFull() {
                     sx={{ marginTop: "50px" }}
                   >
                     <Grid size={5}>
-                      <Typography>First Name</Typography>{" "}
+                      <Typography>{t("First name")}</Typography>{" "}
                       <TextField
                         id="outlined-basic"
-                        label="Outlined"
+                        label="First name"
                         variant="standard"
                         name="firstName"
                         onChange={changeHandler}
@@ -246,10 +251,10 @@ export default function CartFull() {
                     </Grid>
                     <Grid size={4}>
                       {" "}
-                      <Typography>Last Name</Typography>{" "}
+                      <Typography>{t("Last name")}</Typography>{" "}
                       <TextField
                         id="outlined-basic"
-                        label="Outlined"
+                        label="Last name"
                         variant="standard"
                         name="lastName"
                         onChange={changeHandler}
@@ -268,10 +273,10 @@ export default function CartFull() {
                       />
                     </Grid>
                     <Grid size={4}>
-                      <Typography>City</Typography>
+                      <Typography>{t("City")}</Typography>
                       <TextField
                         id="outlined-basic"
-                        label="Outlined"
+                        label="City"
                         variant="standard"
                         name="city"
                         onChange={changeHandler}
@@ -297,7 +302,7 @@ export default function CartFull() {
                   color: "#FFFFFF",
                 }}
               >
-                Purchase details
+                {t("Purchase details")}
                 <div
                   style={{
                     overflowY: "scroll",
@@ -308,7 +313,6 @@ export default function CartFull() {
                   {addToCart.map((product) => (
                     <div key={product.id}>
                       {/* ITEMS ADDED TO CART */}
-
                       <div
                         style={{
                           display: "flex",
@@ -352,20 +356,19 @@ export default function CartFull() {
                           <HighlightOffIcon />
                         </Button>
                       </div>
-
                       {/* ITEMS ADDED TO CART */}
                     </div>
                   ))}
                 </div>
                 <hr style={{ marginTop: "20px", marginBottom: "20px" }} />
                 <Typography sx={{ color: "#FFFFFF" }}>
-                  Total: $ {Total()}
+                  {t("Total")}: $ {Total()}
                 </Typography>
                 <Typography sx={{ color: "#FFFFFF" }}>
-                  total after Tax: $42
+                  {t("total after Tax:")} $42
                 </Typography>
                 <Typography sx={{ color: "#FFFFFF" }}>
-                  shipping: Free
+                  {t("shipping:")} {t("Free")}
                 </Typography>
                 <Button
                   onClick={() => {

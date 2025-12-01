@@ -20,6 +20,9 @@ import CreateIcon from "@mui/icons-material/Create";
 // CSS
 import "../Styles/ResponsiveSideBar.css";
 
+// i18n
+import { useTranslation } from "react-i18next";
+
 // AXIOS
 import axios from "axios";
 
@@ -51,13 +54,15 @@ export default function ContactInfo({
   };
   setUserPersonalInformationInput: (value: any) => void;
 }) {
+  const { t } = useTranslation();
+
   const [open, setOpen] = React.useState(false);
   const [openError, setOpenError] = React.useState(false);
 
   const contactInformation = [
     {
       id: 0,
-      title: "البريد الألكتروني",
+      title: t("Email"),
       value: userPersonalInformationInput.email,
       onChange: (e: any) => {
         setUserPersonalInformationInput({
@@ -69,7 +74,7 @@ export default function ContactInfo({
     },
     {
       id: 1,
-      title: "رقم الجوال",
+      title: t("Phone number"),
       value: userPersonalInformationInput.phoneNumber,
       onChange: (e: any) => {
         setUserPersonalInformationInput({
@@ -80,7 +85,7 @@ export default function ContactInfo({
     },
     {
       id: 2,
-      title: "المدينة",
+      title: t("City"),
       value: userPersonalInformationInput.city,
       onChange: (e: any) => {
         setUserPersonalInformationInput({
@@ -147,7 +152,7 @@ export default function ContactInfo({
         <Grid className="contactInfo">
           <div>
             <Typography marginRight={15} fontSize={32}>
-              معلومات الاتصال
+              {t("Contact information")}
             </Typography>
 
             <div

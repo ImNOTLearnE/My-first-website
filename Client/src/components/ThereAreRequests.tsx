@@ -14,8 +14,12 @@ import axios from "axios";
 // CSS
 import "../Styles/ResponsiveOrders.css";
 
+// i18n
+import { useTranslation } from "react-i18next";
+
 export default function ThereAreRequests() {
   const token: string | null = localStorage.getItem("token");
+  const { t } = useTranslation();
 
   //  USESTATE  //
   const [customerRequests, setCustomerRequests] = React.useState<any>([
@@ -143,7 +147,6 @@ export default function ThereAreRequests() {
                           alignItems: "center",
                         }}
                       >
-                        {" "}
                         <Typography
                           sx={{
                             fontSize: {
@@ -191,7 +194,7 @@ export default function ThereAreRequests() {
                             marginBottom: "2vh",
                           }}
                         >
-                          تفاصيل الطلب
+                          {t("Order details")}
                         </Typography>
                         {/*  */}
                         <div className="my-flex-box">
@@ -199,19 +202,19 @@ export default function ThereAreRequests() {
                           <div>
                             {" "}
                             <Typography fontSize={20} marginBottom={"14px"}>
-                              سعر المنتج
+                              {t("Product price")}
                             </Typography>
                             <Typography fontSize={20} marginBottom={"14px"}>
-                              الشحن
+                              {t("shipping")}
                             </Typography>
                             <Typography fontSize={20} marginBottom={"14px"}>
-                              الخصم
+                              {t("opponent")}
                             </Typography>
                             <Typography fontSize={20} marginBottom={"14px"}>
-                              طريقة الدفع
+                              {t("payment method")}
                             </Typography>
                             <Typography fontSize={20} marginTop={"33px"}>
-                              المجموع
+                              {t("the total")}
                             </Typography>
                           </div>
                           {/*  */}
@@ -220,19 +223,19 @@ export default function ThereAreRequests() {
                           <div>
                             {" "}
                             <Typography fontSize={20} marginBottom={"14px"}>
-                              {order.orderPriceState} ريال
+                              {order.orderPriceState} {t("SAR")}
                             </Typography>
                             <Typography fontSize={20} marginBottom={"14px"}>
                               {order.shippingMethodState}
                             </Typography>
                             <Typography fontSize={20} marginBottom={"14px"}>
-                              {order.priceAfterDiscountState} ريال
+                              {order.priceAfterDiscountState} {t("SAR")}
                             </Typography>
                             <Typography fontSize={20} marginBottom={"14px"}>
                               {order.paymentMethodState}
                             </Typography>
                             <Typography fontSize={20} marginTop={"33px"}>
-                              {order.totalAmountState} ريال
+                              {order.totalAmountState} {t("SAR")}
                             </Typography>
                           </div>
                           {/*  */}

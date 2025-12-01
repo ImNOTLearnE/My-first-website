@@ -10,6 +10,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Rating from "@mui/material/Rating";
 
+// i18n
+import { useTranslation } from "react-i18next";
+
 // CSS CLASS
 import "../Styles/ResponsiveProductsCategoty.css";
 
@@ -35,6 +38,8 @@ import { ProducstContext } from "../Context/ProductContext";
 import { InTheCart } from "../Context/InTheCart";
 
 export default function ProductGrid() {
+  const { t, i18n } = useTranslation();
+
   // USESTATE //
   const [value, setValue] = React.useState(0);
   const [ratingProdect] = React.useState<number | null>(5);
