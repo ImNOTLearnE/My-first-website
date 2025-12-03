@@ -388,7 +388,7 @@ export default function ProductsCategory() {
   // ADD THE PRODUCT FOR CART //
   const handleAddToCart = useCallback(
     (productAdd: any) => {
-      setAddToCart((prev) => [...prev, productAdd]);
+      setAddToCart((prev: any) => [...prev, productAdd]);
     },
     [setAddToCart] // هنا نحدد الـ dependencies
   );
@@ -427,7 +427,7 @@ export default function ProductsCategory() {
 
       let checkTheBrand = () =>
         test.filter(
-          (t) =>
+          (t: any) =>
             (t.brand === nameFilter && maxV >= t.price && minV <= t.price) ||
             (nameFilter == "All" && maxV >= t.price && minV <= t.price)
         );

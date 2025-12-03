@@ -325,6 +325,7 @@ export default function SingUp() {
                   <TextField
                     id="filled-basic"
                     label="Password"
+                    type="password"
                     variant="filled"
                     onChange={(e) => {
                       setUserSignUp({

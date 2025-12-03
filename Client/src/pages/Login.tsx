@@ -253,6 +253,7 @@ export default function Login() {
                     id="filled-basic"
                     label="Password"
                     variant="filled"
+                    type="password"
                     onChange={(e) => {
                       setUserLogin({
                         ...userLogin,

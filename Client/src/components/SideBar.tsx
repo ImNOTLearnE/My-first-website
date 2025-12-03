@@ -17,10 +17,25 @@ import { Link, useLocation } from "react-router";
 // CSS
 import "../Styles/ResponsiveSideBar.css";
 
+const SideBarBtn = React.memo(({ item }: any) => {
+  return (
+    <Grid key={item.id}>
+      <Link to={item.to}>
+        <Button
+          onClick={() => {}}
+          sx={{
+            color: location.pathname === item.to ? "#26A69A" : "#000000ff",
+            transition: "color 0.3s ease-in-out",
+          }}
+        >
+          {item.icon}
+        </Button>
+      </Link>
+    </Grid>
+  );
+});
 export default function SideBar() {
   const location = useLocation();
-
-  console.log(location);
 
   const [iconButtons] = React.useState([
     {
@@ -61,20 +76,7 @@ export default function SideBar() {
       <Grid className="row">
         <Grid className="test">
           {iconButtons.map((item) => (
-            <Grid key={item.id}>
-              <Link to={item.to}>
-                <Button
-                  onClick={() => {}}
-                  sx={{
-                    color:
-                      location.pathname === item.to ? "#26A69A" : "#000000ff",
-                    transition: "color 0.3s ease-in-out",
-                  }}
-                >
-                  {item.icon}
-                </Button>
-              </Link>
-            </Grid>
+            <SideBarBtn item={item} isActive={location.pathname === item.to} />
           ))}
         </Grid>
       </Grid>

@@ -38,6 +38,80 @@ const theme = createTheme({
   },
 });
 
+const ContactInfoComponent = React.memo(
+  ({ input, handleChangeInformation }: any) => {
+    return (
+      <div style={{ marginBottom: 74, marginRight: 51 }} key={input.id}>
+        <Typography fontSize={32}>{input.title}</Typography>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row-reverse",
+            alignItems: "center",
+          }}
+        >
+          <TextField
+            sx={{ width: 350, input: { color: "#FFFFFF" } }}
+            InputLabelProps={{
+              sx: {
+                color: "#FFFFFF",
+                fontSize: "18px",
+              },
+            }}
+            id="filled-basic"
+            label={input.title}
+            value={input.value}
+            onChange={input.onChange}
+            variant="filled"
+            disabled={input.disabled}
+          />
+
+          {/*  ICON  */}
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              "& > :not(style)": {
+                m: 1,
+                width: 48,
+                height: 55,
+              },
+              opacity: "0.3",
+            }}
+          >
+            <Paper
+              elevation={3}
+              sx={{
+                background: "#000000",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Button
+                sx={{ height: 55 }}
+                onClick={() => {
+                  handleChangeInformation();
+                }}
+                disabled={input.disabled}
+              >
+                <CreateIcon
+                  sx={{
+                    color: "#ffffffff",
+                    width: 20,
+                    height: 20,
+                  }}
+                />
+              </Button>
+            </Paper>
+          </Box>
+          {/*  ICON  */}
+        </div>
+      </div>
+    );
+  }
+);
+
 export default function ContactInfo({
   userPersonalInformationInput,
   setUserPersonalInformationInput,
@@ -96,7 +170,7 @@ export default function ContactInfo({
     },
   ];
 
-  const handleChangeInformation = () => {
+  const handleChangeInformation = React.useCallback(() => {
     axios
       .patch(`http://localhost:3000/users/${localStorage.getItem("token")}`, {
         FirstNameInput: userPersonalInformationInput.firstName,
@@ -115,7 +189,7 @@ export default function ContactInfo({
         console.log(error.response.data);
         setOpenError(true);
       });
-  };
+  }, [userPersonalInformationInput]);
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -162,77 +236,82 @@ export default function ContactInfo({
               }}
             >
               {contactInformation.map((input) => (
-                <div
-                  style={{ marginBottom: 74, marginRight: 51 }}
+                // <div
+                //   style={{ marginBottom: 74, marginRight: 51 }}
+                //   key={input.id}
+                // >
+                //   <Typography fontSize={32}>{input.title}</Typography>
+                //   <div
+                //     style={{
+                //       display: "flex",
+                //       flexDirection: "row-reverse",
+                //       alignItems: "center",
+                //     }}
+                //   >
+                //     <TextField
+                //       sx={{ width: 350, input: { color: "#FFFFFF" } }}
+                //       InputLabelProps={{
+                //         sx: {
+                //           color: "#FFFFFF",
+                //           fontSize: "18px",
+                //         },
+                //       }}
+                //       id="filled-basic"
+                //       label={input.title}
+                //       value={input.value}
+                //       onChange={input.onChange}
+                //       variant="filled"
+                //       disabled={input.disabled}
+                //     />
+
+                //     {/*  ICON  */}
+
+                //     <Box
+                //       sx={{
+                //         display: "flex",
+                //         flexWrap: "wrap",
+                //         "& > :not(style)": {
+                //           m: 1,
+                //           width: 48,
+                //           height: 55,
+                //         },
+                //         opacity: "0.3",
+                //       }}
+                //     >
+                //       <Paper
+                //         elevation={3}
+                //         sx={{
+                //           background: "#000000",
+                //           display: "flex",
+                //           justifyContent: "center",
+                //           alignItems: "center",
+                //         }}
+                //       >
+                //         <Button
+                //           sx={{ height: 55 }}
+                //           onClick={() => {
+                //             handleChangeInformation();
+                //           }}
+                //           disabled={input.disabled}
+                //         >
+                //           <CreateIcon
+                //             sx={{
+                //               color: "#ffffffff",
+                //               width: 20,
+                //               height: 20,
+                //             }}
+                //           />
+                //         </Button>
+                //       </Paper>
+                //     </Box>
+                //     {/*  ICON  */}
+                //   </div>
+                // </div>
+                <ContactInfoComponent
                   key={input.id}
-                >
-                  <Typography fontSize={32}>{input.title}</Typography>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "row-reverse",
-                      alignItems: "center",
-                    }}
-                  >
-                    <TextField
-                      sx={{ width: 350, input: { color: "#FFFFFF" } }}
-                      InputLabelProps={{
-                        sx: {
-                          color: "#FFFFFF",
-                          fontSize: "18px",
-                        },
-                      }}
-                      id="filled-basic"
-                      label={input.title}
-                      value={input.value}
-                      onChange={input.onChange}
-                      variant="filled"
-                      disabled={input.disabled}
-                    />
-
-                    {/*  ICON  */}
-
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        "& > :not(style)": {
-                          m: 1,
-                          width: 48,
-                          height: 55,
-                        },
-                        opacity: "0.3",
-                      }}
-                    >
-                      <Paper
-                        elevation={3}
-                        sx={{
-                          background: "#000000",
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                      >
-                        <Button
-                          sx={{ height: 55 }}
-                          onClick={() => {
-                            handleChangeInformation();
-                          }}
-                          disabled={input.disabled}
-                        >
-                          <CreateIcon
-                            sx={{
-                              color: "#ffffffff",
-                              width: 20,
-                              height: 20,
-                            }}
-                          />
-                        </Button>
-                      </Paper>
-                    </Box>
-                    {/*  ICON  */}
-                  </div>
-                </div>
+                  input={input}
+                  handleChangeInformation={handleChangeInformation}
+                />
               ))}
             </div>
           </div>

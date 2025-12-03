@@ -23,6 +23,110 @@ import LanguageIcon from "@mui/icons-material/Language";
 // REACT ROUTER
 import { Link, useNavigate } from "react-router-dom";
 
+const ProfileIcon = React.memo(({ handleOpenUserMenu, btnShows }: any) => {
+  return (
+    <Tooltip title="Open settings">
+      <IconButton
+        onClick={handleOpenUserMenu}
+        sx={{ p: 0, display: btnShows.profile }}
+      >
+        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+      </IconButton>
+    </Tooltip>
+  );
+});
+
+const LanguageBtn = React.memo(
+  ({ open, handleClick, anchorEl, handleClose, handleChangeLanguage }: any) => {
+    const { t, i18n } = useTranslation();
+    return (
+      <>
+        <Button
+          id="basic-button"
+          aria-controls={open ? "basic-menu" : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? "true" : undefined}
+          onClick={handleClick}
+          sx={{ color: "#FFFFFF" }}
+        >
+          <LanguageIcon />
+        </Button>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={() => {
+            handleClose();
+          }}
+          slotProps={{
+            list: {
+              "aria-labelledby": "basic-button",
+            },
+          }}
+        >
+          <MenuItem
+            onClick={(e) => {
+              handleClose();
+              handleChangeLanguage(e.target.innerText);
+            }}
+          >
+            {t("العربية")}
+          </MenuItem>
+          <MenuItem
+            onClick={(e) => {
+              handleClose();
+              handleChangeLanguage(e.target.innerText);
+            }}
+          >
+            {t("الانجليزية")}
+          </MenuItem>
+        </Menu>
+      </>
+    );
+  }
+);
+
+const HeaderCart = React.memo(({ itemCart }: any) => {
+  return (
+    <IconButton>
+      <Link to="/Cart" style={{ color: "black" }}>
+        <div
+          style={{
+            padding: "15px",
+            borderRadius: "30px",
+            position: "absolute",
+            marginLeft: "5px",
+          }}
+        >
+          {itemCart}
+        </div>
+        <AddShoppingCartIcon />
+      </Link>
+    </IconButton>
+  );
+});
+
+// const HeaderButtons = React.memo(({ handleCloseNavMenu, page }: any) => {
+//   <Link
+//     to={page.path}
+//     key={page.id}
+//     style={{ display: "flex", textDecoration: "none" }}
+//   >
+//     <Button
+//       onClick={() => {
+//         handleCloseNavMenu();
+//       }}
+//       sx={{
+//         my: 2,
+//         color: "#FFFFFF",
+//         display: "block",
+//       }}
+//     >
+//       {page.pagee}
+//     </Button>
+//   </Link>;
+// });
+
 export default function Header({ itemCart }: { itemCart: number }) {
   const { t, i18n } = useTranslation();
   const pages = [
@@ -55,19 +159,25 @@ export default function Header({ itemCart }: { itemCart: number }) {
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
+  const handleClick = React.useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      setAnchorEl(event.currentTarget);
+    },
+    [anchorEl]
+  );
+  const handleClose = React.useCallback(() => {
     setAnchorEl(null);
-  };
+  }, [anchorEl]);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  const handleOpenUserMenu = React.useCallback(
+    (event: React.MouseEvent<HTMLElement>) => {
+      setAnchorElUser(event.currentTarget);
+    },
+    [anchorElNav]
+  );
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
@@ -77,12 +187,15 @@ export default function Header({ itemCart }: { itemCart: number }) {
     setAnchorElUser(null);
   };
 
-  const handleChangeLanguage = (e: string) => {
-    if (e === "العربية" || e === "Arabic") {
-      console.log(i18n);
-      i18n.changeLanguage("ar");
-    } else i18n.changeLanguage("en");
-  };
+  const handleChangeLanguage = React.useCallback(
+    (e: string) => {
+      if (e === "العربية" || e === "Arabic") {
+        console.log(i18n);
+        i18n.changeLanguage("ar");
+      } else i18n.changeLanguage("en");
+    },
+    [i18n]
+  );
 
   React.useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -248,21 +361,7 @@ export default function Header({ itemCart }: { itemCart: number }) {
               }}
             >
               {/* THIS COMPONENT FOR SHOW ICON CART */}
-              <IconButton>
-                <Link to="/Cart" style={{ color: "black" }}>
-                  <div
-                    style={{
-                      padding: "15px",
-                      borderRadius: "30px",
-                      position: "absolute",
-                      marginLeft: "5px",
-                    }}
-                  >
-                    {itemCart}
-                  </div>
-                  <AddShoppingCartIcon />
-                </Link>
-              </IconButton>
+              <HeaderCart itemCart={itemCart} />
               {/* THIS COMPONENT FOR SHOW ICON CART */}
 
               {/*    */}
@@ -292,56 +391,22 @@ export default function Header({ itemCart }: { itemCart: number }) {
               {/* BUTTON REGISTER */}
 
               {/* THIS IF USER MAKE LOGIN */}
-              <Tooltip title="Open settings">
-                <IconButton
-                  onClick={handleOpenUserMenu}
-                  sx={{ p: 0, display: btnShows.profile }}
-                >
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                </IconButton>
-              </Tooltip>
+
+              <ProfileIcon
+                handleOpenUserMenu={handleOpenUserMenu}
+                btnShows={btnShows}
+              />
               {/* THIS IF USER MAKE LOGIN */}
 
-              <Button
-                id="basic-button"
-                aria-controls={open ? "basic-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? "true" : undefined}
-                onClick={handleClick}
-                sx={{ color: "#FFFFFF" }}
-              >
-                <LanguageIcon />
-              </Button>
-              <Menu
-                id="basic-menu"
-                anchorEl={anchorEl}
+              {/* LANGUAGE BUTTON AND MENU */}
+              <LanguageBtn
                 open={open}
-                onClose={() => {
-                  handleClose();
-                }}
-                slotProps={{
-                  list: {
-                    "aria-labelledby": "basic-button",
-                  },
-                }}
-              >
-                <MenuItem
-                  onClick={(e) => {
-                    handleClose();
-                    handleChangeLanguage(e.target.innerText);
-                  }}
-                >
-                  {t("العربية")}
-                </MenuItem>
-                <MenuItem
-                  onClick={(e) => {
-                    handleClose();
-                    handleChangeLanguage(e.target.innerText);
-                  }}
-                >
-                  {t("الانجليزية")}
-                </MenuItem>
-              </Menu>
+                handleClick={handleClick}
+                anchorEl={anchorEl}
+                handleClose={handleClose}
+                handleChangeLanguage={handleChangeLanguage}
+              />
+              {/* LANGUAGE BUTTON AND MENU */}
             </div>
 
             {/* THIS IF USER MAKE LOGIN */}
