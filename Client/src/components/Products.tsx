@@ -1,5 +1,4 @@
 import * as React from "react";
-import { lazy } from "react";
 
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -21,19 +20,20 @@ import { InTheCart } from "../Context/InTheCart";
 export default function Products() {
   // UESCONTEXT //
   const { setCartCount } = React.useContext(CartContext);
-  const { phonesnewArrival, headphonesNewArrival } =
-    React.useContext(ProducstContext);
+  const { phonesnewArrival } = React.useContext(ProducstContext);
   const { addToCart, setAddToCart } = React.useContext(InTheCart);
   // UESCONTEXT //
 
   // USESTATE //
   const [ratingProdect] = React.useState<number | null>(5);
-  const [artists, setArtists] = React.useState<any>(phonesnewArrival);
+  const [artists] = React.useState<any>(phonesnewArrival);
   // USESTATE //
 
   // ADD THE NUMBER FOR CART //
-  function handleAdd(productId: Number) {
-    const productToAdd = artists.find((product) => product.id === productId);
+  function handleAdd(productId: any) {
+    const productToAdd = artists.find(
+      (product: any) => product.id === productId
+    );
 
     if (productToAdd) {
       setCartCount((prev) => {
@@ -72,7 +72,7 @@ export default function Products() {
           spacing={{ xs: 2, md: 10 }}
           columns={{ xs: 3, sm: 8, md: 16 }}
         >
-          {artists.map((Product) => (
+          {artists.map((Product: any) => (
             <Grid
               size={{ xs: 3, sm: 3, md: 3 }}
               key={Product.id}

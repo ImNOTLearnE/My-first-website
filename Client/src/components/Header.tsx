@@ -38,7 +38,7 @@ const ProfileIcon = React.memo(({ handleOpenUserMenu, btnShows }: any) => {
 
 const LanguageBtn = React.memo(
   ({ open, handleClick, anchorEl, handleClose, handleChangeLanguage }: any) => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     return (
       <>
         <Button
@@ -67,7 +67,7 @@ const LanguageBtn = React.memo(
           <MenuItem
             onClick={(e) => {
               handleClose();
-              handleChangeLanguage(e.target.innerText);
+              handleChangeLanguage(e.currentTarget.innerText);
             }}
           >
             {t("العربية")}
@@ -75,7 +75,7 @@ const LanguageBtn = React.memo(
           <MenuItem
             onClick={(e) => {
               handleClose();
-              handleChangeLanguage(e.target.innerText);
+              handleChangeLanguage(e.currentTarget.innerText);
             }}
           >
             {t("الانجليزية")}

@@ -11,7 +11,6 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import CardMedia from "@mui/material/CardMedia";
 import Rating from "@mui/material/Rating";
-import Tooltip from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 import Slider, { SliderThumb } from "@mui/material/Slider";
 
@@ -106,7 +105,7 @@ const categorys = [
 ];
 
 const Products = React.memo(
-  ({ product, onAddToCart, handleAddNumber }: any) => {
+  ({ product, onAddToCart, handleAddNumber, ratingProdect }: any) => {
     const handleClick = useCallback(() => {
       onAddToCart(product);
     }, [product, onAddToCart]);
@@ -141,7 +140,7 @@ const Products = React.memo(
           <Typography variant="body2" sx={{ color: "#FFFFFF" }}>
             {product.nameProduct}
           </Typography>
-          {/* <Rating name="read-only" value={ratingProdect} readOnly /> */}
+          <Rating name="read-only" value={ratingProdect} readOnly />
           <Typography variant="body2" sx={{ color: "#FFFFFF" }}>
             $ {product.price}
           </Typography>
@@ -278,12 +277,14 @@ const FilterSection = React.memo(
             value={[priceFilter.minValue, priceFilter.maxValue]}
             min={100}
             max={7000}
-            onChange={(e) =>
-              handleFilterProduct({
-                minV: e.target.value[0],
-                maxV: e.target.value[1],
-              })
-            }
+            onChange={(newValue) => {
+              if (Array.isArray(newValue)) {
+                handleFilterProduct({
+                  minV: newValue[0],
+                  maxV: newValue[1],
+                });
+              }
+            }}
           />
         </CardActions>
         {/* FOR TO SET PRICE */}
@@ -486,6 +487,7 @@ export default function ProductsCategory() {
                 product={Product}
                 onAddToCart={handleAddToCart}
                 handleAddNumber={handleAdd}
+                ratingProdect={ratingProdect}
               />
             ))}
           </Grid>
