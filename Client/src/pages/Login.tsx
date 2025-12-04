@@ -103,7 +103,13 @@ export default function Login() {
         </Snackbar>
         <Card
           sx={{
-            width: "39vw",
+            width: {
+              xs: "90vw",
+              sm: "70vw",
+              md: "50vw",
+              lg: "40vw",
+              xl: "39vw",
+            },
             height: "70vh",
             background:
               "linear-gradient(178deg,rgba(54, 54, 54, 0.5) 0%, rgba(38, 166, 154, 0.6) 100%)",
@@ -136,9 +142,7 @@ export default function Login() {
                   fontSize: 36,
                   textAlign: "center",
                 }}
-              >
-                LOGIN NOW !
-              </Typography>
+              ></Typography>
               <CardActions
                 sx={{
                   display: "flex",
@@ -162,7 +166,7 @@ export default function Login() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: "3.5vw",
+                        width: { sx: "3.5vw", sm: "4vw", md: "4vw" },
                         height: 70,
                       },
                       opacity: "0.3",
@@ -180,7 +184,7 @@ export default function Login() {
                       <PersonIcon
                         sx={{
                           color: "#ffffffff",
-                          width: "3.5vw",
+                          width: { sx: "3.5vw", sm: "4vw", md: "4vw" },
                           height: 35,
                         }}
                       />
@@ -200,7 +204,7 @@ export default function Login() {
                     sx={{
                       backgroundColor: "rgba(0, 0, 0, 0.3)",
                       "& > :not(style)": {
-                        width: "19.4vw",
+                        width: { sx: "50vw", sm: "30vw", md: "19.4vw" },
                         height: 70,
                         color: "rgba(255, 255, 255, 0.3)",
                       },
@@ -263,7 +267,7 @@ export default function Login() {
                     sx={{
                       backgroundColor: "rgba(0, 0, 0, 0.3)",
                       "& > :not(style)": {
-                        width: "19.4vw",
+                        width: { sx: "50vw", sm: "30vw", md: "19.4vw" },
                         height: 70,
                         color: "rgba(255, 255, 255, 0.3)",
                       },
@@ -283,7 +287,7 @@ export default function Login() {
                 sx={{
                   backgroundColor: "#FFFFFF",
                   color: "#000000",
-                  width: "32vw",
+                  width: { xs: "60vw", sm: "40vw", md: "32vw" },
                   height: "6vh",
                 }}
                 className="btnHover"
@@ -315,7 +319,7 @@ export default function Login() {
                   sx={{
                     backgroundColor: "#26A69A",
                     color: "#000000",
-                    width: "32vw",
+                    width: { xs: "60vw", sm: "40vw", md: "32vw" },
                     height: "6vh",
                   }}
                 >
@@ -327,14 +331,14 @@ export default function Login() {
             {/* LOGIN AND REGISTER BUTTONS */}
           </div>
         </Card>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        {/* <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div>
             <div className="curve"></div>
           </div>
           <div>
             <div className="curveL"></div>
           </div>
-        </div>
+        </div> */}
       </ThemeProvider>
     </>
   );
