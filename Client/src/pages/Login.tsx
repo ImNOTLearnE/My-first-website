@@ -103,8 +103,8 @@ export default function Login() {
         </Snackbar>
         <Card
           sx={{
-            width: 700,
-            height: 700,
+            width: "39vw",
+            height: "70vh",
             background:
               "linear-gradient(178deg,rgba(54, 54, 54, 0.5) 0%, rgba(38, 166, 154, 0.6) 100%)",
 
@@ -162,7 +162,7 @@ export default function Login() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: 60,
+                        width: "3.5vw",
                         height: 70,
                       },
                       opacity: "0.3",
@@ -180,7 +180,7 @@ export default function Login() {
                       <PersonIcon
                         sx={{
                           color: "#ffffffff",
-                          width: 30,
+                          width: "3.5vw",
                           height: 35,
                         }}
                       />
@@ -200,7 +200,7 @@ export default function Login() {
                     sx={{
                       backgroundColor: "rgba(0, 0, 0, 0.3)",
                       "& > :not(style)": {
-                        width: 350,
+                        width: "19.4vw",
                         height: 70,
                         color: "rgba(255, 255, 255, 0.3)",
                       },
@@ -225,7 +225,7 @@ export default function Login() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: 60,
+                        width: "3.5vw",
                         height: 70,
                       },
                       opacity: "0.3",
@@ -263,7 +263,7 @@ export default function Login() {
                     sx={{
                       backgroundColor: "rgba(0, 0, 0, 0.3)",
                       "& > :not(style)": {
-                        width: 350,
+                        width: "19.4vw",
                         height: 70,
                         color: "rgba(255, 255, 255, 0.3)",
                       },
@@ -283,8 +283,8 @@ export default function Login() {
                 sx={{
                   backgroundColor: "#FFFFFF",
                   color: "#000000",
-                  width: 500,
-                  height: 65,
+                  width: "32vw",
+                  height: "6vh",
                 }}
                 className="btnHover"
                 onClick={() => {
@@ -315,8 +315,8 @@ export default function Login() {
                   sx={{
                     backgroundColor: "#26A69A",
                     color: "#000000",
-                    width: 500,
-                    height: 65,
+                    width: "32vw",
+                    height: "6vh",
                   }}
                 >
                   REGISTER

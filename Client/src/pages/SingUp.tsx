@@ -107,8 +107,8 @@ export default function SingUp() {
         </Snackbar>
         <Card
           sx={{
-            width: 700,
-            height: 800,
+            width: "39vw",
+            height: "70vh",
             background:
               "linear-gradient(178deg,hsla(0, 0%, 21%, 0.50) 0%, rgba(38, 166, 154, 0.6) 100%)",
             position: "absolute",
@@ -161,7 +161,7 @@ export default function SingUp() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: 60,
+                        width: "3.5vw",
                         height: 70,
                       },
                       opacity: "0.3",
@@ -202,7 +202,7 @@ export default function SingUp() {
                     sx={{
                       backgroundColor: "rgba(0, 0, 0, 0.3)",
                       "& > :not(style)": {
-                        width: 350,
+                        width: "19.4vw",
                         height: 70,
                         color: "rgba(255, 255, 255, 0.3)",
                       },
@@ -228,7 +228,7 @@ export default function SingUp() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: 60,
+                        width: "3.5vw",
                         height: 70,
                       },
                       opacity: "0.3",
@@ -269,7 +269,7 @@ export default function SingUp() {
                     sx={{
                       backgroundColor: "rgba(0, 0, 0, 0.3)",
                       "& > :not(style)": {
-                        width: 350,
+                        width: "19.4vw",
                         height: 70,
                         color: "rgba(255, 255, 255, 0.3)",
                       },
@@ -295,7 +295,7 @@ export default function SingUp() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: 60,
+                        width: "3.5vw",
                         height: 70,
                       },
                       opacity: "0.3",
@@ -336,7 +336,7 @@ export default function SingUp() {
                     sx={{
                       backgroundColor: "rgba(0, 0, 0, 0.3)",
                       "& > :not(style)": {
-                        width: 350,
+                        width: "19.4vw",
                         height: 70,
                         color: "rgba(255, 255, 255, 0.3)",
                       },
@@ -356,8 +356,8 @@ export default function SingUp() {
                 sx={{
                   backgroundColor: "#26A69A",
                   color: "#000000",
-                  width: 500,
-                  height: 65,
+                  width: "32vw",
+                  height: "6vh",
                 }}
                 onClick={handleSignUpBtn}
               >

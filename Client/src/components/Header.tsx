@@ -383,6 +383,8 @@ export default function Header({ itemCart }: { itemCart: number }) {
                     display: btnShows.loginBtn,
                     backgroundColor: "#FFFFFF",
                     color: "#000000",
+                    width: "10vw",
+                    fontSize: { xs: "8px", md: "14px" },
                   }}
                 >
                   REGISTER & LOGIN
