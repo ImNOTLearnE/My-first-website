@@ -47,7 +47,7 @@ const LanguageBtn = React.memo(
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
           onClick={handleClick}
-          sx={{ color: "#FFFFFF" }}
+          sx={{ color: "#000000ff" }}
         >
           <LanguageIcon />
         </Button>
@@ -272,7 +272,9 @@ export default function Header({ itemCart }: { itemCart: number }) {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
+              sx={{
+                display: { xs: "block", md: "none" },
+              }}
             >
               {pages.map((page) => (
                 <Link
@@ -291,6 +293,15 @@ export default function Header({ itemCart }: { itemCart: number }) {
                   </MenuItem>
                 </Link>
               ))}
+              <div style={{ textAlign: "center" }}>
+                <LanguageBtn
+                  open={open}
+                  handleClick={handleClick}
+                  anchorEl={anchorEl}
+                  handleClose={handleClose}
+                  handleChangeLanguage={handleChangeLanguage}
+                />
+              </div>
             </Menu>
           </Box>
           {/* BUTTON SHOWS LINKS TO SITE SECTION SUCH AS HOME, PRODUCTS, AND BRANDS FOR MOBILE */}
@@ -312,7 +323,7 @@ export default function Header({ itemCart }: { itemCart: number }) {
               component="a"
               href="#app-bar-with-responsive-menu"
               sx={{
-                mr: 7,
+                mr: 2,
                 display: { xs: "flex", md: "none" },
                 flexGrow: 1,
                 fontFamily: "monospace",
@@ -401,13 +412,16 @@ export default function Header({ itemCart }: { itemCart: number }) {
               {/* THIS IF USER MAKE LOGIN */}
 
               {/* LANGUAGE BUTTON AND MENU */}
-              <LanguageBtn
-                open={open}
-                handleClick={handleClick}
-                anchorEl={anchorEl}
-                handleClose={handleClose}
-                handleChangeLanguage={handleChangeLanguage}
-              />
+              <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                <LanguageBtn
+                  open={open}
+                  handleClick={handleClick}
+                  anchorEl={anchorEl}
+                  handleClose={handleClose}
+                  handleChangeLanguage={handleChangeLanguage}
+                />
+              </Box>
+
               {/* LANGUAGE BUTTON AND MENU */}
             </div>
 

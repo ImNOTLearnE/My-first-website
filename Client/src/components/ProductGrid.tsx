@@ -153,13 +153,11 @@ export default function ProductGrid() {
             // onSwiper={(swiper) => console.log(swiper)}
           >
             {Products.map((Product) => (
-              <SwiperSlide style={{}}>
+              <SwiperSlide key={Product.id}>
                 <Card
                   className={itemFall}
-                  key={Product.id}
                   sx={{
-                    maxWidth: "11vw",
-                    minWidth: "11vw",
+                    width: { sx: "11vw", md: "11vw" },
                     overflow: "visible",
                     borderRadius: "25px",
                     backgroundColor: "#363636ff",
@@ -185,8 +183,8 @@ export default function ProductGrid() {
                       sx={{
                         color: "#FFFFFF",
                         fontSize: {
-                          xs: "0.6rem", // موبايل
-                          sm: "0.8rem", // تابلت
+                          xs: "1rem", // موبايل
+                          sm: "1rem", // تابلت
                           md: "1rem", // ديسكتوب
                         },
                       }}
@@ -196,8 +194,8 @@ export default function ProductGrid() {
                     <Rating
                       sx={{
                         fontSize: {
-                          xs: "0.6rem", // موبايل
-                          sm: "0.8rem", // تابلت
+                          xs: "1rem", // موبايل
+                          sm: "1rem", // تابلت
                           md: "1rem", // ديسكتوب
                         },
                       }}

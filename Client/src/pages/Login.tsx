@@ -184,7 +184,7 @@ export default function Login() {
                       <PersonIcon
                         sx={{
                           color: "#ffffffff",
-                          width: { sx: "3.5vw", sm: "4vw", md: "4vw" },
+                          width: 30,
                           height: 35,
                         }}
                       />
@@ -229,7 +229,7 @@ export default function Login() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: "3.5vw",
+                        width: { sx: "3.5vw", sm: "4vw", md: "4vw" },
                         height: 70,
                       },
                       opacity: "0.3",

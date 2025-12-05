@@ -13,6 +13,7 @@ import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 
 // i18n
 import { useTranslation } from "react-i18next";
+import { Typography } from "@mui/material";
 
 export default function Category() {
   const { t } = useTranslation();
@@ -45,11 +46,11 @@ export default function Category() {
             }}
           >
             {/* CATEGORY BOX SECTION */}
-            <Button style={{ color: "#FFFFFF" }}>
+            {/* <Button style={{ color: "#FFFFFF" }}>
               <Box
                 sx={{
-                  width: 120,
-                  height: 100,
+                  width: { xs: "10vw", md: "6vw" },
+                  height: { xs: "8vh", md: "10vh" },
                   borderRadius: 5,
                   bgcolor: "primary.main",
                   "&:hover": {
@@ -61,8 +62,14 @@ export default function Category() {
                   alignItems: "center",
                 }}
               >
-                <PhoneIphoneIcon sx={{ fontSize: 35, marginBottom: "5px" }} />
-                <div>{t("Phones")}</div>
+                <Box>
+                  <PhoneIphoneIcon
+                    sx={{ fontSize: { sx: 25, md: 35 }, marginBottom: "5px" }}
+                  />
+                  <Typography sx={{ fontSize: { xs: "0.6rem", md: "1rem" } }}>
+                    {t("Phones")}
+                  </Typography>
+                </Box>
               </Box>
             </Button>
             <Button style={{ color: "#FFFFFF" }}>
@@ -89,8 +96,8 @@ export default function Category() {
             <Button style={{ color: "#FFFFFF" }}>
               <Box
                 sx={{
-                  width: 120,
-                  height: 100,
+                  width: { xs: "10vw", md: "6vw" },
+                  height: { xs: "8vh", md: "10vh" },
                   borderRadius: 5,
                   bgcolor: "primary.main",
                   "&:hover": {
@@ -102,8 +109,15 @@ export default function Category() {
                   alignItems: "center",
                 }}
               >
-                <CameraAltIcon sx={{ fontSize: 35, marginBottom: "5px" }} />
-                <div>{t("Cameras")}</div>
+                <CameraAltIcon
+                  sx={{
+                    fontSize: { xs: "1.5rem", md: "1rem" },
+                    marginBottom: "5px",
+                  }}
+                />
+                <Typography sx={{ fontSize: { xs: "0.6rem", md: "1rem" } }}>
+                  {t("Cameras")}
+                </Typography>
               </Box>
             </Button>
 
@@ -167,6 +181,156 @@ export default function Category() {
               >
                 <SportsEsportsIcon sx={{ fontSize: 35, marginBottom: "5px" }} />
                 <div>{t("Gaming")}</div>
+              </Box>
+            </Button> */}
+
+            <Button style={{ color: "#FFFFFF" }}>
+              <Box
+                sx={{
+                  width: { xs: "10vw", md: "6vw" },
+                  height: { xs: "8vh", md: "10vh" },
+                  borderRadius: 5,
+                  bgcolor: "primary.main",
+                  "&:hover": {
+                    bgcolor: "primary.dark",
+                  },
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <PhoneIphoneIcon
+                  sx={{ fontSize: { xs: 25, md: 35 }, marginBottom: "5px" }}
+                />
+                <Typography sx={{ fontSize: { xs: "0.6rem", md: "1rem" } }}>
+                  {t("Phones")}
+                </Typography>
+              </Box>
+            </Button>
+
+            <Button style={{ color: "#FFFFFF" }}>
+              <Box
+                sx={{
+                  width: { xs: "10vw", md: "6vw" },
+                  height: { xs: "8vh", md: "10vh" },
+                  borderRadius: 5,
+                  bgcolor: "primary.main",
+                  "&:hover": {
+                    bgcolor: "primary.dark",
+                  },
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <WatchIcon
+                  sx={{ fontSize: { xs: 25, md: 35 }, marginBottom: "5px" }}
+                />
+                <Typography sx={{ fontSize: { xs: "0.6rem", md: "1rem" } }}>
+                  {t("Watches")}
+                </Typography>
+              </Box>
+            </Button>
+
+            <Button style={{ color: "#FFFFFF" }}>
+              <Box
+                sx={{
+                  width: { xs: "10vw", md: "6vw" },
+                  height: { xs: "8vh", md: "10vh" },
+                  borderRadius: 5,
+                  bgcolor: "primary.main",
+                  "&:hover": {
+                    bgcolor: "primary.dark",
+                  },
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <CameraAltIcon
+                  sx={{ fontSize: { xs: 25, md: 35 }, marginBottom: "5px" }}
+                />
+                <Typography sx={{ fontSize: { xs: "0.6rem", md: "1rem" } }}>
+                  {t("Cameras")}
+                </Typography>
+              </Box>
+            </Button>
+
+            <Button style={{ color: "#FFFFFF" }}>
+              <Box
+                sx={{
+                  width: { xs: "10vw", md: "6vw" },
+                  height: { xs: "8vh", md: "10vh" },
+                  borderRadius: 5,
+                  bgcolor: "primary.main",
+                  "&:hover": {
+                    bgcolor: "primary.dark",
+                  },
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <HeadphonesIcon
+                  sx={{ fontSize: { xs: 25, md: 35 }, marginBottom: "5px" }}
+                />
+                <Typography sx={{ fontSize: { xs: "0.6rem", md: "1rem" } }}>
+                  {t("HeadsPhone")}
+                </Typography>
+              </Box>
+            </Button>
+
+            <Button style={{ color: "#FFFFFF" }}>
+              <Box
+                sx={{
+                  width: { xs: "10vw", md: "6vw" },
+                  height: { xs: "8vh", md: "10vh" },
+                  borderRadius: 5,
+                  bgcolor: "primary.main",
+                  "&:hover": {
+                    bgcolor: "primary.dark",
+                  },
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <ComputerIcon
+                  sx={{ fontSize: { xs: 25, md: 35 }, marginBottom: "5px" }}
+                />
+                <Typography sx={{ fontSize: { xs: "0.6rem", md: "1rem" } }}>
+                  {t("Computers")}
+                </Typography>
+              </Box>
+            </Button>
+
+            <Button style={{ color: "#FFFFFF" }}>
+              <Box
+                sx={{
+                  width: { xs: "10vw", md: "6vw" },
+                  height: { xs: "8vh", md: "10vh" },
+                  borderRadius: 5,
+                  bgcolor: "primary.main",
+                  "&:hover": {
+                    bgcolor: "primary.dark",
+                  },
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <SportsEsportsIcon
+                  sx={{ fontSize: { xs: 25, md: 35 }, marginBottom: "5px" }}
+                />
+                <Typography sx={{ fontSize: { xs: "0.6rem", md: "1rem" } }}>
+                  {t("Gaming")}
+                </Typography>
               </Box>
             </Button>
 
