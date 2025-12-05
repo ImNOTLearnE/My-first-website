@@ -190,7 +190,7 @@ const MemoizedCategoryName = React.memo(({ selectedCategory, t }: any) => {
             mb: 1.5,
             fontSize: 36,
             textAlign: "center",
-            marginTop: "73px",
+            marginTop: "5vh",
           }}
         >
           {t("Category By:")}

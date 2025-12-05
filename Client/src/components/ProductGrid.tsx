@@ -9,6 +9,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Rating from "@mui/material/Rating";
+import Box from "@mui/material/Box";
 
 // CSS CLASS
 import "../Styles/ResponsiveProductsCategoty.css";
@@ -134,11 +135,11 @@ export default function ProductGrid() {
         {/* TABS COMPONENT */}
 
         {/* CARD PRODECT SECTION */}
-        <div
-          style={{
+        <Box
+          sx={{
             display: "flex",
             marginTop: "60px",
-            maxWidth: "50vw",
+            maxWidth: { xs: "90vw", md: "50vw" },
           }}
         >
           <Swiper
@@ -157,7 +158,7 @@ export default function ProductGrid() {
                 <Card
                   className={itemFall}
                   sx={{
-                    width: { sx: "11vw", md: "11vw" },
+                    maxWidth: { xs: "30vw", md: "20vw", lg: "11vw" },
                     overflow: "visible",
                     borderRadius: "25px",
                     backgroundColor: "#363636ff",
@@ -183,10 +184,11 @@ export default function ProductGrid() {
                       sx={{
                         color: "#FFFFFF",
                         fontSize: {
-                          xs: "1rem", // موبايل
-                          sm: "1rem", // تابلت
+                          xs: "0.6rem", // موبايل
+                          sm: "0.8rem", // تابلت
                           md: "1rem", // ديسكتوب
                         },
+                        maxWidth: "100%",
                       }}
                     >
                       {Product.nameProduct}
@@ -233,7 +235,7 @@ export default function ProductGrid() {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </Box>
         {/* CARD PRODECT SECTION */}
       </div>
     </>
