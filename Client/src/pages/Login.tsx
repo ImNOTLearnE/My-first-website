@@ -110,7 +110,7 @@ export default function Login() {
               lg: "40vw",
               xl: "39vw",
             },
-            height: "60vh",
+            height: { xs: "80vh", sm: "70vh", md: "65vh", lg: "60vh" },
             background:
               "linear-gradient(178deg,rgba(54, 54, 54, 0.5) 0%, rgba(38, 166, 154, 0.6) 100%)",
 
