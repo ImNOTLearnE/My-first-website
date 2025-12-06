@@ -139,7 +139,7 @@ export default function ProductGrid() {
           sx={{
             display: "flex",
             marginTop: "60px",
-            maxWidth: { xs: "90vw", md: "50vw" },
+            maxWidth: { xs: "90vw", md: "60vw", lg: "50vw" },
           }}
         >
           <Swiper
@@ -153,12 +153,12 @@ export default function ProductGrid() {
             // onSlideChange={() => console.log("slide change")}
             // onSwiper={(swiper) => console.log(swiper)}
           >
-            {Products.map((Product) => (
+            {Products.slice(0, 3).map((Product) => (
               <SwiperSlide key={Product.id}>
                 <Card
                   className={itemFall}
                   sx={{
-                    maxWidth: { xs: "30vw", md: "20vw", lg: "11vw" },
+                    width: { xs: "30vw", md: "18vw", lg: "11vw" },
                     overflow: "visible",
                     borderRadius: "25px",
                     backgroundColor: "#363636ff",
@@ -183,24 +183,13 @@ export default function ProductGrid() {
                       variant="body2"
                       sx={{
                         color: "#FFFFFF",
-                        fontSize: {
-                          xs: "0.6rem", // موبايل
-                          sm: "0.8rem", // تابلت
-                          md: "1rem", // ديسكتوب
-                        },
-                        maxWidth: "100%",
+                        fontSize: { xs: "1rem", sm: "1rem", md: "1rem" },
                       }}
                     >
                       {Product.nameProduct}
                     </Typography>
                     <Rating
-                      sx={{
-                        fontSize: {
-                          xs: "1rem", // موبايل
-                          sm: "1rem", // تابلت
-                          md: "1rem", // ديسكتوب
-                        },
-                      }}
+                      sx={{ fontSize: { xs: "1rem", sm: "1rem", md: "1rem" } }}
                       name="read-only"
                       value={ratingProdect}
                       readOnly
@@ -209,6 +198,7 @@ export default function ProductGrid() {
                       $ {Product.price}
                     </Typography>
                   </CardContent>
+
                   <CardActions>
                     <Button
                       onClick={() => {
@@ -224,7 +214,7 @@ export default function ProductGrid() {
                       <AddShoppingCartIcon
                         style={{
                           padding: "5px",
-                          fontSize: "30",
+                          fontSize: "30px",
                           color: "black",
                           width: "100%",
                         }}

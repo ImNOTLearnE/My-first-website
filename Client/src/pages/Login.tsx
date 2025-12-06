@@ -110,7 +110,7 @@ export default function Login() {
               lg: "40vw",
               xl: "39vw",
             },
-            height: "70vh",
+            height: "60vh",
             background:
               "linear-gradient(178deg,rgba(54, 54, 54, 0.5) 0%, rgba(38, 166, 154, 0.6) 100%)",
 
@@ -184,7 +184,7 @@ export default function Login() {
                       <PersonIcon
                         sx={{
                           color: "#ffffffff",
-                          width: 30,
+                          width: "9.5vw",
                           height: 35,
                         }}
                       />
@@ -229,7 +229,7 @@ export default function Login() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: { sx: "3.5vw", sm: "4vw", md: "4vw" },
+                        width: "9.5vw",
                         height: 70,
                       },
                       opacity: "0.3",
@@ -247,7 +247,7 @@ export default function Login() {
                       <VpnKeyIcon
                         sx={{
                           color: "#ffffffff",
-                          width: 30,
+                          width: "7vw",
                           height: 35,
                         }}
                       />
