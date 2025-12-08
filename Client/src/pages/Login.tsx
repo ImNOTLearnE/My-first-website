@@ -110,7 +110,7 @@ export default function Login() {
               lg: "40vw",
               xl: "39vw",
             },
-            height: { xs: "80vh", sm: "70vh", md: "65vh", lg: "60vh" },
+            height: { xs: "70vh", sm: "70vh", md: "65vh", lg: "60vh" },
             background:
               "linear-gradient(178deg,rgba(54, 54, 54, 0.5) 0%, rgba(38, 166, 154, 0.6) 100%)",
 
@@ -229,7 +229,7 @@ export default function Login() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: "9.5vw",
+                        width: "4.5vw",
                         height: 70,
                       },
                       opacity: "0.3",
