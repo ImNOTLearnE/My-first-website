@@ -96,7 +96,7 @@ app.post("/register", async (req, res) => {
     "INSERT INTO Users (UserName, Email, PasswordHash, PhoneNumber) VALUES (?, ?, ?, ?)",
     [userNameInput, emailInput, hashedPassword, phoneNumberInput],
     (err, result) => {
-      if (err) return res.status(500).json({ error: err.sqlMessage }); // If there's an error, return the error
+      if (err) return res.status(500).json({ error: err }); // If there's an error, return the error
 
       // Create payload for JWT
       const payload = {
