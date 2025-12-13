@@ -40,10 +40,8 @@ const db = mysql.createPool({
   user: DB_USERNAME, // Database username
   password: DB_PASSWORD, // Database password
   database: DB_DATABASE, // Name of the database
-  mysqlUrl: MYSQL_URL,
   connectTimeout: 10000,
 });
-
 app.get("/", (req, res) => {
   (err, result) => {
     if (err) return res.status(500).json({ err: "error with databeas" });
