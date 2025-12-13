@@ -16,11 +16,13 @@ const {
   DB_PASSWORD,
   DB_DATABASE,
   JWT_SECRET_KEY,
+  MYSQL_PUBLIC_URL,
 } = require("./config");
 
 dotenv.config();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use(
@@ -33,12 +35,15 @@ app.use(
 );
 
 // Create a connection to the MySQL database
-const db = mysql.createConnection({
+const db = mysql.createPool({
   host: DB_HOST, // Database host
   user: DB_USERNAME, // Database username
   password: DB_PASSWORD, // Database password
   database: DB_DATABASE, // Name of the database
+
+  connectTimeout: 10000,
 });
+
 app.get("/", (req, res) => {
   (err, result) => {
     if (err) return res.status(500).json({ err: "error with databeas" });
@@ -402,6 +407,6 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Internal server error", err });
 });
 
-app.listen(port, () => {
+app.listen(port || 3000, "0.0.0.0", () => {
   console.log(`Example app listening on port ${port}`);
 });
