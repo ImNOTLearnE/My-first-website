@@ -16,7 +16,7 @@ const {
   DB_PASSWORD,
   DB_DATABASE,
   JWT_SECRET_KEY,
-  MYSQL_PUBLIC_URL,
+  MYSQL_URL,
 } = require("./config");
 
 dotenv.config();
@@ -40,7 +40,7 @@ const db = mysql.createPool({
   user: DB_USERNAME, // Database username
   password: DB_PASSWORD, // Database password
   database: DB_DATABASE, // Name of the database
-
+  mysqlUrl: MYSQL_URL,
   connectTimeout: 10000,
 });
 

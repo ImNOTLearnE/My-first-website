@@ -26,6 +26,7 @@ module.exports = {
   DB_DATABASE: process.env.DB_DATABASE, // Name of the database
   JWT_SECRET_KEY: process.env.JWT_SECRET_KEY,
   TOKEN_HEADER_KEY: process.env.TOKEN_HEADER_KEY,
+  MYSQL_URL: process.env.MYSQL_URL,
 };
 
 // METHOD NUMBER. 2//
