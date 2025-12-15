@@ -74,7 +74,7 @@ export default function PersonalInfo({
         GenderInput: userPersonalInformationInput.gender,
         BirthdayInput: userPersonalInformationInput.birthday,
       })
-      .then((response) => {
+      .then(() => {
         // console.log(response);
 
         setOpen(true);
