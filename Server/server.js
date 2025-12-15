@@ -45,6 +45,7 @@ const db = mysql.createPool({
 
 const pool = new Pool({
   connectionString: process.env.connectionString,
+  ssl: { rejectUnauthorized: false },
 });
 
 app.get("/", (req, res) => {
