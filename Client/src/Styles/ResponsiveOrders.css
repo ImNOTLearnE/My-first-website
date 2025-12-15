@@ -86,7 +86,6 @@
   }
   .product-card {
     display: flex;
-    background-color: red;
     flex-direction: column !important;
   }
   .orderDetails {

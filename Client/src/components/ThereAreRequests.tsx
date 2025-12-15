@@ -101,7 +101,6 @@ export default function ThereAreRequests() {
                       display: "flex",
                       flexDirection: "row-reverse",
                       justifyContent: "space-around",
-
                       alignItems: "center",
                       height: "20vh",
                       maxWidth: "100%",
@@ -163,22 +162,6 @@ export default function ThereAreRequests() {
                           {order.productNameState}
                         </Typography>
                         {/*  */}
-                        <Typography
-                          sx={{
-                            fontSize: {
-                              xs: "14px", // موبايل
-                              sm: "18px", // تابلت
-                              md: "20px", // لابتوب
-                              lg: "24px", // شاشات كبيرة
-                            },
-                            textAlign: "right",
-                          }}
-                          className="productDescription"
-                        >
-                          عصارة فواكه، 800 واط، سرعتين، 2 لتر، أسود / فضي من
-                          اكسترا اليوم! توصيل منزلي مجاني على المشتريات المحددة
-                          أو استلامها من المعرض.
-                        </Typography>
                       </div>
                       {/* D */}
 
@@ -191,9 +174,20 @@ export default function ThereAreRequests() {
                       <div>
                         <Typography
                           className="text-center"
-                          fontSize={32}
-                          style={{
+                          sx={{
+                            fontSize: {
+                              xs: "24px", // موبايل
+                              sm: "28px", // تابلت
+                              md: "30px", // لابتوب
+                              lg: "32px", // شاشات كبيرة
+                            },
                             marginBottom: "2vh",
+                            marginTop: {
+                              xs: "80px",
+                              sm: "15px",
+                              md: "5px",
+                              lg: "0px",
+                            },
                           }}
                         >
                           {t("Order details")}
@@ -203,19 +197,69 @@ export default function ThereAreRequests() {
                           {/*  */}
                           <div>
                             {" "}
-                            <Typography fontSize={20} marginBottom={"14px"}>
+                            <Typography
+                              sx={{
+                                fontSize: {
+                                  xs: "14px", // موبايل
+                                  sm: "16px", // تابلت
+                                  md: "18px", // لابتوب
+                                  lg: "20px", // شاشات كبيرة
+                                },
+                              }}
+                              marginBottom={"14px"}
+                            >
                               {t("Product price")}
                             </Typography>
-                            <Typography fontSize={20} marginBottom={"14px"}>
+                            <Typography
+                              sx={{
+                                fontSize: {
+                                  xs: "14px", // موبايل
+                                  sm: "16px", // تابلت
+                                  md: "18px", // لابتوب
+                                  lg: "20px", // شاشات كبيرة
+                                },
+                              }}
+                              marginBottom={"14px"}
+                            >
                               {t("shipping")}
                             </Typography>
-                            <Typography fontSize={20} marginBottom={"14px"}>
+                            <Typography
+                              sx={{
+                                fontSize: {
+                                  xs: "14px", // موبايل
+                                  sm: "16px", // تابلت
+                                  md: "18px", // لابتوب
+                                  lg: "20px", // شاشات كبيرة
+                                },
+                              }}
+                              marginBottom={"14px"}
+                            >
                               {t("opponent")}
                             </Typography>
-                            <Typography fontSize={20} marginBottom={"14px"}>
+                            <Typography
+                              sx={{
+                                fontSize: {
+                                  xs: "14px", // موبايل
+                                  sm: "16px", // تابلت
+                                  md: "18px", // لابتوب
+                                  lg: "20px", // شاشات كبيرة
+                                },
+                              }}
+                              marginBottom={"14px"}
+                            >
                               {t("payment method")}
                             </Typography>
-                            <Typography fontSize={20} marginTop={"33px"}>
+                            <Typography
+                              sx={{
+                                fontSize: {
+                                  xs: "14px", // موبايل
+                                  sm: "16px", // تابلت
+                                  md: "18px", // لابتوب
+                                  lg: "20px", // شاشات كبيرة
+                                },
+                              }}
+                              marginTop={"2vw"}
+                            >
                               {t("the total")}
                             </Typography>
                           </div>
@@ -224,19 +268,69 @@ export default function ThereAreRequests() {
                           {/*  */}
                           <div>
                             {" "}
-                            <Typography fontSize={20} marginBottom={"14px"}>
+                            <Typography
+                              sx={{
+                                fontSize: {
+                                  xs: "14px", // موبايل
+                                  sm: "16px", // تابلت
+                                  md: "18px", // لابتوب
+                                  lg: "20px", // شاشات كبيرة
+                                },
+                              }}
+                              marginBottom={"14px"}
+                            >
                               {order.orderPriceState} {t("SAR")}
                             </Typography>
-                            <Typography fontSize={20} marginBottom={"14px"}>
+                            <Typography
+                              sx={{
+                                fontSize: {
+                                  xs: "14px", // موبايل
+                                  sm: "16px", // تابلت
+                                  md: "18px", // لابتوب
+                                  lg: "20px", // شاشات كبيرة
+                                },
+                              }}
+                              marginBottom={"14px"}
+                            >
                               {order.shippingMethodState}
                             </Typography>
-                            <Typography fontSize={20} marginBottom={"14px"}>
+                            <Typography
+                              sx={{
+                                fontSize: {
+                                  xs: "14px", // موبايل
+                                  sm: "16px", // تابلت
+                                  md: "18px", // لابتوب
+                                  lg: "20px", // شاشات كبيرة
+                                },
+                              }}
+                              marginBottom={"14px"}
+                            >
                               {order.priceAfterDiscountState} {t("SAR")}
                             </Typography>
-                            <Typography fontSize={20} marginBottom={"14px"}>
+                            <Typography
+                              sx={{
+                                fontSize: {
+                                  xs: "14px", // موبايل
+                                  sm: "16px", // تابلت
+                                  md: "18px", // لابتوب
+                                  lg: "20px", // شاشات كبيرة
+                                },
+                              }}
+                              marginBottom={"14px"}
+                            >
                               {order.paymentMethodState}
                             </Typography>
-                            <Typography fontSize={20} marginTop={"33px"}>
+                            <Typography
+                              sx={{
+                                fontSize: {
+                                  xs: "14px", // موبايل
+                                  sm: "16px", // تابلت
+                                  md: "18px", // لابتوب
+                                  lg: "20px", // شاشات كبيرة
+                                },
+                              }}
+                              marginTop={"2vw"}
+                            >
                               {order.totalAmountState} {t("SAR")}
                             </Typography>
                           </div>
