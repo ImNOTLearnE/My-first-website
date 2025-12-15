@@ -40,7 +40,6 @@ const db = mysql.createPool({
   user: DB_USERNAME, // Database username
   password: DB_PASSWORD, // Database password
   database: DB_DATABASE, // Name of the database
-  connectTimeout: 10000,
 });
 app.get("/", (req, res) => {
   (err, result) => {
