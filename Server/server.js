@@ -126,21 +126,23 @@ app.post("/register", async (req, res) => {
 });
 
 app.post("/tesst", async (req, res) => {
-  const { userNameInput, emailInput, passwordInput, phoneNumberInput } =
-    req.body;
+  db.query("SELECT  * FROM Users", (err, result) => {
+    if (err) return res.status(500).json({ error: err }); // If there's an error, return the error
 
-  const hashedPassword = await bcrypt.hash(passwordInput, 10);
-  db.query(
-    "INSERT INTO Users (UserName, Email, PasswordHash, PhoneNumber) VALUES (?, ?, ?, ?)",
-    [userNameInput, emailInput, hashedPassword, phoneNumberInput],
-    (err, result) => {
-      if (err) return res.status(500).json({ error: err }); // If there's an error, return the error
+    return res
+      .status(201)
+      .json({ message: "Register successful", userId: result });
+  });
+});
 
-      return res
-        .status(201)
-        .json({ message: "Register successful", userId: result.insertId });
-    }
-  );
+app.get("/tesst", async (req, res) => {
+  db.query("SELECT  * FROM Users", (err, result) => {
+    if (err) return res.status(500).json({ error: err }); // If there's an error, return the error
+
+    return res
+      .status(201)
+      .json({ message: "Register successful", userId: result });
+  });
 });
 
 // MIDDLEWARE FOR JWT VERIFICATION //
