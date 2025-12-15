@@ -172,14 +172,17 @@ export default function ContactInfo({
 
   const handleChangeInformation = React.useCallback(() => {
     axios
-      .patch(`http://localhost:3000/users/${localStorage.getItem("token")}`, {
-        FirstNameInput: userPersonalInformationInput.firstName,
-        LastNameInput: userPersonalInformationInput.lastName,
-        PhoneNumberInput: userPersonalInformationInput.phoneNumber,
-        CityInput: userPersonalInformationInput.city,
-        NationalityInput: userPersonalInformationInput.nationality,
-        GenderInput: userPersonalInformationInput.gender,
-      })
+      .patch(
+        `https://my-first-website-rgi1.onrender.com/users/${localStorage.getItem("token")}`,
+        {
+          FirstNameInput: userPersonalInformationInput.firstName,
+          LastNameInput: userPersonalInformationInput.lastName,
+          PhoneNumberInput: userPersonalInformationInput.phoneNumber,
+          CityInput: userPersonalInformationInput.city,
+          NationalityInput: userPersonalInformationInput.nationality,
+          GenderInput: userPersonalInformationInput.gender,
+        }
+      )
       .then((response) => {
         console.log(response);
 

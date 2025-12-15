@@ -113,7 +113,7 @@ export default function CartFull() {
 
     const requests = addToCart.map((product) => {
       axios
-        .post("http://localhost:3000/orders", {
+        .post("https://my-first-website-rgi1.onrender.com/orders", {
           id: uuidv4(),
           userToken: token,
           ProductNameInput: product.nameProduct,

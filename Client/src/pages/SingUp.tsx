@@ -53,7 +53,7 @@ export default function SingUp() {
 
   function handleSignUpBtn() {
     axios
-      .post("http://localhost:3000/register", {
+      .post("https://my-first-website-rgi1.onrender.com/register", {
         userNameInput: userSignUp.userNameInput,
         passwordInput: userSignUp.passwordInput,
         emailInput: userSignUp.EmailInput,

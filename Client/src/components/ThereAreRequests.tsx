@@ -40,7 +40,9 @@ export default function ThereAreRequests() {
 
   React.useEffect(() => {
     axios
-      .post("http://localhost:3000/customerOrders", { userToken: token })
+      .post("https://my-first-website-rgi1.onrender.com/customerOrders", {
+        userToken: token,
+      })
       .then((response) => {
         setCustomerRequests(
           response.data.map((order: any) => {

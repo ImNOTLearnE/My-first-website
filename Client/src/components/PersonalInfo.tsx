@@ -65,15 +65,18 @@ export default function PersonalInfo({
 
   const handleChangeInformation = () => {
     axios
-      .patch(`http://localhost:3000/users/${localStorage.getItem("token")}`, {
-        FirstNameInput: userPersonalInformationInput.firstName,
-        LastNameInput: userPersonalInformationInput.lastName,
-        PhoneNumberInput: userPersonalInformationInput.phoneNumber,
-        CityInput: userPersonalInformationInput.city,
-        NationalityInput: userPersonalInformationInput.nationality,
-        GenderInput: userPersonalInformationInput.gender,
-        BirthdayInput: userPersonalInformationInput.birthday,
-      })
+      .patch(
+        `https://my-first-website-rgi1.onrender.com/users/${localStorage.getItem("token")}`,
+        {
+          FirstNameInput: userPersonalInformationInput.firstName,
+          LastNameInput: userPersonalInformationInput.lastName,
+          PhoneNumberInput: userPersonalInformationInput.phoneNumber,
+          CityInput: userPersonalInformationInput.city,
+          NationalityInput: userPersonalInformationInput.nationality,
+          GenderInput: userPersonalInformationInput.gender,
+          BirthdayInput: userPersonalInformationInput.birthday,
+        }
+      )
       .then(() => {
         // console.log(response);
 
