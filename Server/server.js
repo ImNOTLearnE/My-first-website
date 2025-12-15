@@ -35,13 +35,16 @@ app.use(
 );
 
 // Create a connection to the MySQL database
-const db = mysql.createPool({
-  host: DB_HOST, // Database host
-  user: DB_USERNAME, // Database username
-  password: DB_PASSWORD, // Database password
-  database: DB_DATABASE, // Name of the database
-  connectTimeout: 10000,
-});
+// const db = mysql.createPool({
+//   host: DB_HOST, // Database host
+//   user: DB_USERNAME, // Database username
+//   password: DB_PASSWORD, // Database password
+//   database: DB_DATABASE, // Name of the database
+//   connectTimeout: 10000,
+// });
+
+const db = mysql.createPool(process.env.MYSQL_URL);
+
 app.get("/", (req, res) => {
   (err, result) => {
     if (err) return res.status(500).json({ err: "error with databeas" });
