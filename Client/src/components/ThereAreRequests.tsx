@@ -46,13 +46,13 @@ export default function ThereAreRequests() {
           response.data.map((order: any) => {
             return {
               id: uuidv4(),
-              productNameState: order.ProductName,
-              orderImageState: order.OrderImage,
-              shippingMethodState: order.ShippingMethod,
-              paymentMethodState: order.PaymentMethod,
-              orderPriceState: order.OrderPrice,
-              priceAfterDiscountState: order.PriceAfterDiscount,
-              totalAmountState: order.OrderPrice,
+              productNameState: order.productname,
+              orderImageState: order.orderimage,
+              shippingMethodState: order.shippingmethod,
+              paymentMethodState: order.paymentmethod,
+              orderPriceState: order.orderprice,
+              priceAfterDiscountState: order.priceafterdiscount,
+              totalAmountState: order.orderprice,
             };
           })
         );
@@ -60,7 +60,7 @@ export default function ThereAreRequests() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [customerRequests]);
 
   return (
     <>

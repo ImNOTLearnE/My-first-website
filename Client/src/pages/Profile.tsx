@@ -23,7 +23,7 @@ export default function Profile() {
       lastName: "",
       city: "",
       nationality: "",
-      gender: "",
+      gender: "male",
       birthday: "",
     });
 
@@ -35,13 +35,14 @@ export default function Profile() {
       .then(async (response) => {
         setUserPersonalInformationInput({
           ...userPersonalInformationInput,
-          email: response.data[0].Email,
-          firstName: response.data[0].FirstName,
-          lastName: response.data[0].LastName,
-          phoneNumber: response.data[0].PhoneNumber,
-          city: response.data[0].City,
-          nationality: response.data[0].Nationality,
-          gender: response.data[0].Gender,
+          email: response.data[0].email,
+          firstName: response.data[0].firstname,
+          lastName: response.data[0].lastname,
+          phoneNumber: response.data[0].phonenumber,
+          city: response.data[0].city,
+          nationality: response.data[0].nationality,
+          gender: response.data[0].gender,
+          birthday: response.data[0].birthday,
         });
       })
       .catch((error) => {

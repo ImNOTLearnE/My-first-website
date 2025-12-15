@@ -66,8 +66,9 @@ export default function SingUp() {
         navigate("/");
         navigate(0);
       })
-      .catch(() => {
+      .catch((e) => {
         setOpenError(true);
+        console.error("There was an error!", e);
       });
   }
 

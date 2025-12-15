@@ -72,9 +72,10 @@ export default function PersonalInfo({
         CityInput: userPersonalInformationInput.city,
         NationalityInput: userPersonalInformationInput.nationality,
         GenderInput: userPersonalInformationInput.gender,
+        BirthdayInput: userPersonalInformationInput.birthday,
       })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
 
         setOpen(true);
       })
