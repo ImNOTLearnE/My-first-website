@@ -37,5 +37,7 @@
   "total after Tax:": "الإجمالي بعد الضريبة:",
   "shipping:": "الشحن:",
   "Free": "مجاني",
-  "Adderss": "العنوان"
+  "Adderss": "العنوان",
+  "ALert": "تنبيه",
+  "The website is under development and not yet complete. It's a fake online store, and even the orders placed are fake; nothing is real. It's just a React project.": "الموقع قيد التطوير ولم يكتمل بعد. إنه متجر إلكتروني وهمي، وحتى الطلبات المقدمة وهمية؛ لا شيء حقيقي. إنه مجرد مشروع React."
 }

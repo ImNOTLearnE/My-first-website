@@ -183,7 +183,7 @@ export default function ThereAreRequests() {
                             },
                             marginBottom: "2vh",
                             marginTop: {
-                              xs: "80px",
+                              xs: "30px",
                               sm: "15px",
                               md: "5px",
                               lg: "0px",
