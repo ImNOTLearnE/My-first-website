@@ -14,7 +14,7 @@ export default function CartEmbty() {
           size="grow"
           minHeight={900}
         >
-          <Typography>The cart is empty</Typography>
+          <Typography>The cart is emptty</Typography>
         </Grid>
       </Box>
     </>
