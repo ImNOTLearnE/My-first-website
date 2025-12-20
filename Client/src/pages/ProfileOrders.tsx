@@ -42,7 +42,6 @@ export default function ProfileOrders() {
     axios
       .post("http://localhost:3000/customerOrders", { userToken: token })
       .then((response) => {
-        console.log(response.data.length);
         if (response.data.length === 0) {
           setRequests(<NoRequests />);
         } else <ThereAreRequests />;

@@ -206,7 +206,7 @@ export default function PersonalInfo({
                       }}
                       id="filled-basic"
                       label={input.title}
-                      value={input.value}
+                      value={input.value || ""}
                       onChange={input.onChange}
                       variant="filled"
                     />

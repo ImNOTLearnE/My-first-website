@@ -70,7 +70,7 @@ export default function ThereAreRequests() {
         <div className="container-order ">
           <div className="orders">
             {customerRequests.map((order: any) => (
-              <div className="order">
+              <div key={order.id} className="order">
                 <div className="order-background">
                   <div>
                     <Typography

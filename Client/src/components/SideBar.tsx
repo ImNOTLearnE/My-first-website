@@ -19,7 +19,7 @@ import "../Styles/ResponsiveSideBar.css";
 
 const SideBarBtn = React.memo(({ item }: any) => {
   return (
-    <Grid key={item.id}>
+    <Grid>
       <Link to={item.to}>
         <Button
           onClick={() => {}}
@@ -76,7 +76,11 @@ export default function SideBar() {
       <Grid className="row">
         <Grid className="test">
           {iconButtons.map((item) => (
-            <SideBarBtn item={item} isActive={location.pathname === item.to} />
+            <SideBarBtn
+              key={item.id}
+              item={item}
+              isActive={location.pathname === item.to}
+            />
           ))}
         </Grid>
       </Grid>

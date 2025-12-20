@@ -199,10 +199,8 @@ export default function Header({ itemCart }: { itemCart: number }) {
 
   React.useEffect(() => {
     if (localStorage.getItem("token")) {
-      console.log("token is here");
       setBtnShows({ loginBtn: "none", profile: "inline-flex" });
     } else {
-      console.log("token is not here");
       return setBtnShows({ loginBtn: "inline-flex", profile: "none" });
     }
   }, []);
@@ -229,8 +227,7 @@ export default function Header({ itemCart }: { itemCart: number }) {
             <Typography
               variant="h6"
               noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
+              component="span"
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
@@ -320,8 +317,7 @@ export default function Header({ itemCart }: { itemCart: number }) {
             <Typography
               variant="h5"
               noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
+              component="span"
               sx={{
                 mr: 2,
                 display: { xs: "flex", md: "none" },

@@ -60,7 +60,7 @@ const ContactInfoComponent = React.memo(
             }}
             id="filled-basic"
             label={input.title}
-            value={input.value}
+            value={input.value || ""}
             onChange={input.onChange}
             variant="filled"
             disabled={input.disabled}
@@ -239,77 +239,6 @@ export default function ContactInfo({
               }}
             >
               {contactInformation.map((input) => (
-                // <div
-                //   style={{ marginBottom: 74, marginRight: 51 }}
-                //   key={input.id}
-                // >
-                //   <Typography fontSize={32}>{input.title}</Typography>
-                //   <div
-                //     style={{
-                //       display: "flex",
-                //       flexDirection: "row-reverse",
-                //       alignItems: "center",
-                //     }}
-                //   >
-                //     <TextField
-                //       sx={{ width: 350, input: { color: "#FFFFFF" } }}
-                //       InputLabelProps={{
-                //         sx: {
-                //           color: "#FFFFFF",
-                //           fontSize: "18px",
-                //         },
-                //       }}
-                //       id="filled-basic"
-                //       label={input.title}
-                //       value={input.value}
-                //       onChange={input.onChange}
-                //       variant="filled"
-                //       disabled={input.disabled}
-                //     />
-
-                //     {/*  ICON  */}
-
-                //     <Box
-                //       sx={{
-                //         display: "flex",
-                //         flexWrap: "wrap",
-                //         "& > :not(style)": {
-                //           m: 1,
-                //           width: 48,
-                //           height: 55,
-                //         },
-                //         opacity: "0.3",
-                //       }}
-                //     >
-                //       <Paper
-                //         elevation={3}
-                //         sx={{
-                //           background: "#000000",
-                //           display: "flex",
-                //           justifyContent: "center",
-                //           alignItems: "center",
-                //         }}
-                //       >
-                //         <Button
-                //           sx={{ height: 55 }}
-                //           onClick={() => {
-                //             handleChangeInformation();
-                //           }}
-                //           disabled={input.disabled}
-                //         >
-                //           <CreateIcon
-                //             sx={{
-                //               color: "#ffffffff",
-                //               width: 20,
-                //               height: 20,
-                //             }}
-                //           />
-                //         </Button>
-                //       </Paper>
-                //     </Box>
-                //     {/*  ICON  */}
-                //   </div>
-                // </div>
                 <ContactInfoComponent
                   key={input.id}
                   input={input}
