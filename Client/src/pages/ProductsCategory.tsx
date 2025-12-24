@@ -277,13 +277,12 @@ const FilterSection = React.memo(
             value={[priceFilter.minValue, priceFilter.maxValue]}
             min={100}
             max={7000}
-            onChange={(newValue) => {
-              if (Array.isArray(newValue)) {
-                handleFilterProduct({
-                  minV: newValue[0],
-                  maxV: newValue[1],
-                });
-              }
+            onChange={(newValue: any) => {
+              console.log(newValue.target.value[1]);
+              handleFilterProduct({
+                minV: newValue.target.value[0],
+                maxV: newValue.target.value[1],
+              });
             }}
           />
         </CardActions>
@@ -363,7 +362,7 @@ export default function ProductsCategory() {
   const [artists, setArtists] = React.useState<any>(phonesnewArrival);
   const [priceFilter, setPriceFilter] = React.useState<any>({
     minValue: 100,
-    maxValue: 5000,
+    maxValue: 6000,
   });
   // USESTATE //
 
@@ -425,6 +424,7 @@ export default function ProductsCategory() {
       maxV = 5500,
     }: FilterOptions) => {
       setPriceFilter({ minValue: minV, maxValue: maxV });
+      console.log(minV);
 
       let checkTheBrand = () =>
         test.filter(
@@ -470,6 +470,8 @@ export default function ProductsCategory() {
             selectedCategory={selectedCategory}
             selectedBrand={selectedBrand}
             priceFilter={priceFilter}
+            minValue={priceFilter.minValue}
+            maxValue={priceFilter.maxValue}
           />
 
           {/* FILTER PRODUCT */}
@@ -484,6 +486,7 @@ export default function ProductsCategory() {
           >
             {artists.map((Product: any) => (
               <Products
+                key={Product.id}
                 product={Product}
                 onAddToCart={handleAddToCart}
                 handleAddNumber={handleAdd}
