@@ -313,12 +313,11 @@ export default function CartFull() {
                   {addToCart.map((product) => (
                     <div key={product.id}>
                       {/* ITEMS ADDED TO CART */}
-                      <div
-                        style={{
+                      <Box
+                        sx={{
                           display: "flex",
                           justifyContent: "space-around",
                           alignItems: "center",
-                          width: "50vh",
                         }}
                       >
                         <div
@@ -341,10 +340,20 @@ export default function CartFull() {
                           />
                         </div>
 
-                        <Typography sx={{ color: "#FFFFFF" }}>
+                        <Typography
+                          sx={{
+                            color: "#FFFFFF",
+                            fontSize: { xs: "0.5rem", sm: "1rem", md: "1rem" },
+                          }}
+                        >
                           {product.nameProduct}
                         </Typography>
-                        <Typography sx={{ color: "#FFFFFF" }}>
+                        <Typography
+                          sx={{
+                            color: "#FFFFFF",
+                            fontSize: { xs: "0.5rem", sm: "1rem", md: "1rem" },
+                          }}
+                        >
                           $ {product.price}
                         </Typography>
                         <Button
@@ -355,7 +364,7 @@ export default function CartFull() {
                         >
                           <HighlightOffIcon />
                         </Button>
-                      </div>
+                      </Box>
                       {/* ITEMS ADDED TO CART */}
                     </div>
                   ))}

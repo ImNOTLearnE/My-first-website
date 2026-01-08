@@ -150,15 +150,13 @@ export default function ProductGrid() {
             className="swiper-slide"
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
-            // onSlideChange={() => console.log("slide change")}
-            // onSwiper={(swiper) => console.log(swiper)}
           >
             {Products.slice(0, 3).map((Product) => (
               <SwiperSlide key={Product.id}>
                 <Card
                   className={itemFall}
                   sx={{
-                    width: { xs: "30vw", md: "18vw", lg: "11vw" },
+                    width: { xs: "25vw", md: "18vw", lg: "11vw" },
                     overflow: "visible",
                     borderRadius: "25px",
                     backgroundColor: "#363636ff",
@@ -169,9 +167,9 @@ export default function ProductGrid() {
                   <div style={{ display: "flex", justifyContent: "center" }}>
                     <CardMedia
                       sx={{
-                        height: 150,
-                        width: 150,
-                        backgroundImage: "contain",
+                        height: { xs: "22vw", md: "18vw", lg: "8vw" },
+                        width: { xs: "22vw", md: "18vw", lg: "7vw" },
+                        backgroundImage: "cover",
                       }}
                       image={Product.imageProduct}
                       title={Product.nameProduct}
@@ -183,7 +181,7 @@ export default function ProductGrid() {
                       variant="body2"
                       sx={{
                         color: "#FFFFFF",
-                        fontSize: { xs: "1rem", sm: "1rem", md: "1rem" },
+                        fontSize: { xs: "0.5rem", sm: "1rem", md: "1rem" },
                       }}
                     >
                       {Product.nameProduct}

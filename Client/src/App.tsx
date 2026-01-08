@@ -543,27 +543,30 @@ function App() {
       phonesBestSaller: [
         {
           id: uuidv4(),
-          nameProduct: "Huawei Mate 20 pro",
-          price: 400,
-          imageProduct: HuaweiMate20pro,
+          nameProduct: "Oppo Reno 12 Pro",
+          price: 666,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/c_pad,w_150,h_150/v1760106470/Oppo%20Reno%2012%20Pro.png",
           category: "phones",
           isBrand: true,
           brand: "Huawei",
         },
         {
           id: uuidv4(),
-          nameProduct: "Samsung Galaxy Fold 7",
-          price: 700,
-          imageProduct: SamsungGalaxyFold7,
+          nameProduct: "Xiaomi 15 Pro",
+          price: 748,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/e_background_removal/c_pad,w_150,h_150,f_png/v1760105478/Xiaomi%2015%20Pro-2.png",
           category: "phones",
           isBrand: true,
           brand: "Samsung",
         },
         {
           id: uuidv4(),
-          nameProduct: "Xiaomi M 11",
-          price: 460,
-          imageProduct: XiaomiM11,
+          nameProduct: "OnePlus 13",
+          price: 626,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/c_pad,w_150,h_150/v1760105868/OnePlus%2013.png",
           category: "phones",
           isBrand: true,
           brand: "Xiaomi",

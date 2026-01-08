@@ -108,8 +108,14 @@ export default function SingUp() {
         </Snackbar>
         <Card
           sx={{
-            width: "39vw",
-            height: "70vh",
+            width: {
+              xs: "90vw",
+              sm: "70vw",
+              md: "50vw",
+              lg: "40vw",
+              xl: "39vw",
+            },
+            height: { xs: "70vh", sm: "70vh", md: "65vh", lg: "60vh" },
             background:
               "linear-gradient(178deg,hsla(0, 0%, 21%, 0.50) 0%, rgba(38, 166, 154, 0.6) 100%)",
             position: "absolute",
@@ -162,7 +168,7 @@ export default function SingUp() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: "3.5vw",
+                        width: { sx: "3.5vw", sm: "4vw", md: "4vw" },
                         height: 70,
                       },
                       opacity: "0.3",
@@ -203,7 +209,7 @@ export default function SingUp() {
                     sx={{
                       backgroundColor: "rgba(0, 0, 0, 0.3)",
                       "& > :not(style)": {
-                        width: "19.4vw",
+                        width: { sx: "50vw", sm: "30vw", md: "19.4vw" },
                         height: 70,
                         color: "rgba(255, 255, 255, 0.3)",
                       },
@@ -229,7 +235,7 @@ export default function SingUp() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: "3.5vw",
+                        width: { sx: "3.5vw", sm: "4vw", md: "4vw" },
                         height: 70,
                       },
                       opacity: "0.3",
@@ -270,7 +276,7 @@ export default function SingUp() {
                     sx={{
                       backgroundColor: "rgba(0, 0, 0, 0.3)",
                       "& > :not(style)": {
-                        width: "19.4vw",
+                        width: { sx: "50vw", sm: "30vw", md: "19.4vw" },
                         height: 70,
                         color: "rgba(255, 255, 255, 0.3)",
                       },
@@ -296,7 +302,7 @@ export default function SingUp() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: "3.5vw",
+                        width: { sx: "3.5vw", sm: "4vw", md: "4vw" },
                         height: 70,
                       },
                       opacity: "0.3",
@@ -337,7 +343,7 @@ export default function SingUp() {
                     sx={{
                       backgroundColor: "rgba(0, 0, 0, 0.3)",
                       "& > :not(style)": {
-                        width: "19.4vw",
+                        width: { sx: "50vw", sm: "30vw", md: "19.4vw" },
                         height: 70,
                         color: "rgba(255, 255, 255, 0.3)",
                       },
@@ -378,14 +384,6 @@ export default function SingUp() {
             />
           </div>
         </Card>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div>
-            <div className="curve"></div>
-          </div>
-          <div>
-            <div className="curveL"></div>
-          </div>
-        </div>
       </ThemeProvider>
     </>
   );
