@@ -177,6 +177,7 @@ export default function CartFull() {
     const total = addToCart.reduce((acc, product) => acc + product.price, 0);
     return total;
   }
+  const VAT = (Total() * 15) / 100 + Total();
 
   return (
     <>
@@ -204,9 +205,9 @@ export default function CartFull() {
               <Stack spacing={2}>
                 <Item
                   sx={{
-                    height: "100%",
+                    height: "90%",
                     boxSizing: "border-box",
-                    paddingBottom: "30vh",
+                    paddingBottom: "10vh",
                     background:
                       "linear-gradient(178deg,rgba(54, 54, 54, 0.5) 0%, rgba(38, 166, 154, 0.6) 100%)",
                     boxShadow:
@@ -220,7 +221,7 @@ export default function CartFull() {
                     variant="standard"
                     name="email"
                     onChange={changeHandler}
-                    sx={{ width: "100%", marginBottom: "40px" }}
+                    sx={{ width: "100%", marginBottom: "5vh" }}
                   />
                   <Typography>{t("Adderss")}</Typography>
                   <TextField
@@ -229,10 +230,37 @@ export default function CartFull() {
                     variant="filled"
                     name="adderss"
                     onChange={changeHandler}
-                    sx={{ width: "100%" }}
+                    sx={{ width: "100%", marginBottom: "5vh" }}
+                  />
+                  <Typography>{t("First name")}</Typography>
+                  <TextField
+                    id="outlined-basic"
+                    label="First name"
+                    variant="filled"
+                    name="First name"
+                    onChange={changeHandler}
+                    sx={{ width: "100%", marginBottom: "5vh" }}
+                  />
+                  <Typography>{t("Last name")}</Typography>
+                  <TextField
+                    id="outlined-basic"
+                    label="Last name"
+                    variant="filled"
+                    name="Last name"
+                    onChange={changeHandler}
+                    sx={{ width: "100%", marginBottom: "5vh" }}
+                  />
+                  <Typography>{t("City")}</Typography>
+                  <TextField
+                    id="outlined-basic"
+                    label="City"
+                    variant="filled"
+                    name="City"
+                    onChange={changeHandler}
+                    sx={{ width: "100%", marginBottom: "5vh" }}
                   />
 
-                  <Grid
+                  {/* <Grid
                     container
                     rowSpacing={2}
                     columnSpacing={{ xs: 1, sm: 2, md: 30 }}
@@ -282,7 +310,7 @@ export default function CartFull() {
                         onChange={changeHandler}
                       />
                     </Grid>
-                  </Grid>
+                  </Grid> */}
                 </Item>
               </Stack>
             </Grid>
@@ -374,7 +402,7 @@ export default function CartFull() {
                   {t("Total")}: $ {Total()}
                 </Typography>
                 <Typography sx={{ color: "#FFFFFF" }}>
-                  {t("total after Tax:")} $42
+                  {t("total after Tax:")} {VAT}
                 </Typography>
                 <Typography sx={{ color: "#FFFFFF" }}>
                   {t("shipping:")} {t("Free")}

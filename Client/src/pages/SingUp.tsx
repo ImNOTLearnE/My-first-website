@@ -115,11 +115,11 @@ export default function SingUp() {
               lg: "40vw",
               xl: "39vw",
             },
-            height: { xs: "100vh", sm: "70vh", md: "70vh", lg: "70vh" },
+            height: { xs: "100vh", sm: "80vh", md: "80vh", lg: "80vh" },
             background:
               "linear-gradient(178deg,hsla(0, 0%, 21%, 0.50) 0%, rgba(38, 166, 154, 0.6) 100%)",
             position: "absolute",
-            top: { xs: " 70%", sm: " 60%", md: " 50%" },
+            top: { xs: " 60%", sm: " 55%", md: " 55%", lg: "55%" },
             left: " 50%",
             transform: "translate(-50%, -50%)",
           }}

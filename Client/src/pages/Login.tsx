@@ -110,7 +110,7 @@ export default function Login() {
               lg: "40vw",
               xl: "39vw",
             },
-            height: { xs: "70vh", sm: "70vh", md: "65vh", lg: "60vh" },
+            height: { xs: "90vh", sm: "65vh", md: "65vh", lg: "64vh" },
             background:
               "linear-gradient(178deg,rgba(54, 54, 54, 0.5) 0%, rgba(38, 166, 154, 0.6) 100%)",
 
@@ -120,7 +120,7 @@ export default function Login() {
                 "5px 5px 20px 0px rgba(54, 54, 54, 0.7), 5px 5px 20px 0px rgba(38, 166, 153, 0.8)",
             },
             position: "absolute",
-            top: "50%",
+            top: { xs: " 60%", sm: "50%", md: "50%", lg: "50%" },
             left: " 50%",
             transform: "translate(-50%, -50%)",
           }}
@@ -229,7 +229,7 @@ export default function Login() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: "4.5vw",
+                        width: { sx: "3.5vw", sm: "4vw", md: "4vw" },
                         height: 70,
                       },
                       opacity: "0.3",
