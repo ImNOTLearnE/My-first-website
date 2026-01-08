@@ -23,10 +23,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // IAMGE
 import banner from "./assets/banner2.png";
 
-import HuaweiMate20pro from "./assets/Huawei Mate 20 pro.png";
-import SamsungGalaxyFold7 from "./assets/Samsung Galaxy Fold 7.png";
-import XiaomiM11 from "./assets/Xiaomi M 11.png";
-
 // USE ULID LIBRARY //
 import { v4 as uuidv4 } from "uuid";
 // USE ULID LIBRARY //
