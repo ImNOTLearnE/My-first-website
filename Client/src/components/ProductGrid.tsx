@@ -28,6 +28,10 @@ import {
   Autoplay,
 } from "swiper/modules";
 
+// USE ULID LIBRARY //
+import { v4 as uuidv4 } from "uuid";
+// USE ULID LIBRARY //
+
 // Import Swiper styles
 
 // CONTEXT
@@ -73,7 +77,7 @@ export default function ProductGrid() {
       return [
         ...addToCart,
         {
-          id: productAdd.id,
+          id: uuidv4(),
           nameProduct: productAdd.nameProduct,
           price: productAdd.price,
           imageProduct: productAdd.imageProduct,

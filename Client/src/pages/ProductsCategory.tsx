@@ -29,6 +29,10 @@ import { InTheCart } from "../Context/InTheCart";
 // i18n
 import { useTranslation } from "react-i18next";
 
+// USE ULID LIBRARY //
+import { v4 as uuidv4 } from "uuid";
+// USE ULID LIBRARY //
+
 //CSS CLASS
 import "../Styles/ResponsiveProductsCategoty.css";
 
@@ -348,7 +352,7 @@ export default function ProductsCategory() {
   const { setCartCount } = React.useContext(CartContext);
   const { phonesnewArrival, headphonesNewArrival } =
     React.useContext(ProducstContext);
-  const { setAddToCart } = React.useContext(InTheCart);
+  const { setAddToCart, addToCart } = React.useContext(InTheCart);
   // UESCONTEXT //
 
   // USESTATE //
@@ -386,12 +390,26 @@ export default function ProductsCategory() {
   // ADD THE NUMBER FOR CART //
 
   // ADD THE PRODUCT FOR CART //
-  const handleAddToCart = useCallback(
-    (productAdd: any) => {
-      setAddToCart((prev: any) => [...prev, productAdd]);
-    },
-    [setAddToCart] // هنا نحدد الـ dependencies
-  );
+  // const handleAddToCart = useCallback(
+  //   (productAdd: any) => {
+  //     setAddToCart((prev: any) => [...prev, productAdd]);
+  //   },
+  //   [setAddToCart] // هنا نحدد الـ dependencies
+  // );
+
+  function handleAddToCart(productAdd: any) {
+    setAddToCart(() => {
+      return [
+        ...addToCart,
+        {
+          id: uuidv4(),
+          nameProduct: productAdd.nameProduct,
+          price: productAdd.price,
+          imageProduct: productAdd.imageProduct,
+        },
+      ];
+    });
+  }
   // ADD THE PRODUCT FOR CART //
 
   // HERE, THE DISPLAYED PRODUCTS ARE UPDATED BASED ON THE FILTERING SYSTEM //
