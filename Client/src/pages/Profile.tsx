@@ -29,7 +29,7 @@ export default function Profile() {
 
   React.useEffect(() => {
     axios
-      .post("http://localhost:3000/usersInformation", {
+      .post("https://my-first-website-rgi1.onrender.com/usersInformation", {
         userToken: localStorage.getItem("token"),
       })
       .then(async (response) => {
