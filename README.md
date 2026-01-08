@@ -28,3 +28,7 @@ https://myfirstwebsitestore.netlify.app/
 
 - 📦 Product Page
 <img width="1807" height="1007" alt="لقطة شاشة 2026-01-08 184909" src="https://github.com/user-attachments/assets/549e616b-24b1-4b57-9439-d37b6ea931d1" />
+
+- 🛒 Cart Page
+<img width="1774" height="1000" alt="لقطة شاشة 2026-01-09 021638" src="https://github.com/user-attachments/assets/0f4a11c4-6df0-4dea-a518-54f57f0883fb" />
+
