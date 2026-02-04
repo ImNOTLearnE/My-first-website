@@ -99,14 +99,7 @@ const phonesBrands = [
   "All",
 ];
 
-const categorys = [
-  "Phones",
-  "Watches",
-  "Camera",
-  "Headphones",
-  "Computers",
-  "Gaming",
-];
+const categorys = ["Phones", "Watches", "Cameras", "Headphones", "laptops"];
 
 const Products = React.memo(
   ({ product, onAddToCart, handleAddNumber, ratingProdect }: any) => {
@@ -173,7 +166,7 @@ const Products = React.memo(
         </CardActions>
       </Grid>
     );
-  }
+  },
 );
 
 const MemoizedCategoryName = React.memo(({ selectedCategory, t }: any) => {
@@ -280,7 +273,7 @@ const FilterSection = React.memo(
             }
             value={[priceFilter.minValue, priceFilter.maxValue]}
             min={100}
-            max={7000}
+            max={20000}
             onChange={(newValue: any) => {
               console.log(newValue.target.value[1]);
               handleFilterProduct({
@@ -344,14 +337,19 @@ const FilterSection = React.memo(
         {/* FOR TO SET OFFERS */}
       </Card>
     );
-  }
+  },
 );
 
 export default function ProductsCategory() {
   // UESCONTEXT //
   const { setCartCount } = React.useContext(CartContext);
-  const { phonesnewArrival, headphonesNewArrival } =
-    React.useContext(ProducstContext);
+  const {
+    phonesnewArrival,
+    headphonesNewArrival,
+    watchesNewArrival,
+    camerasNewArrival,
+    laptopsNewArrival,
+  } = React.useContext(ProducstContext);
   const { setAddToCart, addToCart } = React.useContext(InTheCart);
   // UESCONTEXT //
 
@@ -366,7 +364,7 @@ export default function ProductsCategory() {
   const [artists, setArtists] = React.useState<any>(phonesnewArrival);
   const [priceFilter, setPriceFilter] = React.useState<any>({
     minValue: 100,
-    maxValue: 6000,
+    maxValue: 15000,
   });
   // USESTATE //
 
@@ -376,7 +374,7 @@ export default function ProductsCategory() {
   const handleAdd = useCallback(
     (productId: Number) => {
       const productToAdd = artists.find(
-        (product: any) => product.id === productId
+        (product: any) => product.id === productId,
       );
 
       if (productToAdd) {
@@ -385,7 +383,7 @@ export default function ProductsCategory() {
         });
       }
     },
-    [artists, setCartCount]
+    [artists, setCartCount],
   );
   // ADD THE NUMBER FOR CART //
 
@@ -448,12 +446,12 @@ export default function ProductsCategory() {
         test.filter(
           (t: any) =>
             (t.brand === nameFilter && maxV >= t.price && minV <= t.price) ||
-            (nameFilter == "All" && maxV >= t.price && minV <= t.price)
+            (nameFilter == "All" && maxV >= t.price && minV <= t.price),
         );
       setSelectedBrand(nameFilter);
       setArtists(checkTheBrand);
     },
-    [selectedBrand, test]
+    [selectedBrand, test],
   );
 
   // HERE, THE DISPLAYED PRODUCTS ARE UPDATED BASED ON THE FILTERING SYSTEM //
@@ -468,9 +466,21 @@ export default function ProductsCategory() {
         setTest(headphonesNewArrival);
         setArtists(headphonesNewArrival);
         setSelectedCategory(category);
+      } else if (category === "Watches") {
+        setTest(watchesNewArrival);
+        setArtists(watchesNewArrival);
+        setSelectedCategory(category);
+      } else if (category === "Cameras") {
+        setTest(camerasNewArrival);
+        setArtists(camerasNewArrival);
+        setSelectedCategory(category);
+      } else if (category === "laptops") {
+        setTest(laptopsNewArrival);
+        setArtists(laptopsNewArrival);
+        setSelectedCategory(category);
       }
     },
-    [headphonesNewArrival, phonesnewArrival]
+    [headphonesNewArrival, phonesnewArrival],
   );
   return (
     <>

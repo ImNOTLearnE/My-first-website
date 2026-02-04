@@ -776,6 +776,504 @@ function App() {
         },
       ],
     },
+    watches: {
+      watchesNewArrival: [
+        {
+          id: uuidv4(),
+          nameProduct: "Apple Watch Ultra 3",
+          price: 3999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770214061/Apple%20Watch%20Ultra%203-2.png",
+          category: "smartwatch",
+          isBrand: true,
+          brand: "Apple",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Apple Watch Series 11",
+          price: 1999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770214126/Apple%20Watch%20Series%2011.png",
+          category: "smartwatch",
+          isBrand: true,
+          brand: "Apple",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Apple Watch SE 3",
+          price: 1299,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770214172/Apple%20Watch%20SE%203.png",
+          category: "smartwatch",
+          isBrand: true,
+          brand: "Apple",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Samsung Galaxy Watch 8",
+          price: 1499,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770214252/Samsung%20Galaxy%20Watch%208.png",
+          category: "smartwatch",
+          isBrand: true,
+          brand: "Samsung",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Samsung Galaxy Watch Ultra",
+          price: 2199,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770214287/Samsung%20Galaxy%20Watch%20Ultra.png",
+          category: "smartwatch",
+          isBrand: true,
+          brand: "Samsung",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Google Pixel Watch 3",
+          price: 1599,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770214341/google-watch-2024-45mm-obsidian_bd1gxe.webp",
+          category: "smartwatch",
+          isBrand: true,
+          brand: "Google",
+        },
+
+        {
+          id: uuidv4(),
+          nameProduct: "Huawei Watch GT 5",
+          price: 999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770215108/Huawei%20Watch%20GT%205.png",
+          category: "smartwatch",
+          isBrand: true,
+          brand: "Huawei",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Huawei Watch 5 Pro",
+          price: 1499,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770214492/Huawei%20Watch%205%20Pro.png",
+          category: "smartwatch",
+          isBrand: true,
+          brand: "Huawei",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Xiaomi Watch S3",
+          price: 699,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770214541/Xiaomi%20Watch%20S3.png",
+          category: "smartwatch",
+          isBrand: true,
+          brand: "Xiaomi",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Xiaomi Watch 2 Pro",
+          price: 899,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770214623/Xiaomi%20Watch%202%20Pro.png",
+          category: "smartwatch",
+          isBrand: true,
+          brand: "Xiaomi",
+        },
+
+        {
+          id: uuidv4(),
+          nameProduct: "OnePlus Watch 2",
+          price: 999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770214814/OnePlus%20Watch%202.png",
+          category: "smartwatch",
+          isBrand: true,
+          brand: "OnePlus",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Realme Watch 3 Pro",
+          price: 499,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770214864/Realme%20Watch%203%20Pro.png",
+          category: "smartwatch",
+          isBrand: true,
+          brand: "Realme",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Fitbit Sense 3",
+          price: 1199,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770214949/Fitbit%20Sense%203.png",
+          category: "smartwatch",
+          isBrand: true,
+          brand: "Fitbit",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Fitbit Versa 5",
+          price: 899,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770214990/Fitbit%20Versa%205.png",
+          category: "smartwatch",
+          isBrand: true,
+          brand: "Fitbit",
+        },
+      ],
+      watchesBestSaller: [
+        {
+          id: uuidv4(),
+          nameProduct: "Razer Kraken V3",
+          price: 3000,
+          imageProduct: banner,
+          category: "headphones",
+          isBrand: true,
+          brand: "Razer",
+        },
+      ],
+    },
+    cameras: {
+      camerasNewArrival: [
+        {
+          id: uuidv4(),
+          nameProduct: "Sony A1 II",
+          price: 18999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770215649/Sony%20A1%20II.png",
+          category: "camera",
+          isBrand: true,
+          brand: "Sony",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Sony A7 IV",
+          price: 8999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770215695/Sony%20A7%20IV.webp",
+          category: "camera",
+          isBrand: true,
+          brand: "Sony",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Canon EOS R1",
+          price: 16999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770215878/Canon%20EOS%20R1.png",
+          category: "camera",
+          isBrand: true,
+          brand: "Canon",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Canon EOS R5 II",
+          price: 11999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770215845/Canon%20EOS%20R5%20II.png",
+          category: "camera",
+          isBrand: true,
+          brand: "Canon",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Canon EOS R6 II",
+          price: 7999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770215907/Canon%20EOS%20R6%20II.png",
+          category: "camera",
+          isBrand: true,
+          brand: "Canon",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Nikon Z9",
+          price: 15999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770215964/Nikon%20Z9.png",
+          category: "camera",
+          isBrand: true,
+          brand: "Nikon",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Nikon Z8",
+          price: 10999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770215989/Nikon%20Z8.png",
+          category: "camera",
+          isBrand: true,
+          brand: "Nikon",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Nikon Z6 III",
+          price: 6999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770216029/Nikon%20Z6%20III.png",
+          category: "camera",
+          isBrand: true,
+          brand: "Nikon",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Leica Q3",
+          price: 23999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770224476/Leica%20Q3.png",
+          category: "camera",
+          isBrand: true,
+          brand: "Leica",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Leica SL3",
+          price: 28999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770224404/Leica%20SL3.png",
+          category: "camera",
+          isBrand: true,
+          brand: "Leica",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "GoPro Hero 13 Black",
+          price: 1999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770224365/GoPro%20Hero%2013%20Black.png",
+          category: "camera",
+          isBrand: true,
+          brand: "GoPro",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "DJI Osmo Action 5",
+          price: 1799,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770224271/DJI%20Osmo%20Action%205.png",
+          category: "camera",
+          isBrand: true,
+          brand: "DJI",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "DJI Pocket 3",
+          price: 2499,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770224293/DJI%20Pocket%203.png",
+          category: "camera",
+          isBrand: true,
+          brand: "DJI",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Insta360 X4",
+          price: 2299,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770224333/Insta360%20X4.png",
+          category: "camera",
+          isBrand: true,
+          brand: "Insta360",
+        },
+      ],
+      camerasBestSaller: [
+        {
+          id: uuidv4(),
+          nameProduct: "Razer Kraken V3",
+          price: 3000,
+          imageProduct: banner,
+          category: "headphones",
+          isBrand: true,
+          brand: "Razer",
+        },
+      ],
+    },
+    laptops: {
+      laptopsNewArrival: [
+        {
+          id: uuidv4(),
+          nameProduct: "Apple MacBook Pro 16 M3 Max",
+          price: 12999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225032/Apple%20MacBook%20Pro%2016%20M3%20Max.png",
+          category: "laptop",
+          isBrand: true,
+          brand: "Apple",
+        },
+
+        {
+          id: uuidv4(),
+          nameProduct: "Apple MacBook Air 15 M3",
+          price: 6499,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225098/Apple%20MacBook%20Air%2015%20M3.png",
+          category: "laptop",
+          isBrand: true,
+          brand: "Apple",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Dell XPS 16 (2025)",
+          price: 8999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225137/Dell%20XPS%2016%20%282025%29.png",
+          category: "laptop",
+          isBrand: true,
+          brand: "Dell",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Dell XPS 14 (2025)",
+          price: 7499,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225164/Dell%20XPS%2014%20%282025%29.png",
+          category: "laptop",
+          isBrand: true,
+          brand: "Dell",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Dell Inspiron 16 Plus",
+          price: 4999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225188/Dell%20Inspiron%2016%20Plus.png",
+          category: "laptop",
+          isBrand: true,
+          brand: "Dell",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "HP Spectre x360 16",
+          price: 7999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225232/HP%20Spectre%20x360%2016.webp",
+          category: "laptop",
+          isBrand: true,
+          brand: "HP",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "HP Envy 16",
+          price: 5699,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225271/HP%20Envy%2016.webp",
+          category: "laptop",
+          isBrand: true,
+          brand: "HP",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "HP Omen 17",
+          price: 8999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225375/HP%20Omen%2017.png",
+          category: "laptop",
+          isBrand: true,
+          brand: "HP",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Lenovo Legion Pro 7i",
+          price: 8999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225422/Lenovo%20Legion%20Pro%207i.png",
+          category: "laptop",
+          isBrand: true,
+          brand: "Lenovo",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Lenovo Yoga Pro 9i",
+          price: 7499,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225444/Lenovo%20Yoga%20Pro%209i.png",
+          category: "laptop",
+          isBrand: true,
+          brand: "Lenovo",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Lenovo ThinkPad X1 Carbon Gen 12",
+          price: 8999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225466/Lenovo%20ThinkPad%20X1%20Carbon%20Gen%2012.png",
+          category: "laptop",
+          isBrand: true,
+          brand: "Lenovo",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Asus ROG Strix Scar 18",
+          price: 10999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225507/Asus%20ROG%20Strix%20Scar%2018.png",
+          category: "laptop",
+          isBrand: true,
+          brand: "Asus",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Asus ZenBook Pro 16X OLED",
+          price: 8999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225535/Asus%20ZenBook%20Pro%2016X%20OLED.png",
+          category: "laptop",
+          isBrand: true,
+          brand: "Asus",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Asus VivoBook S15 OLED",
+          price: 4499,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225560/Asus%20VivoBook%20S15%20OLED.png",
+          category: "laptop",
+          isBrand: true,
+          brand: "Asus",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "MSI Raider GE78 HX",
+          price: 10999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225607/MSI%20Raider%20GE78%20HX.png",
+          category: "laptop",
+          isBrand: true,
+          brand: "MSI",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "MSI Prestige 16 AI Evo",
+          price: 6999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225647/MSI%20Prestige%2016%20AI%20Evo.png",
+          category: "laptop",
+          isBrand: true,
+          brand: "MSI",
+        },
+        {
+          id: uuidv4(),
+          nameProduct: "Razer Blade 16",
+          price: 11999,
+          imageProduct:
+            "https://res.cloudinary.com/dji96h9oetest/image/upload/v1770225782/Razer%20Blade%2016%20%282025%29.png",
+          category: "laptop",
+          isBrand: true,
+          brand: "Razer",
+        },
+      ],
+      laptopsBestSaller: [
+        {
+          id: uuidv4(),
+          nameProduct: "Razer Kraken V3",
+          price: 3000,
+          imageProduct: banner,
+          category: "headphones",
+          isBrand: true,
+          brand: "Razer",
+        },
+      ],
+    },
   });
 
   const [addToCart, setAddToCart] = React.useState<any[]>([]);
@@ -785,6 +1283,12 @@ function App() {
   const phonesBestSaller = Products.phones.phonesBestSaller;
   const headphonesNewArrival = Products.headphones.headphonesNewArrival;
   const headphonesBestSaller = Products.headphones.headphonesBestSaller;
+  const watchesNewArrival = Products.watches.watchesNewArrival;
+  const watchesBestSaller = Products.watches.watchesBestSaller;
+  const camerasNewArrival = Products.cameras.camerasNewArrival;
+  const camerasBestSaller = Products.cameras.camerasBestSaller;
+  const laptopsNewArrival = Products.laptops.laptopsNewArrival;
+  const laptopsBestSaller = Products.laptops.laptopsBestSaller;
 
   return (
     <BrowserRouter>
@@ -797,6 +1301,13 @@ function App() {
             phonesBestSaller: phonesBestSaller,
             headphonesNewArrival: headphonesNewArrival,
             headphonesBestSaller: headphonesBestSaller,
+            watchesNewArrival: watchesNewArrival,
+            watchesBestSaller: watchesBestSaller,
+            camerasNewArrival: camerasNewArrival,
+            camerasBestSaller: camerasBestSaller,
+            laptopsNewArrival: laptopsNewArrival,
+            laptopsBestSaller: laptopsBestSaller,
+
             setProduct: setProduct,
           }}
         >

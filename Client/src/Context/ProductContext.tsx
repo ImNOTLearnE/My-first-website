@@ -5,6 +5,12 @@ type ProducstContextType = {
   phonesBestSaller: any[];
   headphonesNewArrival: any[];
   headphonesBestSaller: any[];
+  watchesNewArrival: any[];
+  watchesBestSaller: any[];
+  camerasNewArrival?: any[];
+  camerasBestSaller?: any[];
+  laptopNewArrival?: any[];
+  laptopBestSaller?: any[];
   setProduct: React.Dispatch<React.SetStateAction<any>>;
 };
 
@@ -13,5 +19,11 @@ export const ProducstContext = React.createContext<ProducstContextType>({
   phonesBestSaller: [],
   headphonesNewArrival: [],
   headphonesBestSaller: [],
+  watchesNewArrival: [],
+  watchesBestSaller: [],
+  camerasNewArrival: [],
+  camerasBestSaller: [],
+  laptopNewArrival: [],
+  laptopBestSaller: [],
   setProduct: () => {},
 });
