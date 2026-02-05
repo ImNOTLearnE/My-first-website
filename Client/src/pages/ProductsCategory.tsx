@@ -110,10 +110,9 @@ const Products = React.memo(
     return (
       <Grid
         key={product.id}
-        size={{ xs: 1, sm: 2.5, md: 3 }}
+        size={{ xs: 2.5, sm: 2.5, md: 2 }}
         className={"item fall"}
         sx={{
-          height: { xs: "40vw", sm: "35vw", md: "22vw" },
           paddingBottom: "10px",
           backgroundColor: "#363636ff",
           boxShadow:
@@ -124,31 +123,32 @@ const Products = React.memo(
         <Box>
           <CardMedia
             sx={{
-              height: { xs: "15vw", sm: "15vw", md: "10vw" },
-              width: { xs: "15vw", sm: "15vw", md: "10vw" },
-              display: "block",
-              marginRight: "auto",
-              marginLeft: "auto",
+              height: { xs: "20vw", sm: "15vw", md: "10vw" },
+              width: { xs: "20vw", sm: "15vw", md: "10vw" },
+              margin: "auto",
             }}
             image={product.imageProduct}
             title={product.nameProduct}
           />
+        </Box>
+
+        <Box>
           <CardContent>
             <Typography
               variant="body2"
-              sx={{ fontSize: "1vw", color: "#FFFFFF" }}
+              sx={{ fontSize: { xs: "3vw", md: "1vw" }, color: "#FFFFFF" }}
             >
               {product.nameProduct}
             </Typography>
             <Rating
-              sx={{ fontSize: "1vw" }}
               name="read-only"
               value={ratingProdect}
+              sx={{ fontSize: { xs: "3vw", md: "1vw" } }}
               readOnly
             />
             <Typography
               variant="body2"
-              sx={{ fontSize: "1vw", color: "#FFFFFF" }}
+              sx={{ fontSize: { xs: "3vw", md: "1vw" }, color: "#FFFFFF" }}
             >
               $ {product.price}
             </Typography>
@@ -170,7 +170,7 @@ const Products = React.memo(
             >
               <AddShoppingCartIcon
                 style={{
-                  padding: "2px",
+                  padding: "5px",
                   fontSize: "30",
                   color: "black",
                   width: "100%",
@@ -523,8 +523,8 @@ export default function ProductsCategory() {
         <Box className="card-product">
           <Grid
             container
-            spacing={{ xs: 2, md: 10 }}
-            columns={{ xs: 3, sm: 8, md: 16 }}
+            spacing={{ xs: 5, md: 10 }}
+            columns={{ xs: 5, sm: 8, md: 8 }}
           >
             {artists.map((Product: any) => (
               <Products
