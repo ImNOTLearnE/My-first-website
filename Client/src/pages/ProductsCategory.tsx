@@ -110,12 +110,10 @@ const Products = React.memo(
     return (
       <Grid
         key={product.id}
-        size={{ xs: 3, sm: 3, md: 3 }}
+        size={{ xs: 1, sm: 2.5, md: 3 }}
         className={"item fall"}
         sx={{
-          maxWidth: 345,
-          minWidth: 200,
-          marginLeft: "121px",
+          height: { xs: "40vw", sm: "35vw", md: "22vw" },
           paddingBottom: "10px",
           backgroundColor: "#363636ff",
           boxShadow:
@@ -123,47 +121,64 @@ const Products = React.memo(
           borderRadius: "25px",
         }}
       >
-        <CardMedia
-          sx={{
-            height: 150,
-            width: 150,
-            marginLeft: "25px",
-            marginRight: "20px",
-          }}
-          image={product.imageProduct}
-          title={product.nameProduct}
-        />
-        <CardContent>
-          <Typography variant="body2" sx={{ color: "#FFFFFF" }}>
-            {product.nameProduct}
-          </Typography>
-          <Rating name="read-only" value={ratingProdect} readOnly />
-          <Typography variant="body2" sx={{ color: "#FFFFFF" }}>
-            $ {product.price}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button
-            onClick={() => {
-              handleClick();
-              handleAddNumber(product.id);
+        <Box>
+          <CardMedia
+            sx={{
+              height: { xs: "15vw", sm: "15vw", md: "10vw" },
+              width: { xs: "15vw", sm: "15vw", md: "10vw" },
+              display: "block",
+              marginRight: "auto",
+              marginLeft: "auto",
             }}
-            style={{
-              backgroundColor: "#26A69A",
-              borderRadius: "25px",
-              width: "100%",
-            }}
-          >
-            <AddShoppingCartIcon
+            image={product.imageProduct}
+            title={product.nameProduct}
+          />
+          <CardContent>
+            <Typography
+              variant="body2"
+              sx={{ fontSize: "1vw", color: "#FFFFFF" }}
+            >
+              {product.nameProduct}
+            </Typography>
+            <Rating
+              sx={{ fontSize: "1vw" }}
+              name="read-only"
+              value={ratingProdect}
+              readOnly
+            />
+            <Typography
+              variant="body2"
+              sx={{ fontSize: "1vw", color: "#FFFFFF" }}
+            >
+              $ {product.price}
+            </Typography>
+          </CardContent>
+        </Box>
+
+        <Box>
+          <CardActions>
+            <Button
+              onClick={() => {
+                handleClick();
+                handleAddNumber(product.id);
+              }}
               style={{
-                padding: "5px",
-                fontSize: "30",
-                color: "black",
+                backgroundColor: "#26A69A",
+                borderRadius: "25px",
                 width: "100%",
               }}
-            />
-          </Button>
-        </CardActions>
+            >
+              <AddShoppingCartIcon
+                style={{
+                  padding: "2px",
+                  fontSize: "30",
+                  color: "black",
+                  width: "100%",
+                }}
+              />
+            </Button>
+          </CardActions>
+        </Box>
       </Grid>
     );
   },
