@@ -110,12 +110,12 @@ const Products = React.memo(
     return (
       <Grid
         key={product.id}
-        size={{ xs: 3, sm: 3, md: 3 }}
+        size={{ xs: 1, sm: 2, md: 3 }}
         className={"item fall"}
         sx={{
           maxWidth: 345,
-          minWidth: 200,
-          marginLeft: "121px",
+          minWidth: { xs: 50, sm: 120, md: 200 },
+          marginLeft: "6vw",
           paddingBottom: "10px",
           backgroundColor: "#363636ff",
           boxShadow:
@@ -125,10 +125,12 @@ const Products = React.memo(
       >
         <CardMedia
           sx={{
-            height: 150,
-            width: 150,
-            marginLeft: "25px",
-            marginRight: "20px",
+            height: { xs: 100, sm: 120, md: 150 },
+            width: { xs: 100, sm: 120, md: 150 },
+            display: "block",
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginTop: "10px",
           }}
           image={product.imageProduct}
           title={product.nameProduct}
@@ -137,7 +139,12 @@ const Products = React.memo(
           <Typography variant="body2" sx={{ color: "#FFFFFF" }}>
             {product.nameProduct}
           </Typography>
-          <Rating name="read-only" value={ratingProdect} readOnly />
+          <Rating
+            // sx={{ width: 10 }}
+            name="read-only"
+            value={ratingProdect}
+            readOnly
+          />
           <Typography variant="body2" sx={{ color: "#FFFFFF" }}>
             $ {product.price}
           </Typography>
@@ -491,7 +498,6 @@ export default function ProductsCategory() {
           {/* CATEGORY NAME */}
 
           {/* FILTER PRODUCT */}
-
           <FilterSection
             handleFilterCategory={handleFilterCategory}
             handleFilterProduct={handleFilterProduct}
