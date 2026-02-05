@@ -113,7 +113,6 @@ const Products = React.memo(
         size={{ xs: 2.5, sm: 2.5, md: 2 }}
         className={"item fall"}
         sx={{
-          paddingBottom: "10px",
           backgroundColor: "#363636ff",
           boxShadow:
             "0 4px 8px 0 rgba(0, 0, 0, 0.28), 0 6px 20px 0 rgba(0, 0, 0, 0.77)",
