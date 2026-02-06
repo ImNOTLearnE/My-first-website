@@ -117,6 +117,9 @@ const Products = React.memo(
           boxShadow:
             "0 4px 8px 0 rgba(0, 0, 0, 0.28), 0 6px 20px 0 rgba(0, 0, 0, 0.77)",
           borderRadius: "25px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
         }}
       >
         <Box>
@@ -155,13 +158,13 @@ const Products = React.memo(
         </Box>
 
         <Box>
-          <CardActions>
+          <CardActions sx={{}}>
             <Button
               onClick={() => {
                 handleClick();
                 handleAddNumber(product.id);
               }}
-              style={{
+              sx={{
                 backgroundColor: "#26A69A",
                 borderRadius: "25px",
                 width: "100%",
@@ -236,10 +239,10 @@ const FilterSection = React.memo(
           <Typography
             sx={{
               fontSize: {
-                xs: "18px", // موبايل
-                sm: "24px", // تابلت
-                md: "32px", // لابتوب
-                lg: "34px", // شاشات كبيرة
+                xs: "18px",
+                sm: "24px",
+                md: "32px",
+                lg: "34px",
               },
             }}
             marginBottom={2}
@@ -252,13 +255,13 @@ const FilterSection = React.memo(
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1-content"
               id="panel1-header"
-              sx={{ backgroundColor: "#AFAFAF" }}
+              sx={{ backgroundColor: "#00796B" }}
             >
               <Typography component="span">{selectedCategory}</Typography>
             </AccordionSummary>
             {categorys.map((category) => (
               <AccordionDetails
-                sx={{ backgroundColor: "#AFAFAF" }}
+                sx={{ backgroundColor: "#363636" }}
                 key={category}
               >
                 <Button
@@ -266,6 +269,7 @@ const FilterSection = React.memo(
                     handleFilterCategory(category);
                   }}
                   size="small"
+                  sx={{ color: "#00796B" }}
                 >
                   {category}
                 </Button>
@@ -309,13 +313,13 @@ const FilterSection = React.memo(
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1-content"
               id="panel1-header"
-              sx={{ backgroundColor: "#AFAFAF" }}
+              sx={{ backgroundColor: "#00796B" }}
             >
               <Typography component="span">{selectedBrand}</Typography>
             </AccordionSummary>
             {phonesBrands.map((phoneBrand) => (
               <AccordionDetails
-                sx={{ backgroundColor: "#AFAFAF" }}
+                sx={{ backgroundColor: "#363636" }}
                 key={phoneBrand}
               >
                 <Button
@@ -323,6 +327,7 @@ const FilterSection = React.memo(
                     handleFilterProduct({ nameFilter: phoneBrand });
                   }}
                   size="small"
+                  sx={{ color: "#00796B" }}
                 >
                   {phoneBrand}
                 </Button>
@@ -333,21 +338,21 @@ const FilterSection = React.memo(
         {/* FOR TO SET BRAND */}
 
         {/* FOR TO SET COLOR */}
-        <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
+        {/* <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
           <Button size="small">
             <Typography color="#00796B">The Color</Typography>
           </Button>
           <KeyboardArrowDownIcon />
-        </CardActions>
+        </CardActions> */}
         {/* FOR TO SET COLOR */}
 
         {/* FOR TO SET OFFERS */}
-        <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
+        {/* <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
           <Button size="small">
             <Typography color="#00796B">Offers</Typography>
           </Button>
           <KeyboardArrowDownIcon />
-        </CardActions>
+        </CardActions> */}
         {/* FOR TO SET OFFERS */}
       </Card>
     );

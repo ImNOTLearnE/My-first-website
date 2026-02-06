@@ -105,7 +105,7 @@ export default function CartFull() {
     emailjs
       .send("service_28iovi5", "template_la84fu9", templateParams)
       .then((response) => {
-        console.log("SUCCESS!", response.status, response);
+        // console.log("SUCCESS!", response.status, response);
       })
       .catch((error) => {
         console.log("FAILED...", error);
@@ -125,8 +125,8 @@ export default function CartFull() {
           TotalAmountInput: totalAmount,
         })
         .then((response) => {
-          console.log(response);
           setOpen(true);
+          console.log("Order sent:", response);
         })
         .catch((error) => {
           console.log(error);
@@ -135,10 +135,10 @@ export default function CartFull() {
 
     Promise.all(requests)
       .then((responses) => {
-        console.log("All orders sent:", responses);
+        // console.log("All orders sent:", responses);
       })
       .catch((error) => {
-        console.error("Error sending orders:", error);
+        // console.error("Error sending orders:", error);
       });
   }
   // HANDEL SUBMIT ADDRESS //
