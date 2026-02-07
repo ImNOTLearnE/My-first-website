@@ -61,7 +61,7 @@ export default function ProductGrid() {
     Products = phonesBestSaller;
   } else if (value === 2) {
     let productJustBrand = Products.filter(
-      (product) => product.isBrand == true
+      (product) => product.isBrand == true,
     );
     Products = productJustBrand;
   }

@@ -104,9 +104,7 @@ export default function CartFull() {
 
     emailjs
       .send("service_28iovi5", "template_la84fu9", templateParams)
-      .then((response) => {
-        // console.log("SUCCESS!", response.status, response);
-      })
+      .then(() => {})
       .catch((error) => {
         console.log("FAILED...", error);
       });
@@ -124,9 +122,8 @@ export default function CartFull() {
           PriceAfterDiscountInput: "0",
           TotalAmountInput: totalAmount,
         })
-        .then((response) => {
+        .then(() => {
           setOpen(true);
-          console.log("Order sent:", response);
         })
         .catch((error) => {
           console.log(error);
@@ -134,12 +131,8 @@ export default function CartFull() {
     });
 
     Promise.all(requests)
-      .then((responses) => {
-        // console.log("All orders sent:", responses);
-      })
-      .catch((error) => {
-        // console.error("Error sending orders:", error);
-      });
+      .then(() => {})
+      .catch(() => {});
   }
   // HANDEL SUBMIT ADDRESS //
 

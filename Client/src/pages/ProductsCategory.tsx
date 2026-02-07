@@ -18,7 +18,6 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 
 // MATERIAL ICON
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 // CONTEXT
@@ -120,6 +119,12 @@ const Products = React.memo(
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
+          transition: "box-shadow 0.3s ease-in-out",
+          "&:hover": {
+            boxShadow:
+              "5px 5px 20px 0px rgba(54, 54, 54, 0.7), 1px 3px 10px 5px rgba(0, 0, 0, 0.100)",
+            color: "#FFFFFF",
+          },
         }}
       >
         <Box>
