@@ -61,9 +61,9 @@ export default function CartFull() {
     firstName: null,
     lastName: null,
     city: null,
-    text: null,
   });
   const [open, setOpen] = React.useState(false);
+  const [errorOpen, setErrorOpen] = React.useState(false);
   // USESTATE //
 
   // GET THE TIME //
@@ -171,37 +171,55 @@ export default function CartFull() {
       city: customerInformation.city,
     };
 
-    emailjs
-      .send("service_28iovi5", "template_la84fu9", templateParams)
-      .then(() => {})
-      .catch((error) => {
-        console.log("FAILED...", error);
-      });
+    if (
+      !customerInformation.email ||
+      !customerInformation.adderss ||
+      !customerInformation.firstName ||
+      !customerInformation.lastName ||
+      !customerInformation.city
+    ) {
+      return setErrorOpen(true);
+    } else {
+      emailjs
+        .send("service_28iovi5", "template_la84fu9", templateParams)
+        .then(() => {})
+        .catch((error) => {
+          console.log("FAILED...", error);
+        });
 
-    const requests = addToCart.map((product) => {
-      axios
-        .post("https://my-first-website-rgi1.onrender.com/orders", {
-          id: uuidv4(),
-          userToken: token,
-          ProductNameInput: product.nameProduct,
-          OrderImageInput: product.imageProduct,
-          ShippingMethodInput: "Free",
-          PaymentMethodInput: "Cash",
-          OrderPriceInput: product.price,
-          PriceAfterDiscountInput: "0",
-          TotalAmountInput: totalAmount,
-        })
+      const requests = addToCart.map((product) => {
+        axios
+          .post("https://my-first-website-rgi1.onrender.com/orders", {
+            id: uuidv4(),
+            userToken: token,
+            ProductNameInput: product.nameProduct,
+            OrderImageInput: product.imageProduct,
+            ShippingMethodInput: "Free",
+            PaymentMethodInput: "Cash",
+            OrderPriceInput: product.price,
+            PriceAfterDiscountInput: "0",
+            TotalAmountInput: totalAmount,
+          })
+          .then(() => {
+            setOpen(true);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      });
+      Promise.all(requests)
         .then(() => {
-          setOpen(true);
+          if (addToCart.length === 0) {
+            console.log("No products in the cart");
+          } else {
+            console.log("All requests completed successfully");
+            setAddToCart([]); // أعد جلب البيانات بدل reload
+          }
         })
         .catch((error) => {
-          console.log(error);
+          console.log("An error occurred:", error);
         });
-    });
-
-    Promise.all(requests)
-      .then(() => {})
-      .catch(() => {});
+    }
   }
   // HANDEL SUBMIT ADDRESS //
 
@@ -260,6 +278,21 @@ export default function CartFull() {
             Order completed successfully
           </Alert>
         </Snackbar>
+        <Snackbar
+          open={errorOpen}
+          autoHideDuration={2000}
+          onClose={() => setErrorOpen(false)}
+          sx={{ position: "fixed", opacity: 0.9 }}
+        >
+          <Alert
+            sx={{ fontSize: 20, background: "#242424ff", color: "#FFFFFF" }}
+            severity="error"
+            onClose={() => setErrorOpen(false)}
+          >
+            <AlertTitle>{t("Error with information")}</AlertTitle>
+            {t("Please fill in all the fields")}
+          </Alert>
+        </Snackbar>
         <Box sx={{ flexGrow: 1, position: "relative" }}>
           <Grid container spacing={2} justifyContent={"space-around"}>
             {/* ADDRESS DETAILS */}
@@ -313,7 +346,7 @@ export default function CartFull() {
                     id="outlined-basic"
                     label="First name"
                     variant="filled"
-                    name="First name"
+                    name="firstName"
                     onChange={changeHandler}
                     sx={{
                       width: "100%",
@@ -328,7 +361,7 @@ export default function CartFull() {
                     id="outlined-basic"
                     label="Last name"
                     variant="filled"
-                    name="Last name"
+                    name="lastName"
                     onChange={changeHandler}
                     sx={{
                       width: "100%",
@@ -341,7 +374,7 @@ export default function CartFull() {
                     id="outlined-basic"
                     label="City"
                     variant="filled"
-                    name="City"
+                    name="city"
                     onChange={changeHandler}
                     sx={{
                       width: "100%",

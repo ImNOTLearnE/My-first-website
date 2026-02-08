@@ -104,7 +104,8 @@ const Products = React.memo(
   ({ product, onAddToCart, handleAddNumber, ratingProdect }: any) => {
     const handleClick = useCallback(() => {
       onAddToCart(product);
-    }, [product, onAddToCart]);
+      handleAddNumber(product.id);
+    }, [product, onAddToCart, handleAddNumber]);
 
     return (
       <Grid
@@ -165,10 +166,7 @@ const Products = React.memo(
         <Box>
           <CardActions sx={{}}>
             <Button
-              onClick={() => {
-                handleClick();
-                handleAddNumber(product.id);
-              }}
+              onClick={handleClick}
               sx={{
                 backgroundColor: "#26A69A",
                 borderRadius: "25px",
@@ -412,26 +410,21 @@ export default function ProductsCategory() {
   // ADD THE NUMBER FOR CART //
 
   // ADD THE PRODUCT FOR CART //
-  // const handleAddToCart = useCallback(
-  //   (productAdd: any) => {
-  //     setAddToCart((prev: any) => [...prev, productAdd]);
-  //   },
-  //   [setAddToCart] // هنا نحدد الـ dependencies
-  // );
 
-  function handleAddToCart(productAdd: any) {
-    setAddToCart(() => {
-      return [
-        ...addToCart,
+  const handleAddToCart = useCallback(
+    (productAdd: any) => {
+      setAddToCart((prevAddToCart: any) => [
+        ...prevAddToCart,
         {
           id: uuidv4(),
           nameProduct: productAdd.nameProduct,
           price: productAdd.price,
           imageProduct: productAdd.imageProduct,
         },
-      ];
-    });
-  }
+      ]);
+    },
+    [setAddToCart],
+  );
   // ADD THE PRODUCT FOR CART //
 
   // HERE, THE DISPLAYED PRODUCTS ARE UPDATED BASED ON THE FILTERING SYSTEM //
@@ -440,22 +433,6 @@ export default function ProductsCategory() {
     minV?: number;
     maxV?: number;
   };
-  // function handleFilterProduct({
-  //   nameFilter = selectedBrand,
-  //   minV = 100,
-  //   maxV = 5500,
-  // }: FilterOptions) {
-  //   setPriceFilter({ minValue: minV, maxValue: maxV });
-
-  //   let checkTheBrand = () =>
-  //     test.filter(
-  //       (t) =>
-  //         (t.brand === nameFilter && maxV >= t.price && minV <= t.price) ||
-  //         (nameFilter == "All" && maxV >= t.price && minV <= t.price)
-  //     );
-  //   setSelectedBrand(nameFilter);
-  //   setArtists(checkTheBrand);
-  // }
 
   const handleFilterProduct = useCallback(
     ({
