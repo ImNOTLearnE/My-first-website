@@ -94,10 +94,11 @@ export default function Category() {
           <div style={{ marginLeft: "15vh" }}>{t("Browse By Category")}</div>
           {/* TITLE OF CATEGORY */}
 
-          <div
+          <Box
             style={{
               display: "flex",
-              justifyContent: "space-evenly",
+              justifyContent: "space-around",
+              flexWrap: "wrap",
               alignItems: "center",
               marginTop: "20px",
             }}
@@ -113,7 +114,7 @@ export default function Category() {
                 <Button sx={{ color: "#000000" }}>
                   <Box
                     sx={{
-                      width: { xs: "10vw", md: "6vw" },
+                      width: { xs: "90px", md: "6vw" },
                       height: { xs: "8vh", md: "10vh" },
                       borderRadius: 5,
                       bgcolor: "primary.main",
@@ -131,9 +132,13 @@ export default function Category() {
                   >
                     <Box>{item.logo}</Box>
 
-                    <Typography sx={{ fontSize: { xs: "0.6rem", md: "1rem" } }}>
-                      {t(item.name)}
-                    </Typography>
+                    <Box>
+                      <Typography
+                        sx={{ fontSize: { xs: "0.6em", md: "1rem" } }}
+                      >
+                        {t(item.name)}
+                      </Typography>
+                    </Box>
                   </Box>
                 </Button>
               </Link>
@@ -265,7 +270,7 @@ export default function Category() {
             </Button> */}
 
             {/* CATEGORY SECTION */}
-          </div>
+          </Box>
         </div>
       </ThemeProvider>
     </>

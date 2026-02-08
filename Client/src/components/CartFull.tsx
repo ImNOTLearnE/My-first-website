@@ -71,6 +71,75 @@ export default function CartFull() {
     return number < 10 ? "0" + number : number;
   }
 
+  const showProducts = () => {
+    if (addToCart.length === 0) {
+      return (
+        <Typography marginTop={15} marginBottom={15} fontSize={32}>
+          {t("No products in the cart")}
+        </Typography>
+      );
+    } else {
+      return addToCart.map((product) => (
+        <div key={product.id}>
+          {/* ITEMS ADDED TO CART */}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-around",
+              alignItems: "center",
+            }}
+          >
+            <Box
+              style={{
+                width: "5vh",
+                marginRight: 2,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <CardMedia
+                sx={{
+                  height: 80,
+                  width: 80,
+                  marginBottom: "10px",
+                }}
+                image={product.imageProduct}
+                title="Iphone 13 Pro Max"
+              />
+            </Box>
+
+            <Typography
+              sx={{
+                color: "#FFFFFF",
+                fontSize: { xs: "0.5rem", sm: "1rem", md: "1rem" },
+              }}
+            >
+              {product.nameProduct}
+            </Typography>
+            <Typography
+              sx={{
+                color: "#FFFFFF",
+                fontSize: { xs: "0.5rem", sm: "1rem", md: "1rem" },
+              }}
+            >
+              $ {product.price}
+            </Typography>
+            <Button
+              sx={{ width: 10 }}
+              onClick={() => {
+                handleDeleteItemCart(product.id);
+              }}
+            >
+              <HighlightOffIcon />
+            </Button>
+          </Box>
+          {/* ITEMS ADDED TO CART */}
+        </div>
+      ));
+    }
+  };
+
   let now = new Date();
   let hours = formatTime(now.getHours());
   let minutes = formatTime(now.getMinutes());
@@ -207,103 +276,79 @@ export default function CartFull() {
                       "0 4px 8px 0 rgba(0, 0, 0, 0.28), 0 6px 20px 0 rgba(0, 0, 0, 0.77)",
                   }}
                 >
-                  <Typography>{t("Email")}</Typography>
+                  <Typography sx={{ color: "#FFFFFF" }}>
+                    {t("Email")}
+                  </Typography>
                   <TextField
                     id="outlined-basic"
                     label="Email"
                     variant="standard"
                     name="email"
                     onChange={changeHandler}
-                    sx={{ width: "100%", marginBottom: "5vh" }}
+                    sx={{
+                      width: "100%",
+                      marginBottom: "5vh",
+                      input: { color: "#FFFFFF" },
+                    }}
                   />
-                  <Typography>{t("Adderss")}</Typography>
+                  <Typography sx={{ color: "#FFFFFF" }}>
+                    {t("Adderss")}
+                  </Typography>
                   <TextField
                     id="outlined-basic"
                     label="adderss"
                     variant="filled"
                     name="adderss"
                     onChange={changeHandler}
-                    sx={{ width: "100%", marginBottom: "5vh" }}
+                    sx={{
+                      width: "100%",
+                      marginBottom: "5vh",
+                      input: { color: "#FFFFFF" },
+                    }}
                   />
-                  <Typography>{t("First name")}</Typography>
+                  <Typography sx={{ color: "#FFFFFF" }}>
+                    {t("First name")}
+                  </Typography>
                   <TextField
                     id="outlined-basic"
                     label="First name"
                     variant="filled"
                     name="First name"
                     onChange={changeHandler}
-                    sx={{ width: "100%", marginBottom: "5vh" }}
+                    sx={{
+                      width: "100%",
+                      marginBottom: "5vh",
+                      input: { color: "#FFFFFF" },
+                    }}
                   />
-                  <Typography>{t("Last name")}</Typography>
+                  <Typography sx={{ color: "#FFFFFF" }}>
+                    {t("Last name")}
+                  </Typography>
                   <TextField
                     id="outlined-basic"
                     label="Last name"
                     variant="filled"
                     name="Last name"
                     onChange={changeHandler}
-                    sx={{ width: "100%", marginBottom: "5vh" }}
+                    sx={{
+                      width: "100%",
+                      marginBottom: "5vh",
+                      input: { color: "#FFFFFF" },
+                    }}
                   />
-                  <Typography>{t("City")}</Typography>
+                  <Typography sx={{ color: "#FFFFFF" }}>{t("City")}</Typography>
                   <TextField
                     id="outlined-basic"
                     label="City"
                     variant="filled"
                     name="City"
                     onChange={changeHandler}
-                    sx={{ width: "100%", marginBottom: "5vh" }}
+                    sx={{
+                      width: "100%",
+                      marginBottom: "5vh",
+                      input: { color: "#FFFFFF" },
+                    }}
                   />
-
-                  {/* <Grid
-                    container
-                    rowSpacing={2}
-                    columnSpacing={{ xs: 1, sm: 2, md: 30 }}
-                    sx={{ marginTop: "50px" }}
-                  >
-                    <Grid size={5}>
-                      <Typography>{t("First name")}</Typography>{" "}
-                      <TextField
-                        id="outlined-basic"
-                        label="First name"
-                        variant="standard"
-                        name="firstName"
-                        onChange={changeHandler}
-                        sx={{ marginBottom: "40px" }}
-                      />
-                    </Grid>
-                    <Grid size={4}>
-                      {" "}
-                      <Typography>{t("Last name")}</Typography>{" "}
-                      <TextField
-                        id="outlined-basic"
-                        label="Last name"
-                        variant="standard"
-                        name="lastName"
-                        onChange={changeHandler}
-                        sx={{ marginBottom: "40px" }}
-                      />
-                    </Grid>
-
-                    <Grid size={5}>
-                      <Typography>text</Typography>{" "}
-                      <TextField
-                        id="outlined-basic"
-                        label="Outlined"
-                        name="text"
-                        onChange={changeHandler}
-                        variant="standard"
-                      />
-                    </Grid>
-                    <Grid size={4}>
-                      <Typography>{t("City")}</Typography>
-                      <TextField
-                        id="outlined-basic"
-                        label="City"
-                        variant="standard"
-                        name="city"
-                        onChange={changeHandler}
-                      />
-                    </Grid>
-                  </Grid> */}
                 </Item>
               </Stack>
             </Grid>
@@ -324,72 +369,15 @@ export default function CartFull() {
                 }}
               >
                 {t("Purchase details")}
-                <div
+                <Box
                   style={{
                     overflowY: "scroll",
                     maxHeight: "50vh",
                     scrollbarWidth: "none",
                   }}
                 >
-                  {addToCart.map((product) => (
-                    <div key={product.id}>
-                      {/* ITEMS ADDED TO CART */}
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "space-around",
-                          alignItems: "center",
-                        }}
-                      >
-                        <div
-                          style={{
-                            width: "5vh",
-                            marginRight: 2,
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                          }}
-                        >
-                          <CardMedia
-                            sx={{
-                              height: 80,
-                              width: 80,
-                              marginBottom: "10px",
-                            }}
-                            image={product.imageProduct}
-                            title="Iphone 13 Pro Max"
-                          />
-                        </div>
-
-                        <Typography
-                          sx={{
-                            color: "#FFFFFF",
-                            fontSize: { xs: "0.5rem", sm: "1rem", md: "1rem" },
-                          }}
-                        >
-                          {product.nameProduct}
-                        </Typography>
-                        <Typography
-                          sx={{
-                            color: "#FFFFFF",
-                            fontSize: { xs: "0.5rem", sm: "1rem", md: "1rem" },
-                          }}
-                        >
-                          $ {product.price}
-                        </Typography>
-                        <Button
-                          sx={{ width: 10 }}
-                          onClick={() => {
-                            handleDeleteItemCart(product.id);
-                          }}
-                        >
-                          <HighlightOffIcon />
-                        </Button>
-                      </Box>
-                      {/* ITEMS ADDED TO CART */}
-                    </div>
-                  ))}
-                </div>
+                  {showProducts()}
+                </Box>
                 <hr style={{ marginTop: "20px", marginBottom: "20px" }} />
                 <Typography sx={{ color: "#FFFFFF" }}>
                   {t("Total")}: $ {Total()}
