@@ -372,7 +372,7 @@ export default function ProductsCategory() {
     camerasNewArrival,
     laptopsNewArrival,
   } = React.useContext(ProducstContext);
-  const { setAddToCart, addToCart } = React.useContext(InTheCart);
+  const { setAddToCart } = React.useContext(InTheCart);
   // UESCONTEXT //
 
   // USESTATE //
