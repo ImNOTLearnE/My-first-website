@@ -42,5 +42,6 @@
   "The website is under development and not yet complete. It's a fake online store, and even the orders placed are fake; nothing is real. It's just a React project.": "الموقع قيد التطوير ولم يكتمل بعد. إنه متجر إلكتروني وهمي، وحتى الطلبات المقدمة وهمية؛ لا شيء حقيقي. إنه مجرد مشروع React.",
   "Please enter a valid email address": "يرجى إدخال عنوان بريد إلكتروني صالح",
   "wrong information entered and fields cannot be left blank": "تم إدخال معلومات خاطئة ولا يمكن ترك الحقول فارغة",
-  "Error": "خطأ"
+  "Error": "خطأ",
+  "No Requests": "لا توجد طلبات"
 }

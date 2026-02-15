@@ -2,7 +2,11 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
+// i18n
+import { useTranslation } from "react-i18next";
+
 export default function NoRequests() {
+  const { t } = useTranslation();
   return (
     <>
       <Box
@@ -58,7 +62,7 @@ export default function NoRequests() {
                 marginRight={"3vh"}
                 marginTop={13}
               >
-                لا توجد طلبات لك
+                {t("No Requests")}
               </Typography>
             </Box>
           </Box>
