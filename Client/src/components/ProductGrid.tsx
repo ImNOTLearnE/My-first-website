@@ -125,7 +125,7 @@ export default function ProductGrid() {
   const { setCartCount } = React.useContext(CartContext);
   const { phonesnewArrival, phonesBestSaller } =
     React.useContext(ProducstContext);
-  const { addToCart, setAddToCart } = React.useContext(InTheCart);
+  const { setAddToCart } = React.useContext(InTheCart);
   // UESCONTEXT //
 
   // TABS COMPONENT CHANGE //
