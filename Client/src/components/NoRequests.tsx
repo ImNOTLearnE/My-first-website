@@ -1,50 +1,52 @@
 // MATERIAL UI
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 export default function NoRequests() {
   return (
     <>
-      <div
-        style={{
-          width: 1450,
-          height: 801,
+      <Box
+        sx={{
+          width: "70vw",
+          height: 700,
           background:
             "linear-gradient(178deg,hsla(0, 0%, 21%, 0.50) 0%, rgba(38, 166, 154, 0.6) 100%)",
           borderRadius: "25px",
           boxShadow:
             "0 4px 8px 0 rgba(0, 0, 0, 0.28), 0 6px 20px 0 rgba(0, 0, 0, 0.77)",
           marginTop: 10,
-          overflowY: "scroll",
-          msOverflowStyle: "none",
-          scrollbarWidth: "none",
+          marginLeft: { xs: "15vw", sm: "5vw" },
           display: "flex",
           justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <div
-          style={{
+        <Box
+          sx={{
             display: "flex",
+            width: "100%",
+
             justifyContent: "center",
             flexDirection: "column",
-            textAlign: "right",
-            marginTop: 46,
           }}
         >
           {/* 1 */}
-          <div
+          <Box
             style={{
               display: "flex",
               justifyContent: "center",
+              width: "100%",
+
               alignItems: "center",
               marginBottom: "2.2vh",
             }}
           >
-            <div
-              style={{
+            <Box
+              sx={{
                 backgroundColor: "rgba(0, 0, 0, 0.30)",
                 boxShadow:
                   "0 4px 8px 0 rgba(0, 0, 0, 0.28), 0 6px 20px 0 rgba(0, 0, 0, 0.77)",
-                width: 1240,
+                width: "100%",
                 height: 283,
                 borderRadius: 25,
                 textAlign: "center",
@@ -58,11 +60,11 @@ export default function NoRequests() {
               >
                 لا توجد طلبات لك
               </Typography>
-            </div>
-          </div>
+            </Box>
+          </Box>
           {/* 1 */}
-        </div>
-      </div>
+        </Box>
+      </Box>
     </>
   );
 }
