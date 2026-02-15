@@ -46,6 +46,158 @@ const Item = styled(Paper)(({ theme }) => ({
   }),
 }));
 
+const AddressDetails = React.memo(({ changeHandler, t }: any) => {
+  return (
+    <>
+      <Grid size={{ xs: 12, sm: 6, md: 6, lg: 8 }}>
+        <Stack spacing={2}>
+          <Item
+            sx={{
+              height: "90%",
+              boxSizing: "border-box",
+              paddingBottom: "10vh",
+              background:
+                "linear-gradient(178deg,rgba(54, 54, 54, 0.5) 0%, rgba(38, 166, 154, 0.6) 100%)",
+              boxShadow:
+                "0 4px 8px 0 rgba(0, 0, 0, 0.28), 0 6px 20px 0 rgba(0, 0, 0, 0.77)",
+            }}
+          >
+            <Typography sx={{ color: "#FFFFFF" }}>{t("Email")}</Typography>
+            <TextField
+              id="outlined-basic"
+              label="Email"
+              variant="standard"
+              name="email"
+              onChange={changeHandler}
+              sx={{
+                width: "100%",
+                marginBottom: "5vh",
+                input: { color: "#FFFFFF" },
+              }}
+            />
+            <Typography sx={{ color: "#FFFFFF" }}>{t("Adderss")}</Typography>
+            <TextField
+              id="outlined-basic"
+              label="adderss"
+              variant="filled"
+              name="adderss"
+              onChange={changeHandler}
+              sx={{
+                width: "100%",
+                marginBottom: "5vh",
+                input: { color: "#FFFFFF" },
+              }}
+            />
+            <Typography sx={{ color: "#FFFFFF" }}>{t("First name")}</Typography>
+            <TextField
+              id="outlined-basic"
+              label="First name"
+              variant="filled"
+              name="firstName"
+              onChange={changeHandler}
+              sx={{
+                width: "100%",
+                marginBottom: "5vh",
+                input: { color: "#FFFFFF" },
+              }}
+            />
+            <Typography sx={{ color: "#FFFFFF" }}>{t("Last name")}</Typography>
+            <TextField
+              id="outlined-basic"
+              label="Last name"
+              variant="filled"
+              name="lastName"
+              onChange={changeHandler}
+              sx={{
+                width: "100%",
+                marginBottom: "5vh",
+                input: { color: "#FFFFFF" },
+              }}
+            />
+            <Typography sx={{ color: "#FFFFFF" }}>{t("City")}</Typography>
+            <TextField
+              id="outlined-basic"
+              label="City"
+              variant="filled"
+              name="city"
+              onChange={changeHandler}
+              sx={{
+                width: "100%",
+                marginBottom: "5vh",
+                input: { color: "#FFFFFF" },
+              }}
+            />
+          </Item>
+        </Stack>
+      </Grid>
+    </>
+  );
+});
+const PrchaseDetails = React.memo(
+  ({ showProducts, Total, VAT, handelSubmitToEmail, t }: any) => {
+    return (
+      <Grid size={{ xs: 12, sm: 6, md: 6, lg: 3 }}>
+        <Item
+          sx={{
+            height: "100%",
+            boxSizing: "border-box",
+            fontSize: "24px",
+            background:
+              "linear-gradient(178deg,rgba(54, 54, 54, 0.5) 0%, rgba(38, 166, 154, 0.6) 100%)",
+            boxShadow:
+              "0 4px 8px 0 rgba(0, 0, 0, 0.28), 0 6px 20px 0 rgba(0, 0, 0, 0.77)",
+            color: "#FFFFFF",
+          }}
+        >
+          {t("Purchase details")}
+          <Box
+            style={{
+              overflowY: "scroll",
+              maxHeight: "50vh",
+              scrollbarWidth: "none",
+            }}
+          >
+            {showProducts()}
+          </Box>
+          <hr style={{ marginTop: "20px", marginBottom: "20px" }} />
+          <Typography sx={{ color: "#FFFFFF" }}>
+            {t("Total")}: $ {Total}
+          </Typography>
+          <Typography sx={{ color: "#FFFFFF" }}>
+            {t("total after Tax:")} {VAT}
+          </Typography>
+          <Typography sx={{ color: "#FFFFFF" }}>
+            {t("shipping:")} {t("Free")}
+          </Typography>
+          <Button
+            onClick={handelSubmitToEmail}
+            sx={{
+              backgroundColor: "#009688",
+              color: "#FFFFFF",
+              marginTop: "5vh",
+              padding: "10px",
+              width: "100%",
+            }}
+          >
+            Proceed to
+          </Button>
+        </Item>
+      </Grid>
+    );
+  },
+);
+
+const theme = createTheme({
+  palette: {
+    mode: "light", // أو 'dark'
+    primary: {
+      main: "#009688",
+      dark: "#0066CC",
+    },
+    // بإمكانك تضيف تخصيصات أخرى هنا
+  },
+});
+
 export default function CartFull() {
   const { t } = useTranslation();
 
@@ -71,7 +223,7 @@ export default function CartFull() {
     return number < 10 ? "0" + number : number;
   }
 
-  const showProducts = () => {
+  const showProducts = React.useCallback(() => {
     if (addToCart.length === 0) {
       return (
         <Typography marginTop={15} marginBottom={15} fontSize={32}>
@@ -138,7 +290,7 @@ export default function CartFull() {
         </div>
       ));
     }
-  };
+  }, []);
 
   let now = new Date();
   let hours = formatTime(now.getHours());
@@ -155,7 +307,7 @@ export default function CartFull() {
   // GET THE DAY //
 
   // HANDEL SUBMIT ADDRESS //
-  function handelSubmitToEmail() {
+  const handelSubmitToEmail = React.useCallback(() => {
     const token: string | null = localStorage.getItem("token");
     const totalAmount: number = Total();
 
@@ -220,7 +372,7 @@ export default function CartFull() {
           console.log("An error occurred:", error);
         });
     }
-  }
+  }, []);
   // HANDEL SUBMIT ADDRESS //
 
   // DELETE THE NUMBER FOR CART //
@@ -235,29 +387,15 @@ export default function CartFull() {
   };
   // DELETE THE NUMBER FOR CART //
 
-  function changeHandler(e: any) {
-    setCustomerInformation({
-      ...customerInformation,
+  const changeHandler = React.useCallback((e: any) => {
+    setCustomerInformation((prev: any) => ({
+      ...prev,
       [e.target.name]: e.target.value,
-    });
-  }
+    }));
+  }, []);
 
-  const theme = createTheme({
-    palette: {
-      mode: "light", // أو 'dark'
-      primary: {
-        main: "#009688",
-        dark: "#0066CC",
-      },
-      // بإمكانك تضيف تخصيصات أخرى هنا
-    },
-  });
-
-  function Total() {
-    const total = addToCart.reduce((acc, product) => acc + product.price, 0);
-    return total;
-  }
-  const VAT = (Total() * 15) / 100 + Total();
+  const Total = addToCart.reduce((acc, product) => acc + product.price, 0);
+  const VAT = (Total * 15) / 100 + Total;
 
   return (
     <>
@@ -296,7 +434,7 @@ export default function CartFull() {
         <Box sx={{ flexGrow: 1, position: "relative" }}>
           <Grid container spacing={2} justifyContent={"space-around"}>
             {/* ADDRESS DETAILS */}
-            <Grid size={{ xs: 12, sm: 6, md: 6, lg: 8 }}>
+            {/* <Grid size={{ xs: 12, sm: 6, md: 6, lg: 8 }}>
               <Stack spacing={2}>
                 <Item
                   sx={{
@@ -384,11 +522,13 @@ export default function CartFull() {
                   />
                 </Item>
               </Stack>
-            </Grid>
+            </Grid> */}
+
+            <AddressDetails changeHandler={changeHandler} t={t} />
             {/* ADDRESS DETAILS */}
 
             {/* PURCHASE DETAILS */}
-            <Grid size={{ xs: 12, sm: 6, md: 6, lg: 3 }}>
+            {/* <Grid size={{ xs: 12, sm: 6, md: 6, lg: 3 }}>
               <Item
                 sx={{
                   height: "100%",
@@ -436,7 +576,15 @@ export default function CartFull() {
                   Proceed to{" "}
                 </Button>
               </Item>
-            </Grid>
+            </Grid> */}
+
+            <PrchaseDetails
+              showProducts={showProducts}
+              Total={Total}
+              VAT={VAT}
+              handelSubmitToEmail={handelSubmitToEmail}
+              t={t}
+            />
             {/* PURCHASE DETAILS */}
           </Grid>
         </Box>

@@ -19,6 +19,50 @@ import { Typography } from "@mui/material";
 // REACT ROUTER
 import { Link } from "react-router-dom";
 
+const CategoryItem = React.memo(({ item, t }: any) => {
+  return (
+    <Link key={item.id} to={item.path} style={{ textDecoration: "none" }}>
+      <Button sx={{ color: "#000000" }}>
+        <Box
+          sx={{
+            width: { xs: "90px", md: "6vw" },
+            height: { xs: "8vh", md: "10vh" },
+            borderRadius: 5,
+            bgcolor: "primary.main",
+            transition: "box-shadow, color 0.3s ease-in-out",
+            "&:hover": {
+              boxShadow:
+                "5px 5px 20px 0px rgba(54, 54, 54, 0.7), 1px 3px 10px 5px rgba(38, 166, 153, 0.8)",
+              color: "#FFFFFF",
+            },
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Box>{item.logo}</Box>
+
+          <Box>
+            <Typography sx={{ fontSize: { xs: "0.6em", md: "0.8vw" } }}>
+              {t(item.name)}
+            </Typography>
+          </Box>
+        </Box>
+      </Button>
+    </Link>
+  );
+});
+const theme = createTheme({
+  palette: {
+    mode: "light", // أو 'dark'
+    primary: {
+      main: "#009688",
+      dark: "#005f56",
+    },
+    // بإمكانك تضيف تخصيصات أخرى هنا
+  },
+});
 export default function Category() {
   // USESATATE //
   const [category] = React.useState([
@@ -75,17 +119,6 @@ export default function Category() {
 
   const { t } = useTranslation();
 
-  const theme = createTheme({
-    palette: {
-      mode: "light", // أو 'dark'
-      primary: {
-        main: "#009688",
-        dark: "#005f56",
-      },
-      // بإمكانك تضيف تخصيصات أخرى هنا
-    },
-  });
-
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -106,169 +139,8 @@ export default function Category() {
             {/* CATEGORY BOX SECTION */}
 
             {category.map((item) => (
-              <Link
-                key={item.id}
-                to={item.path}
-                style={{ textDecoration: "none" }}
-              >
-                <Button sx={{ color: "#000000" }}>
-                  <Box
-                    sx={{
-                      width: { xs: "90px", md: "6vw" },
-                      height: { xs: "8vh", md: "10vh" },
-                      borderRadius: 5,
-                      bgcolor: "primary.main",
-                      transition: "box-shadow, color 0.3s ease-in-out",
-                      "&:hover": {
-                        boxShadow:
-                          "5px 5px 20px 0px rgba(54, 54, 54, 0.7), 1px 3px 10px 5px rgba(38, 166, 153, 0.8)",
-                        color: "#FFFFFF",
-                      },
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Box>{item.logo}</Box>
-
-                    <Box>
-                      <Typography
-                        sx={{ fontSize: { xs: "0.6em", md: "1rem" } }}
-                      >
-                        {t(item.name)}
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Button>
-              </Link>
+              <CategoryItem key={item.id} item={item} t={t} />
             ))}
-
-            {/* <Button style={{ color: "#FFFFFF" }}>
-              <Box
-                sx={{
-                  width: { xs: "10vw", md: "6vw" },
-                  height: { xs: "8vh", md: "10vh" },
-                  borderRadius: 5,
-                  bgcolor: "primary.main",
-                  "&:hover": {
-                    bgcolor: "primary.dark",
-                  },
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <PhoneIphoneIcon
-                  sx={{ fontSize: { xs: 25, md: 35 }, marginBottom: "5px" }}
-                />
-                <Typography sx={{ fontSize: { xs: "0.6rem", md: "1rem" } }}>
-                  {t("Phones")}
-                </Typography>
-              </Box>
-            </Button>
-
-            <Button style={{ color: "#FFFFFF" }}>
-              <Box
-                sx={{
-                  width: { xs: "10vw", md: "6vw" },
-                  height: { xs: "8vh", md: "10vh" },
-                  borderRadius: 5,
-                  bgcolor: "primary.main",
-                  "&:hover": {
-                    bgcolor: "primary.dark",
-                  },
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <WatchIcon
-                  sx={{ fontSize: { xs: 25, md: 35 }, marginBottom: "5px" }}
-                />
-                <Typography sx={{ fontSize: { xs: "0.6rem", md: "1rem" } }}>
-                  {t("Watches")}
-                </Typography>
-              </Box>
-            </Button>
-
-            <Button style={{ color: "#FFFFFF" }}>
-              <Box
-                sx={{
-                  width: { xs: "10vw", md: "6vw" },
-                  height: { xs: "8vh", md: "10vh" },
-                  borderRadius: 5,
-                  bgcolor: "primary.main",
-                  "&:hover": {
-                    bgcolor: "primary.dark",
-                  },
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <CameraAltIcon
-                  sx={{ fontSize: { xs: 25, md: 35 }, marginBottom: "5px" }}
-                />
-                <Typography sx={{ fontSize: { xs: "0.6rem", md: "1rem" } }}>
-                  {t("Cameras")}
-                </Typography>
-              </Box>
-            </Button>
-
-            <Button style={{ color: "#FFFFFF" }}>
-              <Box
-                sx={{
-                  width: { xs: "10vw", md: "6vw" },
-                  height: { xs: "8vh", md: "10vh" },
-                  borderRadius: 5,
-                  bgcolor: "primary.main",
-                  "&:hover": {
-                    bgcolor: "primary.dark",
-                  },
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <HeadphonesIcon
-                  sx={{ fontSize: { xs: 25, md: 35 }, marginBottom: "5px" }}
-                />
-                <Typography sx={{ fontSize: { xs: "0.6rem", md: "1rem" } }}>
-                  {t("HeadsPhone")}
-                </Typography>
-              </Box>
-            </Button>
-
-            <Button style={{ color: "#FFFFFF" }}>
-              <Box
-                sx={{
-                  width: { xs: "10vw", md: "6vw" },
-                  height: { xs: "8vh", md: "10vh" },
-                  borderRadius: 5,
-                  bgcolor: "primary.main",
-                  "&:hover": {
-                    bgcolor: "primary.dark",
-                  },
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <ComputerIcon
-                  sx={{ fontSize: { xs: 25, md: 35 }, marginBottom: "5px" }}
-                />
-                <Typography sx={{ fontSize: { xs: "0.6rem", md: "1rem" } }}>
-                  {t("Computers")}
-                </Typography>
-              </Box>
-            </Button> */}
-
             {/* CATEGORY SECTION */}
           </Box>
         </div>

@@ -14,6 +14,33 @@ import PersonalInfo from "../components/PersonalInfo";
 import ContactInfo from "../components/ContactInfo";
 import SideBar from "../components/SideBar";
 
+const Profilee = React.memo(
+  ({ userPersonalInformationInput, setUserPersonalInformationInput }: any) => {
+    return (
+      <>
+        {/*  CONTACT INFORMATION  */}
+        <Grid>
+          <ContactInfo
+            userPersonalInformationInput={userPersonalInformationInput}
+            setUserPersonalInformationInput={setUserPersonalInformationInput}
+          />
+        </Grid>
+
+        {/*  CONTACT INFORMATION  */}
+
+        {/*  PERSONAL INFORMATION  */}
+        <Grid>
+          <PersonalInfo
+            userPersonalInformationInput={userPersonalInformationInput}
+            setUserPersonalInformationInput={setUserPersonalInformationInput}
+          />
+        </Grid>
+        {/*  PERSONAL INFORMATION  */}
+      </>
+    );
+  },
+);
+
 export default function Profile() {
   const [userPersonalInformationInput, setUserPersonalInformationInput] =
     React.useState({
@@ -23,7 +50,7 @@ export default function Profile() {
       lastName: "",
       city: "",
       nationality: "",
-      gender: "male",
+      gender: "Male",
       birthday: "",
     });
 
@@ -55,26 +82,13 @@ export default function Profile() {
       <Grid container spacing={10} className={"container"}>
         {/*  SIDE APP BAR  */}
         <SideBar />
+
         {/*  SIDE APP BAR  */}
 
-        {/*  CONTACT INFORMATION  */}
-        <Grid>
-          <ContactInfo
-            userPersonalInformationInput={userPersonalInformationInput}
-            setUserPersonalInformationInput={setUserPersonalInformationInput}
-          />
-        </Grid>
-
-        {/*  CONTACT INFORMATION  */}
-
-        {/*  PERSONAL INFORMATION  */}
-        <Grid>
-          <PersonalInfo
-            userPersonalInformationInput={userPersonalInformationInput}
-            setUserPersonalInformationInput={setUserPersonalInformationInput}
-          />
-        </Grid>
-        {/*  PERSONAL INFORMATION  */}
+        <Profilee
+          userPersonalInformationInput={userPersonalInformationInput}
+          setUserPersonalInformationInput={setUserPersonalInformationInput}
+        />
       </Grid>
     </>
   );

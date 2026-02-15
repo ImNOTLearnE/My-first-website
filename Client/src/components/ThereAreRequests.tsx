@@ -56,13 +56,13 @@ export default function ThereAreRequests() {
               priceAfterDiscountState: order.priceafterdiscount,
               totalAmountState: order.orderprice,
             };
-          })
+          }),
         );
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [customerRequests]);
+  }, []);
 
   return (
     <>

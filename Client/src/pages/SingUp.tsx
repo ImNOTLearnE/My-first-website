@@ -26,6 +26,9 @@ import axios from "axios";
 // REACT ROUTER
 import { useNavigate } from "react-router-dom";
 
+// i18n
+import { useTranslation } from "react-i18next";
+
 const theme = createTheme({
   palette: {
     mode: "light", // أو 'dark'
@@ -40,6 +43,7 @@ const theme = createTheme({
 
 export default function SingUp() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   // USESTATE HOOK //
   const [userSignUp, setUserSignUp] = React.useState({
@@ -52,24 +56,33 @@ export default function SingUp() {
   // USESTATE HOOK //
 
   function handleSignUpBtn() {
-    axios
-      .post("https://my-first-website-rgi1.onrender.com/register", {
-        userNameInput: userSignUp.userNameInput,
-        passwordInput: userSignUp.passwordInput,
-        emailInput: userSignUp.EmailInput,
-        phoneNumberInput: "",
-      })
-      .then((response) => {
-        localStorage.setItem("token", response.data.token);
-        setOpen(true);
+    if (
+      userSignUp.EmailInput.endsWith("@gmail.com") ||
+      userSignUp.EmailInput.endsWith("@yahoo.com")
+    ) {
+      axios
+        .post("https://my-first-website-rgi1.onrender.com/register", {
+          userNameInput: userSignUp.userNameInput,
+          passwordInput: userSignUp.passwordInput,
+          emailInput: userSignUp.EmailInput,
+          phoneNumberInput: "",
+        })
+        .then((response) => {
+          localStorage.setItem("token", response.data.token);
+          setOpen(true);
 
-        navigate("/");
-        navigate(0);
-      })
-      .catch((e) => {
-        setOpenError(true);
-        console.error("There was an error!", e);
-      });
+          navigate("/");
+          navigate(0);
+        })
+        .catch((e) => {
+          setOpenError(true);
+          console.error("There was an error!", e);
+        });
+    } else {
+      setOpenError(true);
+
+      return alert(t("Please enter a valid email address"));
+    }
   }
 
   return (
@@ -102,8 +115,8 @@ export default function SingUp() {
             severity="error"
             onClose={() => setOpenError(false)}
           >
-            <AlertTitle>Error</AlertTitle>
-            اسم المستخدم او الايميل محجوز
+            <AlertTitle>{t("Error")}</AlertTitle>
+            {t("wrong information entered and fields cannot be left blank")}
           </Alert>
         </Snackbar>
         <Card
@@ -119,12 +132,17 @@ export default function SingUp() {
             background:
               "linear-gradient(178deg,hsla(0, 0%, 21%, 0.50) 0%, rgba(38, 166, 154, 0.6) 100%)",
             position: "absolute",
+            transition: "box-shadow 0.3s ease-in-out",
+            "&:hover": {
+              boxShadow:
+                "5px 5px 20px 0px rgba(54, 54, 54, 0.7), 5px 5px 20px 0px rgba(38, 166, 153, 0.8)",
+            },
             top: { xs: " 60%", sm: " 55%", md: " 55%", lg: "55%" },
             left: " 50%",
             transform: "translate(-50%, -50%)",
           }}
         >
-          <div
+          <Box
             style={{
               display: "flex",
               flexDirection: "column",
@@ -154,7 +172,7 @@ export default function SingUp() {
                 }}
               >
                 {/*  USERNAME  */}
-                <div
+                <Box
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -216,11 +234,11 @@ export default function SingUp() {
                     }}
                   ></TextField>
                   {/* USERNAME INPUT */}
-                </div>
+                </Box>
                 {/*  USERNAME  */}
 
                 {/*  EMAIL  */}
-                <div
+                <Box
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -283,11 +301,11 @@ export default function SingUp() {
                     }}
                   ></TextField>
                   {/* EMAIL INPUT */}
-                </div>
+                </Box>
                 {/*  EMAIL  */}
 
                 {/*  PASSWORD  */}
-                <div
+                <Box
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -350,7 +368,7 @@ export default function SingUp() {
                     }}
                   ></TextField>
                   {/* PASSWORD INPUT*/}
-                </div>
+                </Box>
                 {/*  PASSWORD  */}
               </CardActions>
             </CardContent>
@@ -382,7 +400,7 @@ export default function SingUp() {
                 border: "none",
               }}
             />
-          </div>
+          </Box>
         </Card>
       </ThemeProvider>
     </>

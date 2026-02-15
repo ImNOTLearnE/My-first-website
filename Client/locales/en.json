@@ -37,5 +37,8 @@
   "total after Tax:": "total after Tax:",
   "shipping:": "shipping:",
   "Free:": "Free:",
-  "Adderss": "Adderss"
+  "Adderss": "Adderss",
+  "Please enter a valid email address": "Please enter a valid email address",
+  "wrong information entered and fields cannot be left blank": "wrong information entered and fields cannot be left blank",
+  "Error": "Error"
 }

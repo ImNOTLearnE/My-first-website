@@ -39,6 +39,82 @@ import { CartContext } from "../Context/CartContext";
 import { ProducstContext } from "../Context/ProductContext";
 import { InTheCart } from "../Context/InTheCart";
 
+const ProductsComponent = React.memo(
+  ({ Product, ratingProdect, handleAddToCart, handleAdd, itemFall }: any) => {
+    const handleClick = React.useCallback(() => {
+      handleAddToCart(Product);
+      handleAdd(Product.id);
+    }, [Product, handleAddToCart, handleAdd, itemFall]);
+
+    return (
+      <Card
+        className={itemFall}
+        sx={{
+          width: { xs: "25vw", md: "18vw", lg: "11vw" },
+          overflow: "visible",
+          borderRadius: "25px",
+          backgroundColor: "#363636ff",
+          boxShadow:
+            "0 4px 8px 0 rgba(0, 0, 0, 0.28), 0 6px 20px 0 rgba(0, 0, 0, 0.77)",
+        }}
+      >
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <CardMedia
+            sx={{
+              height: { xs: "22vw", md: "18vw", lg: "8vw" },
+              width: { xs: "22vw", md: "18vw", lg: "7vw" },
+              backgroundImage: "cover",
+            }}
+            image={Product.imageProduct}
+            title={Product.nameProduct}
+          />
+        </div>
+
+        <CardContent>
+          <Typography
+            variant="body2"
+            sx={{
+              color: "#FFFFFF",
+              fontSize: { xs: "0.5rem", sm: "1rem", md: "1rem" },
+            }}
+          >
+            {Product.nameProduct}
+          </Typography>
+          <Rating
+            sx={{ fontSize: { xs: "1rem", sm: "1rem", md: "1rem" } }}
+            name="read-only"
+            value={ratingProdect}
+            readOnly
+          />
+          <Typography variant="body2" sx={{ color: "#FFFFFF" }}>
+            $ {Product.price}
+          </Typography>
+        </CardContent>
+
+        <CardActions>
+          <Button
+            onClick={handleClick}
+            style={{
+              backgroundColor: "#26A69A",
+              borderRadius: "25px",
+              width: "100%",
+            }}
+          >
+            <AddShoppingCartIcon
+              style={{
+                padding: "5px",
+                fontSize: "30px",
+                color: "black",
+                width: "100%",
+              }}
+            />
+          </Button>
+        </CardActions>
+      </Card>
+    );
+  },
+);
+
 export default function ProductGrid() {
   // USESTATE //
   const [value, setValue] = React.useState(0);
@@ -72,31 +148,46 @@ export default function ProductGrid() {
   };
 
   // ADD THE PRODUCT FOR CART //
-  function handleAddToCart(productAdd: any) {
-    setAddToCart(() => {
-      return [
-        ...addToCart,
+  const handleAddToCart = React.useCallback(
+    (productAdded: any) => {
+      setAddToCart((prev: any) => [
+        ...prev,
         {
           id: uuidv4(),
-          nameProduct: productAdd.nameProduct,
-          price: productAdd.price,
-          imageProduct: productAdd.imageProduct,
+          nameProduct: productAdded.nameProduct,
+          price: productAdded.price,
+          imageProduct: productAdded.imageProduct,
         },
-      ];
-    });
-  }
+      ]);
+    },
+    [setAddToCart],
+  );
+
   // ADD THE PRODUCT FOR CART //
 
   // ADD THE NUMBER FOR CART //
-  function handleAdd(productId: Number) {
-    const productToAdd = Products.find((product) => product.id === productId);
+  // function handleAdd(productId: Number) {
+  //   const productToAdd = Products.find((product) => product.id === productId);
 
-    if (productToAdd) {
-      setCartCount((prev) => {
-        return prev + 1;
-      });
-    }
-  }
+  //   if (productToAdd) {
+  //     setCartCount((prev) => {
+  //       return prev + 1;
+  //     });
+  //   }
+  // }
+
+  const handleAdd = React.useCallback(
+    (productId: Number) => {
+      const productToAdd = Products.find((product) => product.id === productId);
+
+      if (productToAdd) {
+        setCartCount((prev) => {
+          return prev + 1;
+        });
+      }
+    },
+    [setCartCount],
+  );
   // ADD THE NUMBER FOR CART //
 
   // let randomNum = Math.floor(Math.random(Products));
@@ -157,7 +248,7 @@ export default function ProductGrid() {
           >
             {Products.slice(0, 3).map((Product) => (
               <SwiperSlide key={Product.id}>
-                <Card
+                {/* <Card
                   className={itemFall}
                   sx={{
                     width: { xs: "25vw", md: "18vw", lg: "11vw" },
@@ -223,7 +314,14 @@ export default function ProductGrid() {
                       />
                     </Button>
                   </CardActions>
-                </Card>
+                </Card> */}
+                <ProductsComponent
+                  Product={Product}
+                  ratingProdect={ratingProdect}
+                  handleAddToCart={handleAddToCart}
+                  handleAdd={handleAdd}
+                  itemFall={itemFall}
+                />
               </SwiperSlide>
             ))}
           </Swiper>

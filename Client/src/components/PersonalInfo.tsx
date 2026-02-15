@@ -75,11 +75,9 @@ export default function PersonalInfo({
           NationalityInput: userPersonalInformationInput.nationality,
           GenderInput: userPersonalInformationInput.gender,
           BirthdayInput: userPersonalInformationInput.birthday,
-        }
+        },
       )
       .then(() => {
-        // console.log(response);
-
         setOpen(true);
       })
       .catch((error) => {
@@ -283,9 +281,8 @@ export default function PersonalInfo({
                       ...userPersonalInformationInput,
                       gender: e.target.value,
                     });
-                    console.log(userPersonalInformationInput);
                   }}
-                  value={userPersonalInformationInput.gender}
+                  value={userPersonalInformationInput.gender || "Male"}
                 >
                   <MenuItem
                     className="select-position"

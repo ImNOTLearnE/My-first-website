@@ -41,9 +41,9 @@ const theme = createTheme({
 const ContactInfoComponent = React.memo(
   ({ input, handleChangeInformation }: any) => {
     return (
-      <div style={{ marginBottom: 74, marginRight: 51 }} key={input.id}>
+      <Box style={{ marginBottom: 74, marginRight: 51 }} key={input.id}>
         <Typography fontSize={32}>{input.title}</Typography>
-        <div
+        <Box
           style={{
             display: "flex",
             flexDirection: "row-reverse",
@@ -62,6 +62,7 @@ const ContactInfoComponent = React.memo(
             label={input.title}
             value={input.value || ""}
             onChange={input.onChange}
+            name={input.name}
             variant="filled"
             disabled={input.disabled}
           />
@@ -90,9 +91,7 @@ const ContactInfoComponent = React.memo(
             >
               <Button
                 sx={{ height: 55 }}
-                onClick={() => {
-                  handleChangeInformation();
-                }}
+                onClick={handleChangeInformation}
                 disabled={input.disabled}
               >
                 <CreateIcon
@@ -106,10 +105,10 @@ const ContactInfoComponent = React.memo(
             </Paper>
           </Box>
           {/*  ICON  */}
-        </div>
-      </div>
+        </Box>
+      </Box>
     );
-  }
+  },
 );
 
 export default function ContactInfo({
@@ -133,42 +132,39 @@ export default function ContactInfo({
   const [open, setOpen] = React.useState(false);
   const [openError, setOpenError] = React.useState(false);
 
-  const contactInformation = [
-    {
-      id: 0,
-      title: t("Email"),
-      value: userPersonalInformationInput.email,
-      onChange: (e: any) => {
-        setUserPersonalInformationInput({
-          ...userPersonalInformationInput,
-          email: e.target.value,
-        });
+  const changeHandler = React.useCallback((e: any) => {
+    setUserPersonalInformationInput((prev: any) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  }, []);
+  // console.log(userPersonalInformationInput);
+
+  const contactInformation = React.useMemo(
+    () => [
+      {
+        id: 0,
+        title: t("Email"),
+        value: userPersonalInformationInput.email,
+        disabled: true,
       },
-      disabled: true,
-    },
-    {
-      id: 1,
-      title: t("Phone number"),
-      value: userPersonalInformationInput.phoneNumber,
-      onChange: (e: any) => {
-        setUserPersonalInformationInput({
-          ...userPersonalInformationInput,
-          phoneNumber: e.target.value,
-        });
+      {
+        id: 1,
+        title: t("Phone number"),
+        value: userPersonalInformationInput.phoneNumber,
+        onChange: changeHandler,
+        name: "phoneNumber",
       },
-    },
-    {
-      id: 2,
-      title: t("City"),
-      value: userPersonalInformationInput.city,
-      onChange: (e: any) => {
-        setUserPersonalInformationInput({
-          ...userPersonalInformationInput,
-          city: e.target.value,
-        });
+      {
+        id: 2,
+        title: t("City"),
+        value: userPersonalInformationInput.city,
+        onChange: changeHandler,
+        name: "city",
       },
-    },
-  ];
+    ],
+    [userPersonalInformationInput, t, changeHandler],
+  );
 
   const handleChangeInformation = React.useCallback(() => {
     axios
@@ -181,18 +177,15 @@ export default function ContactInfo({
           CityInput: userPersonalInformationInput.city,
           NationalityInput: userPersonalInformationInput.nationality,
           GenderInput: userPersonalInformationInput.gender,
-        }
+        },
       )
-      .then((response) => {
-        console.log(response);
-
+      .then(() => {
         setOpen(true);
       })
-      .catch((error) => {
-        console.log(error.response.data);
+      .catch(() => {
         setOpenError(true);
       });
-  }, [userPersonalInformationInput]);
+  }, []);
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -227,12 +220,12 @@ export default function ContactInfo({
           </Alert>
         </Snackbar>
         <Grid className="contactInfo">
-          <div>
+          <Grid>
             <Typography marginRight={15} fontSize={32}>
               {t("Contact information")}
             </Typography>
 
-            <div
+            <Grid
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -245,8 +238,8 @@ export default function ContactInfo({
                   handleChangeInformation={handleChangeInformation}
                 />
               ))}
-            </div>
-          </div>
+            </Grid>
+          </Grid>
         </Grid>
       </ThemeProvider>
     </>

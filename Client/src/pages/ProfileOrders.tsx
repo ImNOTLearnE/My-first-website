@@ -40,7 +40,9 @@ export default function ProfileOrders() {
 
   React.useEffect(() => {
     axios
-      .post("http://localhost:3000/customerOrders", { userToken: token })
+      .post("https://my-first-website-rgi1.onrender.com/customerOrders", {
+        userToken: token,
+      })
       .then((response) => {
         if (response.data.length === 0) {
           setRequests(<NoRequests />);
@@ -63,7 +65,7 @@ export default function ProfileOrders() {
             {/*  ORDERS  */}
 
             <Grid sx={{}}>
-              <div
+              <Box
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
@@ -71,7 +73,7 @@ export default function ProfileOrders() {
                   marginTop: 10,
                 }}
               >
-                <div
+                <Box
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
@@ -136,7 +138,7 @@ export default function ProfileOrders() {
                   >
                     status Product
                   </Typography>
-                </div>
+                </Box>
 
                 <Typography
                   fontSize={48}
@@ -151,9 +153,9 @@ export default function ProfileOrders() {
                 >
                   الطلبيات
                 </Typography>
-              </div>
+              </Box>
 
-              <div style={{}}>{requests}</div>
+              <Box>{requests}</Box>
             </Grid>
             {/*  ORDERS  */}
           </Grid>
