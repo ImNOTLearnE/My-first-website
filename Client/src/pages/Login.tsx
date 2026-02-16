@@ -110,7 +110,7 @@ export default function Login() {
               lg: "40vw",
               xl: "39vw",
             },
-            height: { xs: "90vh", sm: "65vh", md: "65vh", lg: "64vh" },
+            height: "70vh",
             background:
               "linear-gradient(178deg,rgba(54, 54, 54, 0.5) 0%, rgba(38, 166, 154, 0.6) 100%)",
 
@@ -133,6 +133,16 @@ export default function Login() {
               justifyContent: "center",
             }}
           >
+            <Typography
+              sx={{
+                color: "#26A69A",
+                fontSize: 36,
+                textAlign: "center",
+                marginTop: "20px",
+              }}
+            >
+              LOGIN NOW !
+            </Typography>
             {/* USERNAME AND PASSWORD INPUT */}
             <CardContent>
               <Typography
@@ -331,14 +341,6 @@ export default function Login() {
             {/* LOGIN AND REGISTER BUTTONS */}
           </div>
         </Card>
-        {/* <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div>
-            <div className="curve"></div>
-          </div>
-          <div>
-            <div className="curveL"></div>
-          </div>
-        </div> */}
       </ThemeProvider>
     </>
   );

@@ -10,6 +10,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
+import Snackbar from "@mui/material/Snackbar";
+import AlertTitle from "@mui/material/AlertTitle";
+import Alert from "@mui/material/Alert";
 
 // CSS CLASS
 import "../Styles/ResponsiveProductsCategoty.css";
@@ -18,7 +21,6 @@ import "../Styles/ResponsiveProductsCategoty.css";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 // SWIPER
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Navigation,
@@ -32,7 +34,8 @@ import {
 import { v4 as uuidv4 } from "uuid";
 // USE ULID LIBRARY //
 
-// Import Swiper styles
+//I18N
+import { useTranslation } from "react-i18next";
 
 // CONTEXT
 import { CartContext } from "../Context/CartContext";
@@ -50,15 +53,20 @@ const ProductsComponent = React.memo(
       <Card
         className={itemFall}
         sx={{
-          width: { xs: "25vw", md: "18vw", lg: "11vw" },
+          width: { xs: "27vw", md: "20vw", lg: "13vw" },
           overflow: "visible",
           borderRadius: "25px",
           backgroundColor: "#363636ff",
           boxShadow:
             "0 4px 8px 0 rgba(0, 0, 0, 0.28), 0 6px 20px 0 rgba(0, 0, 0, 0.77)",
+          "&:hover": {
+            boxShadow:
+              "5px 5px 20px 0px rgba(54, 54, 54, 0.7), 1px 3px 10px 5px rgba(0, 0, 0, 0.100)",
+            color: "#FFFFFF",
+          },
         }}
       >
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <Box style={{ display: "flex", justifyContent: "center" }}>
           <CardMedia
             sx={{
               height: { xs: "22vw", md: "18vw", lg: "8vw" },
@@ -68,20 +76,23 @@ const ProductsComponent = React.memo(
             image={Product.imageProduct}
             title={Product.nameProduct}
           />
-        </div>
+        </Box>
 
-        <CardContent>
-          <Typography
-            variant="body2"
-            sx={{
-              color: "#FFFFFF",
-              fontSize: { xs: "0.5rem", sm: "1rem", md: "1rem" },
-            }}
-          >
-            {Product.nameProduct}
-          </Typography>
+        <CardContent sx={{ marginLeft: 0 }}>
+          <Box sx={{ width: "115%" }}>
+            <Typography
+              variant="body2"
+              sx={{
+                color: "#FFFFFF",
+                fontSize: { xs: "0.4rem", sm: "1rem", md: "1rem" },
+              }}
+            >
+              {Product.nameProduct}
+            </Typography>
+          </Box>
+
           <Rating
-            sx={{ fontSize: { xs: "1rem", sm: "1rem", md: "1rem" } }}
+            sx={{ fontSize: { xs: "0.5rem", sm: "1rem", md: "1rem" } }}
             name="read-only"
             value={ratingProdect}
             readOnly
@@ -91,10 +102,10 @@ const ProductsComponent = React.memo(
           </Typography>
         </CardContent>
 
-        <CardActions>
+        <CardActions sx={{ display: "flex", justifyContent: "center" }}>
           <Button
             onClick={handleClick}
-            style={{
+            sx={{
               backgroundColor: "#26A69A",
               borderRadius: "25px",
               width: "100%",
@@ -119,6 +130,7 @@ export default function ProductGrid() {
   // USESTATE //
   const [value, setValue] = React.useState(0);
   const [ratingProdect] = React.useState<number | null>(5);
+  const [open, setOpen] = React.useState(false);
   // USESTATE //
 
   // UESCONTEXT //
@@ -127,6 +139,8 @@ export default function ProductGrid() {
     React.useContext(ProducstContext);
   const { setAddToCart } = React.useContext(InTheCart);
   // UESCONTEXT //
+
+  const { t } = useTranslation();
 
   // TABS COMPONENT CHANGE //
   let Products = phonesnewArrival;
@@ -150,6 +164,7 @@ export default function ProductGrid() {
   // ADD THE PRODUCT FOR CART //
   const handleAddToCart = React.useCallback(
     (productAdded: any) => {
+      setOpen(true);
       setAddToCart((prev: any) => [
         ...prev,
         {
@@ -166,15 +181,6 @@ export default function ProductGrid() {
   // ADD THE PRODUCT FOR CART //
 
   // ADD THE NUMBER FOR CART //
-  // function handleAdd(productId: Number) {
-  //   const productToAdd = Products.find((product) => product.id === productId);
-
-  //   if (productToAdd) {
-  //     setCartCount((prev) => {
-  //       return prev + 1;
-  //     });
-  //   }
-  // }
 
   const handleAdd = React.useCallback(
     (productId: Number) => {
@@ -234,9 +240,25 @@ export default function ProductGrid() {
           sx={{
             display: "flex",
             marginTop: "60px",
-            maxWidth: { xs: "90vw", md: "60vw", lg: "50vw" },
+            maxWidth: { xs: "100vw", md: "80vw", lg: "50vw" },
+            height: "auto",
           }}
         >
+          <Snackbar
+            open={open}
+            autoHideDuration={2000}
+            onClose={() => setOpen(false)}
+            sx={{ position: "fixed", opacity: 0.9 }}
+          >
+            <Alert
+              sx={{ fontSize: 20, background: "#242424ff", color: "#FFFFFF" }}
+              severity="success"
+              onClose={() => setOpen(false)}
+            >
+              <AlertTitle>{t("Product added")}</AlertTitle>
+              {t("Product added to cart successfully!")}
+            </Alert>
+          </Snackbar>
           <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
             spaceBetween={20}
@@ -248,73 +270,6 @@ export default function ProductGrid() {
           >
             {Products.slice(0, 3).map((Product) => (
               <SwiperSlide key={Product.id}>
-                {/* <Card
-                  className={itemFall}
-                  sx={{
-                    width: { xs: "25vw", md: "18vw", lg: "11vw" },
-                    overflow: "visible",
-                    borderRadius: "25px",
-                    backgroundColor: "#363636ff",
-                    boxShadow:
-                      "0 4px 8px 0 rgba(0, 0, 0, 0.28), 0 6px 20px 0 rgba(0, 0, 0, 0.77)",
-                  }}
-                >
-                  <div style={{ display: "flex", justifyContent: "center" }}>
-                    <CardMedia
-                      sx={{
-                        height: { xs: "22vw", md: "18vw", lg: "8vw" },
-                        width: { xs: "22vw", md: "18vw", lg: "7vw" },
-                        backgroundImage: "cover",
-                      }}
-                      image={Product.imageProduct}
-                      title={Product.nameProduct}
-                    />
-                  </div>
-
-                  <CardContent>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        color: "#FFFFFF",
-                        fontSize: { xs: "0.5rem", sm: "1rem", md: "1rem" },
-                      }}
-                    >
-                      {Product.nameProduct}
-                    </Typography>
-                    <Rating
-                      sx={{ fontSize: { xs: "1rem", sm: "1rem", md: "1rem" } }}
-                      name="read-only"
-                      value={ratingProdect}
-                      readOnly
-                    />
-                    <Typography variant="body2" sx={{ color: "#FFFFFF" }}>
-                      $ {Product.price}
-                    </Typography>
-                  </CardContent>
-
-                  <CardActions>
-                    <Button
-                      onClick={() => {
-                        handleAddToCart(Product);
-                        handleAdd(Product.id);
-                      }}
-                      style={{
-                        backgroundColor: "#26A69A",
-                        borderRadius: "25px",
-                        width: "100%",
-                      }}
-                    >
-                      <AddShoppingCartIcon
-                        style={{
-                          padding: "5px",
-                          fontSize: "30px",
-                          color: "black",
-                          width: "100%",
-                        }}
-                      />
-                    </Button>
-                  </CardActions>
-                </Card> */}
                 <ProductsComponent
                   Product={Product}
                   ratingProdect={ratingProdect}

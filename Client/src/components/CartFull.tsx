@@ -290,7 +290,7 @@ export default function CartFull() {
         </div>
       ));
     }
-  }, []);
+  }, [addToCart, t]);
 
   let now = new Date();
   let hours = formatTime(now.getHours());
@@ -379,6 +379,7 @@ export default function CartFull() {
   const handleDeleteItemCart = (e: any) => {
     setAddToCart(addToCart.filter((p) => p.id !== e));
     let deleteProduct = addToCart.find((p) => p.id === e);
+
     if (deleteProduct) {
       setCartCount((prev) => {
         return prev - 1;

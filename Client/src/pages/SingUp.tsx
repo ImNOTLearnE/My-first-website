@@ -122,13 +122,13 @@ export default function SingUp() {
         <Card
           sx={{
             width: {
-              xs: "90vw",
+              xs: "85vw",
               sm: "70vw",
               md: "50vw",
               lg: "40vw",
               xl: "39vw",
             },
-            height: { xs: "100vh", sm: "80vh", md: "80vh", lg: "80vh" },
+            height: { xs: "65vh", sm: "65vh", md: "65vh", lg: "64vh" },
             background:
               "linear-gradient(178deg,hsla(0, 0%, 21%, 0.50) 0%, rgba(38, 166, 154, 0.6) 100%)",
             position: "absolute",
@@ -137,8 +137,8 @@ export default function SingUp() {
               boxShadow:
                 "5px 5px 20px 0px rgba(54, 54, 54, 0.7), 5px 5px 20px 0px rgba(38, 166, 153, 0.8)",
             },
-            top: { xs: " 60%", sm: " 55%", md: " 55%", lg: "55%" },
-            left: " 50%",
+            top: "55%",
+            left: "50%",
             transform: "translate(-50%, -50%)",
           }}
         >
@@ -165,10 +165,10 @@ export default function SingUp() {
               <CardActions
                 sx={{
                   display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                   flexDirection: "column",
-                  "& > :not(style)": {
-                    m: 1,
-                  },
+                  "& > :not(style)": {},
                 }}
               >
                 {/*  USERNAME  */}
@@ -186,7 +186,7 @@ export default function SingUp() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: { sx: "3.5vw", sm: "4vw", md: "4vw" },
+                        width: { xs: "10vw", sm: "4vw", md: "4vw" },
                         height: 70,
                       },
                       opacity: "0.3",
@@ -227,7 +227,7 @@ export default function SingUp() {
                     sx={{
                       backgroundColor: "rgba(0, 0, 0, 0.3)",
                       "& > :not(style)": {
-                        width: { sx: "50vw", sm: "30vw", md: "19.4vw" },
+                        width: { xs: "40vw", sm: "30vw", md: "19.4vw" },
                         height: 70,
                         color: "rgba(255, 255, 255, 0.3)",
                       },
@@ -243,7 +243,7 @@ export default function SingUp() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    marginTop: "75PX",
+                    marginTop: "75px",
                   }}
                 >
                   {/* EMAIL ICON */}
@@ -253,7 +253,7 @@ export default function SingUp() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: { sx: "3.5vw", sm: "4vw", md: "4vw" },
+                        width: { xs: "10vw", sm: "4vw", md: "4vw" },
                         height: 70,
                       },
                       opacity: "0.3",
@@ -294,7 +294,7 @@ export default function SingUp() {
                     sx={{
                       backgroundColor: "rgba(0, 0, 0, 0.3)",
                       "& > :not(style)": {
-                        width: { sx: "50vw", sm: "30vw", md: "19.4vw" },
+                        width: { xs: "40vw", sm: "30vw", md: "19.4vw" },
                         height: 70,
                         color: "rgba(255, 255, 255, 0.3)",
                       },
@@ -320,7 +320,7 @@ export default function SingUp() {
                       flexWrap: "wrap",
                       "& > :not(style)": {
                         m: 1,
-                        width: { sx: "3.5vw", sm: "4vw", md: "4vw" },
+                        width: { xs: "10vw", sm: "4vw", md: "4vw" },
                         height: 70,
                       },
                       opacity: "0.3",
@@ -361,7 +361,7 @@ export default function SingUp() {
                     sx={{
                       backgroundColor: "rgba(0, 0, 0, 0.3)",
                       "& > :not(style)": {
-                        width: { sx: "50vw", sm: "30vw", md: "19.4vw" },
+                        width: { xs: "40vw", sm: "30vw", md: "19.4vw" },
                         height: 70,
                         color: "rgba(255, 255, 255, 0.3)",
                       },

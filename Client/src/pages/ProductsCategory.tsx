@@ -13,6 +13,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Rating from "@mui/material/Rating";
 import { styled } from "@mui/material/styles";
 import Slider, { SliderThumb } from "@mui/material/Slider";
+import Snackbar from "@mui/material/Snackbar";
+import AlertTitle from "@mui/material/AlertTitle";
+import Alert from "@mui/material/Alert";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -98,7 +101,7 @@ const phonesBrands = [
   "All",
 ];
 
-const categorys = ["Phones", "Watches", "Cameras", "Headphones", "laptops"];
+const categorys = ["Phones", "Watches", "Cameras", "HeadPhones", "laptops"];
 
 const Products = React.memo(
   ({ product, onAddToCart, handleAddNumber, ratingProdect }: any) => {
@@ -212,7 +215,7 @@ const MemoizedCategoryName = React.memo(({ selectedCategory, t }: any) => {
         >
           {t("Category By:")}
           <br />
-          {selectedCategory}
+          {t(selectedCategory)}
         </Typography>
       </CardContent>
     </Card>
@@ -260,7 +263,7 @@ const FilterSection = React.memo(
               id="panel1-header"
               sx={{ backgroundColor: "#00796B" }}
             >
-              <Typography component="span">{selectedCategory}</Typography>
+              <Typography component="span">{t(selectedCategory)}</Typography>
             </AccordionSummary>
             {categorys.map((category) => (
               <AccordionDetails
@@ -274,7 +277,7 @@ const FilterSection = React.memo(
                   size="small"
                   sx={{ color: "#00796B" }}
                 >
-                  {category}
+                  {t(category)}
                 </Button>
               </AccordionDetails>
             ))}
@@ -380,10 +383,9 @@ export default function ProductsCategory() {
   const [selectedCategory, setSelectedCategory] =
     React.useState<string>("Phones");
   const [ratingProdect] = React.useState<number | null>(5);
-
   const [test, setTest] = React.useState<any>(phonesnewArrival);
-
   const [artists, setArtists] = React.useState<any>(phonesnewArrival);
+  const [open, setOpen] = React.useState(false);
   const [priceFilter, setPriceFilter] = React.useState<any>({
     minValue: 100,
     maxValue: 15000,
@@ -413,6 +415,8 @@ export default function ProductsCategory() {
 
   const handleAddToCart = useCallback(
     (productAdd: any) => {
+      setOpen(true);
+
       setAddToCart((prevAddToCart: any) => [
         ...prevAddToCart,
         {
@@ -487,6 +491,21 @@ export default function ProductsCategory() {
     <>
       <div className="container-category">
         <div className="filter-product">
+          <Snackbar
+            open={open}
+            autoHideDuration={2000}
+            onClose={() => setOpen(false)}
+            sx={{ position: "fixed", opacity: 0.9 }}
+          >
+            <Alert
+              sx={{ fontSize: 20, background: "#242424ff", color: "#FFFFFF" }}
+              severity="success"
+              onClose={() => setOpen(false)}
+            >
+              <AlertTitle>{t("Product added")}</AlertTitle>
+              {t("Product added to cart successfully!")}
+            </Alert>
+          </Snackbar>
           {/* CATEGORY NAME */}
           <MemoizedCategoryName selectedCategory={selectedCategory} t={t} />
           {/* CATEGORY NAME */}

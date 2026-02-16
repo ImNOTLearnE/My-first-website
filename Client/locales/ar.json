@@ -7,9 +7,9 @@
   "الانجليزية": "الانجليزية",
   "Phones": "الجوالات",
   "Watches": "الساعات",
-  "HeadsPhone": "سماعة رأس",
-  "Cameras": "كاميرا",
-  "Computers": "أجهزة الكمبيوتر",
+  "HeadPhones": "سماعة رأس",
+  "Cameras": "كاميرات",
+  "laptops": "أجهزة الكمبيوتر",
   "Gaming": "الألعاب",
   "Browse By Category": "تصفح حسب الفئة",
   "Category By:": "الفئة هي:",
@@ -43,5 +43,10 @@
   "Please enter a valid email address": "يرجى إدخال عنوان بريد إلكتروني صالح",
   "wrong information entered and fields cannot be left blank": "تم إدخال معلومات خاطئة ولا يمكن ترك الحقول فارغة",
   "Error": "خطأ",
-  "No Requests": "لا توجد طلبات"
+  "No Requests": "لا توجد طلبات",
+  "No products in the cart": "لا توجد منتجات في السلة",
+  "Your Cart": "سلتك",
+  "All": "الكل",
+  "Product added": "تمت إضافة المنتج",
+  "Product added to cart successfully!": "تمت إضافة المنتج إلى السلة بنجاح"
 }
